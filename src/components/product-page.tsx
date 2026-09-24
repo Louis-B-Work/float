@@ -2,6 +2,7 @@ import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { ButtonLink, CtaBand, PageHero, SectionHeading } from "@/components/ui";
 import { MobileCardRail } from "@/components/mobile-card-rail";
+import { assetPath } from "@/lib/assets";
 
 export function ProductPage({
   title,
@@ -38,7 +39,7 @@ export function ProductPage({
       <section className="section-space bg-mist">
         <div className="page-shell grid items-center gap-14 lg:grid-cols-2">
           <div className="relative min-h-[500px] overflow-hidden">
-            <Image src={image} alt="" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+            <Image src={assetPath(image)} alt="" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
           </div>
           <div>
             <h2 className="display text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-5xl">{detailTitle}</h2>

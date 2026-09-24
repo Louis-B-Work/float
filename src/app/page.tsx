@@ -5,6 +5,7 @@ import { ButtonLink, CtaBand, SectionHeading } from "@/components/ui";
 import { MobileCardRail } from "@/components/mobile-card-rail";
 import { FaqCards } from "@/components/faq-cards";
 import { LenderStrip } from "@/components/lender-strip";
+import { assetPath } from "@/lib/assets";
 
 const steps = [
   { icon: MessagesSquare, title: "Tell us the plan", copy: "Share what you need, how the business is performing and the timescale you are working to." },
@@ -35,7 +36,7 @@ export default function Home() {
           </div>
           <div className="relative min-h-[480px] lg:min-h-[590px]">
             <div className="absolute inset-8 right-0 overflow-hidden">
-              <Image src="/images/team-meeting.jpg" alt="Business owners discussing plans around a table" fill priority className="object-cover" sizes="(min-width: 1024px) 45vw, 100vw" />
+              <Image src={assetPath("/images/team-meeting.jpg")} alt="Business owners discussing plans around a table" fill priority className="object-cover" sizes="(min-width: 1024px) 45vw, 100vw" />
             </div>
             <div className="absolute left-0 top-0 h-52 w-40 bg-sky" />
             <div className="grid-lines absolute left-0 top-0 h-52 w-40" />
@@ -89,7 +90,7 @@ export default function Home() {
       <section className="section-space">
         <div className="page-shell grid items-center gap-14 lg:grid-cols-2">
           <div className="relative min-h-[520px] overflow-hidden">
-            <Image src="/images/business-planning.jpg" alt="A team reviewing business figures" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+            <Image src={assetPath("/images/business-planning.jpg")} alt="A team reviewing business figures" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
             <div className="absolute bottom-0 left-0 bg-coral px-4 py-3 text-navy-deep">
               <p className="text-sm font-bold">An estimate, not a promise.</p>
             </div>

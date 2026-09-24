@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "@/lib/assets";
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
     <Link href="/" className="inline-flex items-center" aria-label="Float home">
       <Image
-        src="/brand/float-logo-dark.png"
+        src={assetPath("/brand/float-logo-dark.png")}
         alt="Float"
         width={220}
         height={80}

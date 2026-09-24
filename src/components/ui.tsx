@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { assetPath } from "@/lib/assets";
 
 export function ButtonLink({
   href,
@@ -64,7 +65,7 @@ export function PageHero({
         </div>
         <div className="relative min-h-80 overflow-hidden bg-sky lg:min-h-full">
           {image ? (
-            <Image src={image} alt="" fill priority className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+            <Image src={assetPath(image)} alt="" fill priority className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
           ) : (
             <div className="grid-lines absolute inset-0" />
           )}
