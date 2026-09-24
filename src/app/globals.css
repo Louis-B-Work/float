@@ -1,26 +1,226 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #13375c;
+  --navy-deep: #0d223d;
+  --sky: #73c3e6;
+  --aqua: #5ecec8;
+  --coral: #ff7a7e;
+  --ink: #24272f;
+  --mist: #f3f5f6;
+  --line: #dfe5e7;
+  --surface: #ffffff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-sky: var(--sky);
+  --color-aqua: var(--aqua);
+  --color-coral: var(--coral);
+  --color-ink: var(--ink);
+  --color-mist: var(--mist);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-body), Arial, sans-serif;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  outline-color: var(--coral);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--aqua);
+  color: var(--navy-deep);
+}
+
+.display {
+  font-family: var(--font-display), Arial, sans-serif;
+  letter-spacing: -0.045em;
+}
+
+.page-shell {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 5rem);
+}
+
+.section-space {
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+}
+
+.balance {
+  text-wrap: balance;
+}
+
+.grid-lines {
+  background-image:
+    linear-gradient(rgba(19, 55, 92, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19, 55, 92, 0.07) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+.float-card {
+  border: 1px solid var(--line);
+  background: white;
+  box-shadow: 0 22px 60px rgba(13, 34, 61, 0.08);
+}
+
+html.dark {
+  color-scheme: dark;
+  --ink: #dbe6f0;
+  --mist: #10243a;
+  --line: #58718d;
+  --surface: #08182b;
+}
+
+html.dark .bg-white {
+  background-color: #10243a;
+}
+
+html.dark .site-header {
+  background-color: rgba(8, 24, 43, 0.95);
+}
+
+html.dark .text-navy,
+html.dark .text-navy-deep,
+html.dark [class*="text-navy/"],
+html.dark [class*="text-navy-deep/"] {
+  color: #e9f3fa;
+}
+
+html.dark .bg-aqua .text-navy,
+html.dark .bg-aqua .text-navy-deep,
+html.dark .bg-aqua [class*="text-navy/"],
+html.dark .bg-aqua [class*="text-navy-deep/"],
+html.dark .bg-sky .text-navy,
+html.dark .bg-sky .text-navy-deep,
+html.dark .bg-sky [class*="text-navy/"],
+html.dark .bg-sky [class*="text-navy-deep/"],
+html.dark .bg-coral .text-navy,
+html.dark .bg-coral .text-navy-deep,
+html.dark .bg-coral [class*="text-navy/"],
+html.dark .bg-coral [class*="text-navy-deep/"] {
+  color: #0d223d;
+}
+
+html.dark .float-card {
+  background: #10243a;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
+}
+
+html.dark .theme-logo:not(.invert) {
+  filter: brightness(0) invert(1);
+}
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background: #0b1d31;
+  color: #e9f3fa;
+}
+
+html.dark .border-black\/5 {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+html.dark .border-navy\/20 {
+  border-color: rgba(233, 243, 250, 0.5);
+}
+
+html.dark .border-white\/10,
+html.dark .border-white\/15 {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.mobile-card-rail {
+  display: grid;
+  grid-auto-columns: min(76vw, 22rem);
+  grid-auto-flow: column;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-padding-inline: 1px;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: none;
+}
+
+.mobile-card-rail > * {
+  scroll-snap-align: start;
+}
+
+.mobile-card-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-card-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+  padding-top: 1.25rem;
+}
+
+.mobile-card-dots button {
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 1px solid var(--navy);
+  border-radius: 999px;
+  background: transparent;
+  transition: width 180ms ease, background-color 180ms ease;
+}
+
+.mobile-card-dots button.is-active {
+  width: 1.5rem;
+  border-color: var(--coral);
+  background: var(--coral);
+}
+
+html.dark .mobile-card-dots button {
+  border-color: #8ca4bc;
+}
+
+@media (min-width: 768px) {
+  .mobile-card-rail {
+    grid-auto-columns: auto;
+    grid-auto-flow: row;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .mobile-card-dots {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

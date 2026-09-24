@@ -1,69 +1,103 @@
+import { ArrowUpRight, Banknote, Check, Factory, Handshake, MessagesSquare } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { ButtonLink, CtaBand, SectionHeading } from "@/components/ui";
+import { MobileCardRail } from "@/components/mobile-card-rail";
+
+const steps = [
+  { icon: MessagesSquare, title: "Tell us the plan", copy: "Share what you need, how the business is performing and the timescale you are working to." },
+  { icon: Handshake, title: "We shape the search", copy: "We use that detail to approach relevant lenders and explain the options in plain English." },
+  { icon: Banknote, title: "Choose with clarity", copy: "You decide whether an option works for your business. There is no obligation to proceed." },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <section className="overflow-hidden bg-mist">
+        <div className="page-shell grid min-h-[720px] items-center gap-12 py-16 lg:grid-cols-[1.05fr_.95fr] lg:py-20">
+          <div className="relative z-10">
+            <h1 className="display balance text-6xl font-extrabold leading-[0.93] text-navy-deep md:text-8xl">
+              Funding that keeps your business <span className="text-coral">moving.</span>
+            </h1>
+            <p className="mt-8 max-w-xl text-lg leading-8 text-ink/65">
+              Float helps UK businesses explore business loans and asset finance through a focused panel of commercial lenders.
+            </p>
+            <div className="mt-9 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
+              <ButtonLink href="/contact">Talk to Float</ButtonLink>
+              <ButtonLink href="/calculator" secondary>Try calculator</ButtonLink>
+            </div>
+            <p className="mt-6 flex items-center gap-2 text-sm font-semibold text-navy">
+              <Check size={17} className="text-aqua" aria-hidden />
+              Enquiring will not affect your credit score
+            </p>
+          </div>
+          <div className="relative min-h-[480px] lg:min-h-[590px]">
+            <div className="absolute inset-8 right-0 overflow-hidden">
+              <Image src="/images/team-meeting.jpg" alt="Business owners discussing plans around a table" fill priority className="object-cover" sizes="(min-width: 1024px) 45vw, 100vw" />
+            </div>
+            <div className="absolute left-0 top-0 h-52 w-40 bg-sky" />
+            <div className="grid-lines absolute left-0 top-0 h-52 w-40" />
+            <div className="absolute bottom-0 right-0 w-64 bg-navy p-7 text-white">
+              <p className="display text-3xl font-extrabold">Business loans + asset finance</p>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="section-space">
+        <div className="page-shell">
+          <SectionHeading title="Choose the route that fits the job." copy="Whether you are smoothing cash flow or investing in equipment, we start with what the funding needs to achieve." />
+          <MobileCardRail className="mt-10 md:grid-cols-2 md:gap-5 lg:mt-14">
+            {[
+              { icon: Banknote, title: "Business loans", copy: "Flexible commercial funding for working capital, growth plans, stock, refurbishment and more.", href: "/products/business-loans", tone: "bg-sky" },
+              { icon: Factory, title: "Asset finance", copy: "Spread the cost of vehicles, machinery and equipment while preserving cash for day-to-day operations.", href: "/products/asset-finance", tone: "bg-aqua" },
+            ].map((product) => (
+              <Link key={product.href} href={product.href} className={`${product.tone} group min-h-80 p-8 md:min-h-96 md:p-12`}>
+                <product.icon size={42} strokeWidth={1.5} className="text-navy" aria-hidden />
+                <h3 className="display mt-24 text-4xl font-extrabold text-navy-deep md:text-5xl">{product.title}</h3>
+                <p className="mt-5 max-w-lg leading-7 text-navy-deep/70">{product.copy}</p>
+                <span className="mt-8 inline-flex items-center gap-2 text-sm font-extrabold text-navy">
+                  Explore this product <ArrowUpRight size={18} className="transition group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </span>
+              </Link>
+            ))}
+          </MobileCardRail>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="section-space bg-navy-deep">
+        <div className="page-shell">
+          <SectionHeading title="A useful conversation, then a focused search." copy="Commercial finance can be complex. Our role is to make the route through it feel straightforward." light />
+          <MobileCardRail className="mt-12 md:grid-cols-3 md:gap-px md:bg-white/10 lg:mt-16">
+            {steps.map((step) => (
+              <div key={step.title} className="min-h-72 border border-white/15 bg-navy-deep p-8 md:min-h-0 md:border-0 md:p-10">
+                <div>
+                  <step.icon className="text-aqua" size={36} strokeWidth={1.5} aria-hidden />
+                </div>
+                <h3 className="mt-16 text-xl font-extrabold text-white">{step.title}</h3>
+                <p className="mt-4 leading-7 text-white/60">{step.copy}</p>
+              </div>
+            ))}
+          </MobileCardRail>
+        </div>
+      </section>
+
+      <section className="section-space">
+        <div className="page-shell grid items-center gap-14 lg:grid-cols-2">
+          <div className="relative min-h-[520px] overflow-hidden">
+            <Image src="/images/business-planning.jpg" alt="A team reviewing business figures" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+            <div className="absolute bottom-0 left-0 bg-coral px-4 py-3 text-navy-deep">
+              <p className="text-sm font-bold">An estimate, not a promise.</p>
+            </div>
+          </div>
+          <div>
+            <h2 className="display balance text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-6xl">Get a feel for the funding range.</h2>
+            <p className="mt-6 text-lg leading-8 text-ink/65">Use turnover, trading history and credit profile to see a broad, non-binding range. It takes about a minute and does not affect your credit score.</p>
+            <div className="mt-8"><ButtonLink href="/calculator">Estimate your range</ButtonLink></div>
+          </div>
+        </div>
+      </section>
+      <CtaBand />
+    </>
   );
 }
