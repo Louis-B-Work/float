@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink, CtaBand, SectionHeading } from "@/components/ui";
 import { MobileCardRail } from "@/components/mobile-card-rail";
+import { FaqCards } from "@/components/faq-cards";
+import { LenderStrip } from "@/components/lender-strip";
 
 const steps = [
   { icon: MessagesSquare, title: "Tell us the plan", copy: "Share what you need, how the business is performing and the timescale you are working to." },
@@ -44,6 +46,8 @@ export default function Home() {
         </div>
       </section>
 
+      <LenderStrip />
+
       <section className="section-space">
         <div className="page-shell">
           <SectionHeading title="Choose the route that fits the job." copy="Whether you are smoothing cash flow or investing in equipment, we start with what the funding needs to achieve." />
@@ -68,7 +72,7 @@ export default function Home() {
       <section className="section-space bg-navy-deep">
         <div className="page-shell">
           <SectionHeading title="A useful conversation, then a focused search." copy="Commercial finance can be complex. Our role is to make the route through it feel straightforward." light />
-          <MobileCardRail className="mt-12 md:grid-cols-3 md:gap-px md:bg-white/10 lg:mt-16">
+          <MobileCardRail className="process-rail mt-12 md:grid-cols-3 md:bg-white/10 lg:mt-16">
             {steps.map((step) => (
               <div key={step.title} className="min-h-72 border border-white/15 bg-navy-deep p-8 md:min-h-0 md:border-0 md:p-10">
                 <div>
@@ -95,6 +99,15 @@ export default function Home() {
             <p className="mt-6 text-lg leading-8 text-ink/65">Use turnover, trading history and credit profile to see a broad, non-binding range. It takes about a minute and does not affect your credit score.</p>
             <div className="mt-8"><ButtonLink href="/calculator">Estimate your range</ButtonLink></div>
           </div>
+        </div>
+      </section>
+      <section className="section-space bg-mist">
+        <div className="page-shell">
+          <SectionHeading
+            title="Questions business owners often ask."
+            copy="The useful basics before you start an enquiry. Hover over a card to reveal the answer."
+          />
+          <FaqCards />
         </div>
       </section>
       <CtaBand />

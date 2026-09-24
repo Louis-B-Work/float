@@ -128,6 +128,25 @@ html.dark .float-card {
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
 }
 
+.faq-answer {
+  opacity: 0;
+  transform: translateY(0.4rem);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.faq-card:hover .faq-answer,
+.faq-card:focus-visible .faq-answer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .faq-card .faq-answer {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 html.dark .theme-logo:not(.invert) {
   filter: brightness(0) invert(1);
 }
@@ -208,6 +227,10 @@ html.dark .mobile-card-dots button {
 
   .mobile-card-dots {
     display: none;
+  }
+
+  .mobile-card-rail.process-rail {
+    gap: 1px;
   }
 }
 
