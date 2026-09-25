@@ -32,17 +32,19 @@ export function SectionHeading({
   title,
   copy,
   light = false,
+  compact = false,
 }: {
   title: string;
   copy?: string;
   light?: boolean;
+  compact?: boolean;
 }) {
   return (
     <div className="max-w-3xl">
-      <h2 className={`display balance text-4xl font-extrabold leading-[1.05] md:text-6xl ${light ? "text-white" : "text-navy-deep"}`}>
+      <h2 className={`display balance font-extrabold leading-[1.05] ${compact ? "text-3xl md:text-4xl" : "text-4xl md:text-6xl"} ${light ? "text-white" : "text-navy-deep"}`}>
         {title}
       </h2>
-      {copy && <p className={`mt-6 max-w-2xl text-lg leading-8 ${light ? "text-white/70" : "text-ink/65"}`}>{copy}</p>}
+      {copy && <p className={`${compact ? "mt-3 text-base leading-7" : "mt-6 text-lg leading-8"} max-w-2xl ${light ? "text-white/70" : "text-ink/65"}`}>{copy}</p>}
     </div>
   );
 }

@@ -128,23 +128,22 @@ html.dark .float-card {
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
 }
 
-.faq-answer {
+.faq-answer-shell {
+  display: grid;
+  grid-template-rows: 0fr;
   opacity: 0;
-  transform: translateY(0.4rem);
-  transition: opacity 180ms ease, transform 180ms ease;
+  transition:
+    grid-template-rows 300ms ease,
+    opacity 220ms ease;
 }
 
-.faq-card:hover .faq-answer,
-.faq-card:focus-visible .faq-answer {
+.faq-answer-shell > div {
+  overflow: hidden;
+}
+
+.faq-answer-shell.is-open {
+  grid-template-rows: 1fr;
   opacity: 1;
-  transform: translateY(0);
-}
-
-@media (hover: none) {
-  .faq-card .faq-answer {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 html.dark .theme-logo:not(.invert) {
@@ -169,6 +168,40 @@ html.dark .border-navy\/20 {
 html.dark .border-white\/10,
 html.dark .border-white\/15 {
   border-color: rgba(255, 255, 255, 0.3);
+}
+
+.lender-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black clamp(1rem, 4vw, 5rem),
+    black calc(100% - clamp(1rem, 4vw, 5rem)),
+    transparent
+  );
+}
+
+.lender-track {
+  display: flex;
+  width: max-content;
+  animation: lender-scroll 28s linear infinite;
+}
+
+.lender-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(3rem, 7vw, 7rem);
+  padding-right: clamp(3rem, 7vw, 7rem);
+}
+
+.lender-marquee:hover .lender-track {
+  animation-play-state: paused;
+}
+
+@keyframes lender-scroll {
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .mobile-card-rail {

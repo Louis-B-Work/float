@@ -1,5 +1,7 @@
+"use client";
+
 import { Plus } from "lucide-react";
-import { MobileCardRail } from "@/components/mobile-card-rail";
+import { useState } from "react";
 
 const faqs = [
   {
@@ -34,30 +36,52 @@ const faqs = [
   },
 ];
 
-const colours = ["bg-sky", "bg-aqua", "bg-coral"];
-
 export function FaqCards() {
+  const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+
   return (
-    <MobileCardRail className="mt-10 md:grid-cols-2 md:gap-4 lg:mt-14 lg:grid-cols-3">
-      {faqs.map((faq, index) => (
+    <div className="mt-7 grid grid-cols-1 gap-2">
+      {faqs.map((faq) => (
         <article
           key={faq.question}
-          tabIndex={0}
-          className={`faq-card group min-h-72 border border-navy/20 p-7 text-navy-deep ${colours[index % colours.length]}`}
+          className="faq-card border border-navy/20 bg-sky text-navy-deep"
         >
-          <div className="flex items-start justify-between gap-5">
-            <h3 className="display text-xl font-extrabold leading-tight">
+          <button
+            type="button"
+            className="flex w-full cursor-pointer items-start justify-between gap-5 p-4 text-left"
+            aria-expanded={openQuestion === faq.question}
+            aria-controls={`faq-${faqs.indexOf(faq)}`}
+            onClick={() =>
+              setOpenQuestion((current) =>
+                current === faq.question ? null : faq.question,
+              )
+            }
+          >
+            <h3 className="display text-lg font-extrabold leading-tight">
               {faq.question}
             </h3>
-            <span className="grid size-8 shrink-0 place-items-center rounded-full border border-navy/25 text-navy transition-transform group-hover:rotate-45 group-focus-visible:rotate-45">
-              <Plus size={16} aria-hidden />
+            <span
+              className={`grid size-7 shrink-0 place-items-center rounded-full border border-navy/25 text-navy transition-transform duration-300 ${
+                openQuestion === faq.question ? "rotate-45" : ""
+              }`}
+            >
+              <Plus size={14} aria-hidden />
             </span>
+          </button>
+          <div
+            id={`faq-${faqs.indexOf(faq)}`}
+            className={`faq-answer-shell ${
+              openQuestion === faq.question ? "is-open" : ""
+            }`}
+          >
+            <div>
+              <p className="px-4 pb-4 text-sm leading-6 text-navy-deep/75">
+                {faq.answer}
+              </p>
+            </div>
           </div>
-          <p className="faq-answer mt-7 text-sm leading-7 text-navy-deep/75">
-            {faq.answer}
-          </p>
         </article>
       ))}
-    </MobileCardRail>
+    </div>
   );
 }

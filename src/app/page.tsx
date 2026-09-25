@@ -102,11 +102,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section-space bg-mist">
+      <section className="bg-mist py-10 md:py-12">
         <div className="page-shell">
           <SectionHeading
             title="Questions business owners often ask."
-            copy="The useful basics before you start an enquiry. Hover over a card to reveal the answer."
+            copy="The useful basics before you start an enquiry. Select a question to reveal the answer."
+            compact
           />
           <FaqCards />
         </div>
