@@ -26,7 +26,7 @@ export default function AboutPage() {
       <section className="section-space bg-mist">
         <div className="page-shell">
           <SectionHeading title="Clear, useful, human." />
-          <MobileCardRail className="mt-10 md:mt-14 md:grid-cols-3 md:gap-5">
+          <MobileCardRail label="Float values" className="mt-10 md:mt-14 md:grid-cols-3 md:gap-5">
             {[
               { icon: MessagesSquare, title: "Speak plainly", copy: "No unnecessary jargon. We explain the practical differences and important trade-offs." },
               { icon: Compass, title: "Stay focused", copy: "We use your goals and circumstances to keep the lender search relevant." },

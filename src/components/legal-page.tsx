@@ -6,7 +6,7 @@ export function LegalPage({ title, intro, children }: { title: string; intro: st
       <div className="page-shell grid gap-12 lg:grid-cols-[.65fr_1.35fr]">
         <div>
           <h1 className="display text-5xl font-extrabold text-navy-deep">{title}</h1>
-          <p className="mt-5 leading-7 text-ink/60">{intro}</p>
+          <p className="mt-5 leading-7 text-ink/65">{intro}</p>
           <div className="mt-7 border-l-4 border-coral bg-mist p-5 text-sm font-bold leading-6 text-navy">
             Draft placeholder. This page must be reviewed and completed by a qualified legal professional before launch.
           </div>

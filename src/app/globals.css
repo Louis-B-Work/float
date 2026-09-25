@@ -44,8 +44,15 @@ button,
 input,
 select,
 textarea {
-  outline-color: var(--coral);
   outline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--navy);
+}
+
+html.dark :focus-visible {
+  outline-color: var(--aqua);
 }
 
 ::selection {
@@ -97,11 +104,6 @@ html.dark .bg-white {
   background-color: #10243a;
 }
 
-html.dark .secondary-button {
-  background-color: #ffffff;
-  color: var(--navy);
-}
-
 html.dark .site-header {
   background-color: rgba(8, 24, 43, 0.95);
 }
@@ -124,8 +126,21 @@ html.dark .bg-sky [class*="text-navy-deep/"],
 html.dark .bg-coral .text-navy,
 html.dark .bg-coral .text-navy-deep,
 html.dark .bg-coral [class*="text-navy/"],
-html.dark .bg-coral [class*="text-navy-deep/"] {
+html.dark .bg-coral [class*="text-navy-deep/"],
+html.dark .bg-aqua.text-navy,
+html.dark .bg-aqua.text-navy-deep,
+html.dark .bg-sky.text-navy,
+html.dark .bg-sky.text-navy-deep,
+html.dark .bg-coral.text-navy,
+html.dark .bg-coral.text-navy-deep {
   color: #0d223d;
+}
+
+html.dark .secondary-button,
+html.dark .secondary-button.text-navy,
+html.dark .secondary-button.text-navy-deep {
+  background-color: #ffffff;
+  color: #13375c;
 }
 
 html.dark .float-card {
@@ -199,7 +214,8 @@ html.dark .border-white\/15 {
   padding-right: clamp(3rem, 7vw, 7rem);
 }
 
-.lender-marquee:hover .lender-track {
+.lender-marquee:hover .lender-track,
+.lender-track.is-paused {
   animation-play-state: paused;
 }
 

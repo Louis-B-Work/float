@@ -34,8 +34,13 @@ export function ContactForm() {
         nextErrors[issue.path[0] as keyof ContactFormData] = issue.message;
       }
       setErrors(nextErrors);
-      const firstInvalid = event.currentTarget.querySelector<HTMLElement>("[aria-invalid='true']");
-      requestAnimationFrame(() => firstInvalid?.focus());
+      const firstInvalidName = result.error.issues[0]?.path[0];
+      const formElement = event.currentTarget;
+      requestAnimationFrame(() => {
+        if (typeof firstInvalidName !== "string") return;
+        const firstInvalid = formElement.elements.namedItem(firstInvalidName);
+        if (firstInvalid instanceof HTMLElement) firstInvalid.focus();
+      });
       return;
     }
 
@@ -98,7 +103,7 @@ export function ContactForm() {
       <button type="submit" className="inline-flex items-center justify-center gap-2 bg-coral px-6 py-4 font-extrabold text-navy-deep hover:bg-aqua">
         Submit demo enquiry <Send size={18} aria-hidden />
       </button>
-      <p className="text-xs leading-5 text-ink/50">Demo only: this form currently validates locally and does not send or store information.</p>
+      <p className="text-xs leading-5 text-ink/65">Demo only: this form currently validates locally and does not send or store information.</p>
     </form>
   );
 }

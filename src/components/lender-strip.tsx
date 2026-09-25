@@ -1,3 +1,8 @@
+"use client";
+
+import { Pause, Play } from "lucide-react";
+import { useState } from "react";
+
 const lenders = [
   { name: "Northline", mark: "N" },
   { name: "Forge", mark: "F" },
@@ -8,14 +13,29 @@ const lenders = [
 ];
 
 export function LenderStrip() {
+  const [paused, setPaused] = useState(false);
+
   return (
     <section className="overflow-hidden bg-white py-10">
       <div className="page-shell">
-        <h2 className="text-sm font-extrabold text-navy">Lender panel</h2>
-        <p className="mt-1 text-xs text-ink/55">Placeholder logos for layout only</p>
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <h2 className="text-sm font-extrabold text-navy">Lender panel</h2>
+            <p className="mt-1 text-xs text-ink/70">Placeholder logos for layout only</p>
+          </div>
+          <button
+            type="button"
+            onClick={() => setPaused((current) => !current)}
+            className="grid size-10 shrink-0 place-items-center text-navy"
+            aria-label={`${paused ? "Play" : "Pause"} lender panel animation`}
+            aria-pressed={paused}
+          >
+            {paused ? <Play size={16} aria-hidden /> : <Pause size={16} aria-hidden />}
+          </button>
+        </div>
       </div>
       <div className="lender-marquee mt-7" aria-label="Placeholder lender panel">
-        <div className="lender-track">
+        <div className={`lender-track ${paused ? "is-paused" : ""}`}>
           {[false, true].map((duplicate) => (
             <div
               key={String(duplicate)}

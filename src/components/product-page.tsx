@@ -27,7 +27,7 @@ export function ProductPage({
       <section className="section-space">
         <div className="page-shell">
           <SectionHeading title="Built for real business plans." />
-          <MobileCardRail className="mt-10 md:grid-cols-2 md:gap-px md:bg-line lg:mt-12 lg:grid-cols-4">
+          <MobileCardRail label="Common finance uses" className="mt-10 md:grid-cols-2 md:gap-px md:bg-line lg:mt-12 lg:grid-cols-4">
             {uses.map((use) => (
               <div key={use} className="min-h-32 border border-line bg-white p-7 md:min-h-0 md:border-0">
                 <p className="text-lg font-extrabold text-navy">{use}</p>
@@ -60,7 +60,7 @@ export function ProductPage({
         </div>
       </section>
       <section className="page-shell py-12">
-        <p className="border-l-4 border-coral bg-white p-6 text-sm leading-7 text-ink/60">
+        <p className="border-l-4 border-coral bg-white p-6 text-sm leading-7 text-ink/65">
           All finance is subject to status, lender criteria and affordability. Security or a personal guarantee may be required. Late or missed payments may affect your credit profile and put business or personal assets at risk.
         </p>
       </section>

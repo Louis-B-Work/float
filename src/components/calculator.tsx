@@ -80,7 +80,7 @@ export function Calculator() {
         <div>
           <p className="text-xs font-extrabold uppercase tracking-[.16em] text-aqua">Indicative borrowing range</p>
           <p className="display mt-5 text-4xl font-extrabold md:text-5xl">{formatCurrency(result.minimum)}</p>
-          <p className="my-2 text-white/50">to</p>
+          <p className="my-2 text-white/60">to</p>
           <p className="display text-4xl font-extrabold md:text-5xl">{formatCurrency(result.maximum)}</p>
           <p className="mt-7 border-t border-white/15 pt-6 text-sm leading-7 text-white/65">
             Based on the information entered and broad market-style bands. A lender will assess affordability, financials, purpose and other factors.
@@ -91,7 +91,7 @@ export function Calculator() {
             <Info size={18} className="shrink-0 text-aqua" aria-hidden />
             This is not an offer, quote, approval or financial advice. Actual availability may be lower or higher.
           </div>
-          <Link href={`/contact?${contactParams.toString()}`} className="mt-4 flex items-center justify-between bg-white px-5 py-4 text-sm font-extrabold text-navy">
+          <Link href={`/contact?${contactParams.toString()}`} className="secondary-button mt-4 flex items-center justify-between bg-white px-5 py-4 text-sm font-extrabold text-navy">
             Discuss this estimate <ArrowRight size={18} aria-hidden />
           </Link>
         </div>

@@ -52,7 +52,7 @@ export default function Home() {
       <section className="section-space">
         <div className="page-shell">
           <SectionHeading title="Choose the route that fits the job." copy="Whether you are smoothing cash flow or investing in equipment, we start with what the funding needs to achieve." />
-          <MobileCardRail className="mt-10 md:grid-cols-2 md:gap-5 lg:mt-14">
+          <MobileCardRail label="Finance products" className="mt-10 md:grid-cols-2 md:gap-5 lg:mt-14">
             {[
               { icon: Banknote, title: "Business loans", copy: "Flexible commercial funding for working capital, growth plans, stock, refurbishment and more.", href: "/products/business-loans", tone: "bg-sky" },
               { icon: Factory, title: "Asset finance", copy: "Spread the cost of vehicles, machinery and equipment while preserving cash for day-to-day operations.", href: "/products/asset-finance", tone: "bg-aqua" },
@@ -60,7 +60,7 @@ export default function Home() {
               <Link key={product.href} href={product.href} className={`${product.tone} group min-h-80 p-8 md:min-h-96 md:p-12`}>
                 <product.icon size={42} strokeWidth={1.5} className="text-navy" aria-hidden />
                 <h3 className="display mt-24 text-4xl font-extrabold text-navy-deep md:text-5xl">{product.title}</h3>
-                <p className="mt-5 max-w-lg leading-7 text-navy-deep/70">{product.copy}</p>
+                <p className="mt-5 max-w-lg leading-7 text-navy-deep/75">{product.copy}</p>
                 <span className="mt-8 inline-flex items-center gap-2 text-sm font-extrabold text-navy">
                   Explore this product <ArrowUpRight size={18} className="transition group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </span>
@@ -73,7 +73,7 @@ export default function Home() {
       <section className="section-space bg-navy-deep">
         <div className="page-shell">
           <SectionHeading title="A useful conversation, then a focused search." copy="Commercial finance can be complex. Our role is to make the route through it feel straightforward." light />
-          <MobileCardRail className="process-rail mt-12 md:grid-cols-3 md:bg-white/10 lg:mt-16">
+          <MobileCardRail label="How Float works" className="process-rail mt-12 md:grid-cols-3 md:bg-white/10 lg:mt-16">
             {steps.map((step) => (
               <div key={step.title} className="min-h-72 border border-white/15 bg-navy-deep p-8 md:min-h-0 md:border-0 md:p-10">
                 <div>

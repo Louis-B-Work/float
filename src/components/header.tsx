@@ -3,7 +3,7 @@
 import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/logo";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { navigation } from "@/lib/site";
@@ -11,21 +11,45 @@ import { navigation } from "@/lib/site";
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuDialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!open) return;
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const dialog = menuDialogRef.current;
+    const menuButton = menuButtonRef.current;
+    const focusable = dialog?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([tabindex="-1"])',
+    );
+    focusable?.[0]?.focus();
 
-    function closeOnEscape(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(false);
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || !focusable?.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     }
 
-    window.addEventListener("keydown", closeOnEscape);
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", closeOnEscape);
+      window.removeEventListener("keydown", handleKeyDown);
+      menuButton?.focus();
     };
   }, [open]);
 
@@ -79,6 +103,7 @@ export function Header() {
         <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle />
           <button
+            ref={menuButtonRef}
             type="button"
             className="grid size-11 place-items-center border border-line text-navy"
             aria-expanded={open}
@@ -91,9 +116,16 @@ export function Header() {
         </div>
       </div>
       {open && (
-        <div className="fixed inset-x-0 top-[76px] z-40 h-[calc(100dvh-76px)] lg:hidden">
+        <div
+          ref={menuDialogRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site menu"
+          className="fixed inset-x-0 top-[76px] z-40 h-[calc(100dvh-76px)] lg:hidden"
+        >
           <button
             type="button"
+            tabIndex={-1}
             className="absolute inset-0 bg-navy-deep/55 backdrop-blur-sm"
             onClick={() => setOpen(false)}
             aria-label="Close menu"

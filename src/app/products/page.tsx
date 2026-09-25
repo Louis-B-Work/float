@@ -11,7 +11,7 @@ export default function ProductsPage() {
       <PageHero title="Finance shaped around what comes next." copy="Two practical routes for businesses investing, adapting or managing the gap between money going out and coming in." />
       <section className="section-space">
         <div className="page-shell">
-          <MobileCardRail className="md:grid-cols-2 md:gap-6">
+          <MobileCardRail label="Finance products" className="md:grid-cols-2 md:gap-6">
             {[
               { icon: Banknote, title: "Business loans", copy: "A flexible injection of capital that can support cash flow, growth, stock, premises or a time-sensitive opportunity.", list: ["Working capital", "Growth and expansion", "Stock and refurbishment"], href: "/products/business-loans", colour: "bg-sky" },
               { icon: Factory, title: "Asset finance", copy: "Finance vehicles, machinery or equipment over time, helping the business preserve capital for other priorities.", list: ["Vehicles and fleets", "Plant and machinery", "Technology and equipment"], href: "/products/asset-finance", colour: "bg-aqua" },
@@ -19,7 +19,7 @@ export default function ProductsPage() {
               <article key={product.title} className={`${product.colour} p-8 md:p-12`}>
                 <product.icon size={42} strokeWidth={1.5} className="text-navy" />
                 <h2 className="display mt-16 text-4xl font-extrabold text-navy-deep md:text-5xl">{product.title}</h2>
-                <p className="mt-5 leading-7 text-navy-deep/70">{product.copy}</p>
+                <p className="mt-5 leading-7 text-navy-deep/75">{product.copy}</p>
                 <ul className="my-8 space-y-3 border-y border-navy/15 py-6 text-sm font-bold text-navy">
                   {product.list.map((item) => <li key={item}>{item}</li>)}
                 </ul>

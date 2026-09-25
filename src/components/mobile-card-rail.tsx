@@ -5,9 +5,11 @@ import { Children, type ReactNode, useRef, useState } from "react";
 export function MobileCardRail({
   children,
   className = "",
+  label = "Scrollable cards",
 }: {
   children: ReactNode;
   className?: string;
+  label?: string;
 }) {
   const railRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -36,6 +38,8 @@ export function MobileCardRail({
       <div
         ref={railRef}
         onScroll={updateActiveCard}
+        role="region"
+        aria-label={label}
         className={`mobile-card-rail ${className}`}
       >
         {children}

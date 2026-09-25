@@ -98,7 +98,7 @@ export function CtaBand({
       <div className="page-shell flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
         <div className="max-w-3xl">
           <h2 className="display balance text-3xl font-extrabold text-navy-deep md:text-5xl">{title}</h2>
-          <p className="mt-4 max-w-2xl leading-7 text-navy-deep/70">{copy}</p>
+          <p className="mt-4 max-w-2xl leading-7 text-navy-deep/75">{copy}</p>
         </div>
         <ButtonLink href="/contact">Start an enquiry</ButtonLink>
       </div>

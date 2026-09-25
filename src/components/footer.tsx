@@ -16,7 +16,7 @@ export function Footer() {
           <h2 className="text-sm font-extrabold uppercase tracking-[0.14em] text-aqua">Explore</h2>
           <div className="mt-5 grid gap-3">
             {navigation.map((item) => (
-              <Link key={item.href} href={item.href} className="text-sm text-white/70 hover:text-white">
+              <Link key={item.href} href={item.href} className="py-1 text-sm text-white/70 hover:text-white">
                 {item.label}
               </Link>
             ))}
@@ -38,9 +38,9 @@ export function Footer() {
             <span>© {new Date().getFullYear()} Float</span>
             <span>{company.companyNumber}</span>
             <span>{company.icoNumber}</span>
-            <Link href="/privacy-policy" className="hover:text-white">Privacy</Link>
-            <Link href="/cookie-policy" className="hover:text-white">Cookies</Link>
-            <Link href="/terms" className="hover:text-white">Terms</Link>
+            <Link href="/privacy-policy" className="py-1.5 hover:text-white">Privacy</Link>
+            <Link href="/cookie-policy" className="py-1.5 hover:text-white">Cookies</Link>
+            <Link href="/terms" className="py-1.5 hover:text-white">Terms</Link>
           </div>
         </div>
       </div>
