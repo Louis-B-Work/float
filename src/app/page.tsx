@@ -34,7 +34,7 @@ export default function Home() {
               Enquiring will not affect your credit score
             </p>
           </div>
-          <div className="relative min-h-[480px] lg:min-h-[590px]">
+          <div className="relative min-h-[340px] sm:min-h-[440px] lg:min-h-[590px]">
             <div className="absolute inset-8 right-0 overflow-hidden">
               <Image src={assetPath("/images/team-meeting.jpg")} alt="Business owners discussing plans around a table" fill priority className="object-cover" sizes="(min-width: 1024px) 45vw, 100vw" />
             </div>
@@ -89,7 +89,7 @@ export default function Home() {
 
       <section className="section-space">
         <div className="page-shell grid items-center gap-14 lg:grid-cols-2">
-          <div className="relative min-h-[520px] overflow-hidden">
+          <div className="relative min-h-80 overflow-hidden sm:min-h-[400px] lg:min-h-[520px]">
             <Image src={assetPath("/images/business-planning.jpg")} alt="A team reviewing business figures" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
             <div className="absolute bottom-0 left-0 bg-coral px-4 py-3 text-navy-deep">
               <p className="text-sm font-bold">An estimate, not a promise.</p>

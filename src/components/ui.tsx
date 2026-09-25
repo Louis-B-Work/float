@@ -18,7 +18,7 @@ export function ButtonLink({
       href={href}
       className={`inline-flex items-center justify-center gap-2 whitespace-nowrap px-4 py-3.5 text-center text-sm font-extrabold transition sm:px-6 ${
         secondary
-          ? "border border-navy/20 bg-white text-navy hover:border-navy"
+          ? "secondary-button border border-navy/20 bg-white text-navy hover:border-navy"
           : "bg-coral text-navy-deep hover:bg-aqua"
       }`}
     >
@@ -71,8 +71,15 @@ export function PageHero({
           ) : (
             <div className="grid-lines absolute inset-0" />
           )}
-          <div className="absolute bottom-0 left-0 size-32 bg-coral md:size-44" />
-          <div className="absolute bottom-8 left-8 size-16 rounded-full border-[14px] border-navy md:bottom-12 md:left-12 md:size-24" />
+          <div className="absolute bottom-0 left-0 flex h-24 w-40 items-center bg-coral px-5 md:h-32 md:w-56 md:px-7">
+            <Image
+              src={assetPath("/brand/float-logo-dark.png")}
+              alt=""
+              width={220}
+              height={80}
+              className="h-auto w-full object-contain"
+            />
+          </div>
         </div>
       </div>
     </section>
