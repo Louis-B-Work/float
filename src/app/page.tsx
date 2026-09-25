@@ -19,7 +19,7 @@ export default function Home() {
       <section className="overflow-hidden bg-mist">
         <div className="page-shell grid min-h-[720px] items-center gap-12 py-16 lg:grid-cols-[1.05fr_.95fr] lg:py-20">
           <div className="relative z-10">
-            <h1 className="display balance text-6xl font-extrabold leading-[0.93] text-navy-deep md:text-8xl">
+            <h1 className="display balance text-6xl font-extrabold leading-[1.02] text-navy-deep md:text-8xl">
               Funding that keeps your business <span className="text-coral">moving.</span>
             </h1>
             <p className="mt-8 max-w-xl text-lg leading-8 text-ink/65">
