@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/logo";
-import { brokerDisclosure, company, navigation } from "@/lib/site";
+import { brokerDisclosure, company, footerLinks } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -9,13 +9,13 @@ export function Footer() {
         <div>
           <Logo light />
           <p className="mt-5 max-w-md text-sm leading-7 text-white/65">
-            Practical commercial finance, matched to the shape and pace of your business.
+            Commercial finance for UK businesses, matched to the shape and pace of yours.
           </p>
         </div>
         <div>
           <h2 className="text-sm font-extrabold uppercase tracking-[0.14em] text-aqua">Explore</h2>
-          <div className="mt-5 grid gap-3">
-            {navigation.map((item) => (
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            {footerLinks.map((item) => (
               <Link key={item.href} href={item.href} className="py-1 text-sm text-white/70 hover:text-white">
                 {item.label}
               </Link>
@@ -38,9 +38,11 @@ export function Footer() {
             <span>© {new Date().getFullYear()} Float</span>
             <span>{company.companyNumber}</span>
             <span>{company.icoNumber}</span>
-            <Link href="/privacy-policy" className="py-1.5 hover:text-white">Privacy</Link>
-            <Link href="/cookie-policy" className="py-1.5 hover:text-white">Cookies</Link>
+            <Link href="/privacy" className="py-1.5 hover:text-white">Privacy</Link>
+            <Link href="/cookies" className="py-1.5 hover:text-white">Cookies</Link>
             <Link href="/terms" className="py-1.5 hover:text-white">Terms</Link>
+            <Link href="/complaints" className="py-1.5 hover:text-white">Complaints</Link>
+            <Link href="/commission-disclosure" className="py-1.5 hover:text-white">Commission disclosure</Link>
           </div>
         </div>
       </div>

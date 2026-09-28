@@ -8,8 +8,8 @@ export default function CalculatorPage() {
     <section className="section-space grid-lines bg-mist">
       <div className="page-shell">
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <h1 className="display balance text-5xl font-extrabold leading-[1] text-navy-deep md:text-7xl">What could your business explore?</h1>
-          <p className="mt-6 text-lg leading-8 text-ink/65">Get a broad borrowing range using a few details. It will not affect your credit score and takes about a minute.</p>
+          <h1 className="display balance text-5xl font-extrabold leading-[1] text-navy-deep md:text-7xl">What could your business raise?</h1>
+          <p className="mt-6 text-lg leading-8 text-ink/65">A broad borrowing range from a few quick details. Takes about a minute and will not touch your credit score.</p>
         </div>
         <Calculator />
       </div>

@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/logo";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { navigation } from "@/lib/site";
+import { navigation, secondaryNavigation } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -57,13 +57,13 @@ export function Header() {
     <header className="site-header sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur">
       <div className="page-shell flex h-[76px] items-center justify-between">
         <Logo />
-        <nav aria-label="Main navigation" className="hidden items-center gap-8 lg:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-5 lg:flex xl:gap-7">
           {navigation.map((item) =>
             "children" in item ? (
               <div key={item.href} className="group relative">
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-1 py-7 text-sm font-bold ${pathname.startsWith(item.href) ? "text-navy" : "text-ink/70 hover:text-navy"}`}
+                  className={`flex items-center gap-1 whitespace-nowrap py-7 text-sm font-bold ${pathname.startsWith(item.href) ? "text-navy" : "text-ink/70 hover:text-navy"}`}
                 >
                   {item.label}
                   <ChevronDown size={15} aria-hidden />
@@ -84,7 +84,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`py-7 text-sm font-bold ${pathname === item.href ? "text-navy" : "text-ink/70 hover:text-navy"}`}
+                className={`whitespace-nowrap py-7 text-sm font-bold ${pathname === item.href ? "text-navy" : "text-ink/70 hover:text-navy"}`}
               >
                 {item.label}
               </Link>
@@ -157,6 +157,16 @@ export function Header() {
                       </Link>
                     ))}
                 </div>
+              ))}
+              {secondaryNavigation.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="block border-b border-line py-4 font-bold text-navy"
+                >
+                  {item.label}
+                </Link>
               ))}
               <Link
                 href="/contact"

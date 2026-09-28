@@ -4,7 +4,7 @@ import { CheckCircle2, Send } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { contactSchema, type ContactFormData } from "@/lib/contact";
+import { contactSchema, productOptions, type ContactFormData } from "@/lib/contact";
 
 type Errors = Partial<Record<keyof ContactFormData, string>>;
 
@@ -83,10 +83,10 @@ export function ContactForm() {
       </div>
       <label className="grid gap-2 text-sm font-extrabold text-navy">
         What can we help with?
-        <select name="product" defaultValue={product === "business-loan" || product === "asset-finance" ? product : "general"} className="border border-line bg-white px-4 py-3.5 font-normal text-ink">
-          <option value="general">Not sure / general enquiry</option>
-          <option value="business-loan">Business loan</option>
-          <option value="asset-finance">Asset finance</option>
+        <select name="product" defaultValue={productOptions.some((option) => option.value === product) ? (product as string) : "general"} className="border border-line bg-white px-4 py-3.5 font-normal text-ink">
+          {productOptions.map((option) => (
+            <option key={option.value} value={option.value}>{option.label}</option>
+          ))}
         </select>
       </label>
       {range && <p className="bg-mist px-4 py-3 text-sm text-ink/70"><strong className="text-navy">Calculator estimate:</strong> {range}</p>}
@@ -97,7 +97,7 @@ export function ContactForm() {
       </label>
       <label className="flex items-start gap-3 text-sm leading-6 text-ink/70">
         <input name="privacy" type="checkbox" aria-invalid={Boolean(errors.privacy)} aria-describedby="privacy-error" className="mt-1 size-4 accent-[var(--navy)]" />
-        <span>I have read the <Link href="/privacy-policy" className="font-bold text-navy underline">privacy notice</Link> and understand how my details would be used.</span>
+        <span>I have read the <Link href="/privacy" className="font-bold text-navy underline">privacy notice</Link> and understand how my details would be used.</span>
       </label>
       <ErrorText id="privacy-error">{errors.privacy}</ErrorText>
       <button type="submit" className="inline-flex items-center justify-center gap-2 bg-coral px-6 py-4 font-extrabold text-navy-deep hover:bg-aqua">
