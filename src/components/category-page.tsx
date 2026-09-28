@@ -1,41 +1,66 @@
-import { CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { ButtonLink, CtaBand, PageHero, SectionHeading } from "@/components/ui";
 import { MobileCardRail } from "@/components/mobile-card-rail";
 import { assetPath } from "@/lib/assets";
 
-export function ProductPage({
+export type CategoryChild = {
+  title: string;
+  copy: string;
+  href: string;
+};
+
+const tones = ["bg-sky", "bg-aqua", "bg-mist"];
+
+export function CategoryPage({
   title,
   intro,
   image,
-  uses,
+  childPages,
   detailTitle,
   detail,
   points,
+  childrenLabel = "Finance options",
 }: {
   title: string;
   intro: string;
   image: string;
-  uses: string[];
+  childPages: CategoryChild[];
   detailTitle: string;
   detail: string;
   points: string[];
+  childrenLabel?: string;
 }) {
   return (
     <>
       <PageHero title={title} copy={intro} image={image} />
+
       <section className="section-space">
         <div className="page-shell">
-          <SectionHeading title="What businesses actually use it for." />
-          <MobileCardRail label="Common finance uses" className="mt-10 md:grid-cols-2 md:gap-px md:bg-line lg:mt-12 lg:grid-cols-4">
-            {uses.map((use) => (
-              <div key={use} className="min-h-32 border border-line bg-white p-7 md:min-h-0 md:border-0">
-                <p className="text-lg font-extrabold text-navy">{use}</p>
-              </div>
+          <SectionHeading
+            title="Pick the option that fits the job."
+            copy="Each route behaves differently in practice. We start with what the money has to do, then explain where they differ."
+          />
+          <MobileCardRail label={childrenLabel} className="mt-10 md:grid-cols-2 md:gap-5 lg:mt-14">
+            {childPages.map((child, index) => (
+              <Link
+                key={child.href}
+                href={child.href}
+                className={`${tones[index % tones.length]} group min-h-64 p-8 md:min-h-72 md:p-10`}
+              >
+                <h2 className="display text-3xl font-extrabold text-navy-deep md:text-4xl">{child.title}</h2>
+                <p className="mt-4 max-w-lg leading-7 text-navy-deep/75">{child.copy}</p>
+                <span className="mt-8 inline-flex items-center gap-2 text-sm font-extrabold text-navy">
+                  Explore this option
+                  <ArrowUpRight size={18} className="transition group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden />
+                </span>
+              </Link>
             ))}
           </MobileCardRail>
         </div>
       </section>
+
       <section className="section-space bg-mist">
         <div className="page-shell grid items-center gap-14 lg:grid-cols-2">
           <div className="relative min-h-80 overflow-hidden sm:min-h-[400px] lg:min-h-[500px]">
@@ -59,11 +84,13 @@ export function ProductPage({
           </div>
         </div>
       </section>
+
       <section className="page-shell py-12">
         <p className="border-l-4 border-coral bg-white p-6 text-sm leading-7 text-ink/65">
           All finance is subject to status, lender criteria and affordability. Security or a personal guarantee may be required. Late or missed payments may affect your credit profile and put business or personal assets at risk.
         </p>
       </section>
+
       <CtaBand />
     </>
   );

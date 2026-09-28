@@ -87,8 +87,8 @@ export function PageHero({
 }
 
 export function CtaBand({
-  title = "Ready to find a finance route that fits?",
-  copy = "Tell us what you are planning. We will use the detail to understand your needs and discuss suitable next steps.",
+  title = "Let's find out what's actually available.",
+  copy = "Tell us what you are planning and we will come back with a straight answer. No obligation, no effect on your credit score.",
 }: {
   title?: string;
   copy?: string;
@@ -100,7 +100,7 @@ export function CtaBand({
           <h2 className="display balance text-3xl font-extrabold text-navy-deep md:text-5xl">{title}</h2>
           <p className="mt-4 max-w-2xl leading-7 text-navy-deep/75">{copy}</p>
         </div>
-        <ButtonLink href="/contact">Start an enquiry</ButtonLink>
+        <ButtonLink href="/apply">Start an enquiry</ButtonLink>
       </div>
     </section>
   );
