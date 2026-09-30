@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/logo";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { navigation, secondaryNavigation } from "@/lib/site";
 
 export function Header() {
@@ -57,7 +56,7 @@ export function Header() {
     <header className="site-header sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur">
       <div className="page-shell flex h-[76px] items-center justify-between">
         <Logo />
-        <nav aria-label="Main navigation" className="hidden items-center gap-5 lg:flex xl:gap-7">
+        <nav aria-label="Main navigation" className="hidden items-center gap-4 min-[1100px]:flex xl:gap-7">
           {navigation.map((item) =>
             "children" in item ? (
               <div key={item.href} className="group relative">
@@ -91,17 +90,15 @@ export function Header() {
             ),
           )}
         </nav>
-        <div className="hidden items-center gap-3 lg:flex">
-          <ThemeToggle />
+        <div className="hidden items-center gap-3 min-[1100px]:flex">
           <Link
-            href="/contact"
-            className="inline-flex items-center justify-center bg-coral px-6 py-3 text-sm font-extrabold text-navy-deep transition hover:bg-aqua"
+            href="/apply"
+            className="inline-flex items-center justify-center whitespace-nowrap bg-coral px-4 py-3 text-sm font-extrabold text-navy-deep transition hover:bg-aqua xl:px-6"
           >
-            Get a quote
+            Start an enquiry
           </Link>
         </div>
-        <div className="flex items-center gap-2 lg:hidden">
-          <ThemeToggle />
+        <div className="flex items-center gap-2 min-[1100px]:hidden">
           <button
             ref={menuButtonRef}
             type="button"
@@ -121,7 +118,7 @@ export function Header() {
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className="fixed inset-x-0 top-[76px] z-40 h-[calc(100dvh-76px)] lg:hidden"
+          className="fixed inset-x-0 top-[76px] z-40 h-[calc(100dvh-76px)] min-[1100px]:hidden"
         >
           <button
             type="button"
@@ -169,11 +166,11 @@ export function Header() {
                 </Link>
               ))}
               <Link
-                href="/contact"
+                href="/apply"
                 onClick={() => setOpen(false)}
                 className="mt-5 inline-flex justify-center bg-coral px-6 py-4 font-extrabold text-navy-deep"
               >
-                Get a quote
+                Start an enquiry
               </Link>
             </div>
           </nav>

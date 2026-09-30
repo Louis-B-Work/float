@@ -2,12 +2,14 @@ import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { ButtonLink, CtaBand, PageHero, SectionHeading } from "@/components/ui";
 import { MobileCardRail } from "@/components/mobile-card-rail";
+import { RevealCard } from "@/components/reveal-card";
 import { assetPath } from "@/lib/assets";
 
 export function ProductPage({
   title,
   intro,
   image,
+  detailImage,
   uses,
   detailTitle,
   detail,
@@ -16,7 +18,8 @@ export function ProductPage({
   title: string;
   intro: string;
   image: string;
-  uses: string[];
+  detailImage: string;
+  uses: { title: string; copy: string }[];
   detailTitle: string;
   detail: string;
   points: string[];
@@ -27,11 +30,17 @@ export function ProductPage({
       <section className="section-space">
         <div className="page-shell">
           <SectionHeading title="What businesses actually use it for." />
-          <MobileCardRail label="Common finance uses" className="mt-10 md:grid-cols-2 md:gap-px md:bg-line lg:mt-12 lg:grid-cols-4">
-            {uses.map((use) => (
-              <div key={use} className="min-h-32 border border-line bg-white p-7 md:min-h-0 md:border-0">
-                <p className="text-lg font-extrabold text-navy">{use}</p>
-              </div>
+          <MobileCardRail label="Common finance uses" className="mt-10 md:grid-cols-2 md:gap-5 lg:mt-12 lg:grid-cols-4">
+            {uses.map((use, index) => (
+              <RevealCard
+                key={use.title}
+                index={index}
+                title={use.title}
+                tone="light"
+                className="p-7 lg:min-h-[24rem] xl:min-h-[20.5rem]"
+              >
+                <p className="mt-4 border-t border-line pt-4 leading-7 text-ink/65">{use.copy}</p>
+              </RevealCard>
             ))}
           </MobileCardRail>
         </div>
@@ -39,7 +48,7 @@ export function ProductPage({
       <section className="section-space bg-mist">
         <div className="page-shell grid items-center gap-14 lg:grid-cols-2">
           <div className="relative min-h-80 overflow-hidden sm:min-h-[400px] lg:min-h-[500px]">
-            <Image src={assetPath(image)} alt="" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+            <Image src={assetPath(detailImage)} alt="" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
           </div>
           <div>
             <h2 className="display text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-5xl">{detailTitle}</h2>

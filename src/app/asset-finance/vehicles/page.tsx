@@ -12,8 +12,14 @@ export default function CommercialVehiclesPage() {
     <ProductPage
       title="Keep the fleet on the road."
       intro="Vans, cars, trucks and specialist vehicles. Replace one or build out the whole fleet without the upfront hit."
-      image="/images/asset-finance.jpg"
-      uses={["Vans and light commercials", "Company cars", "HGVs and trucks", "Specialist vehicles"]}
+      image="/images/vehicles-hero.jpg"
+      detailImage="/images/vehicles-detail.jpg"
+      uses={[
+        { title: "Vans and light commercials", copy: "From a single replacement van to a growing fleet of light commercials." },
+        { title: "Company cars", copy: "Cars for staff or directors, on a structure that suits how they are used." },
+        { title: "HGVs and trucks", copy: "Tractor units, rigids and trailers for haulage and distribution." },
+        { title: "Specialist vehicles", copy: "Refrigerated, tipper, recovery and converted vehicles built for the job." },
+      ]}
       detailTitle="From one replacement to a growing fleet."
       detail="Vehicles are often the hardest-working asset you own, and downtime costs real money. Finance lets you replace or add on a timetable that suits operations rather than one dictated by the bank balance. New and used can usually both be considered, though age and mileage will shape the terms."
       points={[

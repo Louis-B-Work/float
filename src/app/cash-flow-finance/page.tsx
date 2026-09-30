@@ -12,7 +12,8 @@ export default function CashFlowFinancePage() {
     <CategoryPage
       title="Keep trading while the money catches up."
       intro="Profitable on paper but tight in the bank? Cash flow finance bridges the gap between paying for work and getting paid for it."
-      image="/images/business-planning.jpg"
+      image="/images/cash-flow-hero.jpg"
+      detailImage="/images/cash-flow-detail.jpg"
       childrenLabel="Cash flow finance options"
       detailTitle="A timing problem is not a money problem."
       detail="Long payment terms, a seasonal peak, an unexpected bill or an order bigger than usual. Any of them can squeeze cash long before the income lands. Cash flow finance smooths that timing, and the structure that suits you depends on how the business actually trades."

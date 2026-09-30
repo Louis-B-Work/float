@@ -14,9 +14,9 @@ export default function ContactPage() {
           <h1 className="display balance text-5xl font-extrabold leading-[1] text-navy-deep md:text-7xl">Ask us anything.</h1>
           <p className="mt-6 text-lg leading-8 text-ink/65">Tell us what you are planning, or just ask a question. No obligation, and no hard sell afterwards.</p>
           <div className="mt-10 space-y-5 border-t border-line pt-8 text-sm text-ink/65">
-            <p className="flex gap-3"><Mail size={19} className="text-coral" /> {company.email}</p>
-            <p className="flex gap-3"><Phone size={19} className="text-coral" /> {company.phoneDisplay}</p>
-            <p className="flex gap-3"><MapPin size={19} className="text-coral" /> {company.address}</p>
+            <p className="flex gap-3"><Mail size={19} className="shrink-0 text-coral" aria-hidden /> <a href={`mailto:${company.email}`} className="font-semibold text-navy underline underline-offset-4">{company.email}</a></p>
+            {company.phoneHref && <p className="flex gap-3"><Phone size={19} className="shrink-0 text-coral" aria-hidden /> <a href={company.phoneHref} className="font-semibold text-navy underline underline-offset-4">{company.phoneDisplay}</a></p>}
+            <p className="flex gap-3"><MapPin size={19} className="shrink-0 text-coral" aria-hidden /> {company.address}</p>
           </div>
         </div>
         <div className="float-card p-6 md:p-10">

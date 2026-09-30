@@ -12,8 +12,14 @@ export default function BusinessCashFlowLoansPage() {
     <ProductPage
       title="Capital to act on the next opportunity."
       intro="A set amount of funding with a repayment structure you agree upfront, so you can move on a plan instead of waiting for cash to build."
-      image="/images/business-planning.jpg"
-      uses={["Working capital", "Stock purchases", "Premises and fit-out", "Growth projects"]}
+      image="/images/business-loans-hero.jpg"
+      detailImage="/images/business-loans-detail.jpg"
+      uses={[
+        { title: "Working capital", copy: "Cover the gap between costs going out and customer payments coming in." },
+        { title: "Stock purchases", copy: "Buy in bulk or ahead of a busy season without emptying the account." },
+        { title: "Premises and fit-out", copy: "Refurbish, expand or kit out a site so it is ready to trade." },
+        { title: "Growth projects", copy: "Fund a new hire, a new market or a contract that needs capital up front." },
+      ]}
       detailTitle="One facility, plenty of uses."
       detail="Business loans can be secured or unsecured, and repayment profiles vary a lot between lenders. What is realistic depends on the amount, the purpose, your trading history, cash flow and how the application hangs together overall. We will tell you where you stand before anything gets submitted."
       points={[

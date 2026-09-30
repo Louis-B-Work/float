@@ -45,7 +45,7 @@ export function Calculator() {
         <div className="grid gap-7">
           <Field label="What are you looking to finance?">
             <select value={inputs.product} onChange={(event) => update("product", event.target.value as CalculatorInputs["product"])} className="w-full border border-line bg-white px-4 py-3.5 text-navy">
-              <option value="business-loan">Business loan</option>
+              <option value="business-loan">Cash flow or working capital loan</option>
               <option value="asset-finance">Asset finance</option>
             </select>
           </Field>

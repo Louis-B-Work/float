@@ -12,7 +12,8 @@ export default function AssetFinancePage() {
     <CategoryPage
       title="Put essential assets to work sooner."
       intro="Vehicles, machinery, equipment. Spread the cost over the working life of the asset instead of taking the hit in one go."
-      image="/images/asset-finance.jpg"
+      image="/images/asset-finance-hero.jpg"
+      detailImage="/images/asset-finance-detail.jpg"
       childrenLabel="Asset finance options"
       detailTitle="Let the asset pay for itself as it works."
       detail="Buying outright takes a serious chunk of cash out of the business at exactly the moment you are trying to grow it. Asset finance lets the cost sit alongside the value the asset produces. Just be clear on the structure first, because it changes ownership, deposits, VAT treatment and what happens at the end of the term."

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { company } from "@/lib/site";
 
 export function LegalPage({ title, intro, children }: { title: string; intro: string; children: React.ReactNode }) {
   return (
@@ -8,12 +9,16 @@ export function LegalPage({ title, intro, children }: { title: string; intro: st
           <h1 className="display text-5xl font-extrabold text-navy-deep">{title}</h1>
           <p className="mt-5 leading-7 text-ink/65">{intro}</p>
           <div className="mt-7 border-l-4 border-coral bg-mist p-5 text-sm font-bold leading-6 text-navy">
-            Draft placeholder. This page must be reviewed and completed by a qualified legal professional before launch.
+            Draft for review. This page must be checked by a qualified legal professional before launch.
           </div>
         </div>
         <article className="prose max-w-none space-y-9 leading-8 text-ink/70">
           {children}
-          <p>Questions about this page can be sent through our <Link href="/contact" className="font-bold text-navy underline">contact form</Link>.</p>
+          <p>
+            Questions about this page can be sent to{" "}
+            <a href={`mailto:${company.email}`} className="font-bold text-navy underline">{company.email}</a>, through our{" "}
+            <Link href="/contact" className="font-bold text-navy underline">contact form</Link>, or by post to {company.legalName}, {company.address}.
+          </p>
         </article>
       </div>
     </section>
@@ -22,4 +27,12 @@ export function LegalPage({ title, intro, children }: { title: string; intro: st
 
 export function LegalSection({ title, children }: { title: string; children: React.ReactNode }) {
   return <section><h2 className="display text-2xl font-extrabold text-navy">{title}</h2><div className="mt-3 space-y-3">{children}</div></section>;
+}
+
+export function LegalList({ items }: { items: React.ReactNode[] }) {
+  return (
+    <ul className="list-disc space-y-2 pl-6 marker:text-coral">
+      {items.map((item, index) => <li key={index}>{item}</li>)}
+    </ul>
+  );
 }

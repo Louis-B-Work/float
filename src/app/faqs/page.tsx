@@ -87,7 +87,7 @@ export default function FaqsPage() {
       <PageHero
         title="The questions business owners actually ask."
         copy="Straight answers on how commercial finance works, what lenders look for and where Float fits in. Select a question to reveal the answer."
-        image="/images/business-planning.jpg"
+        image="/images/faqs-hero.jpg"
       />
 
       <section className="section-space">

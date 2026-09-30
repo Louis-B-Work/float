@@ -1,6 +1,37 @@
-Editorial photography sourced from Unsplash:
-- Team meeting: https://unsplash.com/photos/people-sitting-down-near-table-with-assorted-laptop-computers-SYTO3xs06fU
-- Business planning: https://unsplash.com/photos/person-writing-on-white-paper-vdXMSiX-n6M
-- Asset finance: https://unsplash.com/photos/man-welding-metal-structure-during-daytime-K0E6E0a0R3A
+Photography sourced from Unsplash (https://unsplash.com) under the Unsplash License
+(https://unsplash.com/license). Only free (non-Unsplash+) images are used. Attribution
+is not required by the licence but is recorded here for provenance.
 
-Images are used under the Unsplash License. Verify final image/photographer metadata before production launch.
+File | Used on | Photographer | Source
+home-hero.jpg | Home (hero) | Dan Rooney (@danliamrooney) | https://unsplash.com/photos/qm6yxe7SjWg
+home-calculator.jpg | Home (calculator section) | Towfiqu barbhuiya (@towfiqu999999) | https://unsplash.com/photos/JhevWHCbVyw
+cash-flow-hero.jpg | Cash flow finance (hero) | Nathan Dumlao (@nate_dumlao) | https://unsplash.com/photos/X_bbCAYzlTs
+cash-flow-detail.jpg | Cash flow finance (detail) | Bench Accounting (@benchaccounting) | https://unsplash.com/photos/MGaFENpDCsw
+business-loans-hero.jpg | Business cash flow loans (hero) | Yanapi Senaud (@yaanapi) | https://unsplash.com/photos/6HR8vpjYUHo
+business-loans-detail.jpg | Business cash flow loans (detail) | Brett Jordan (@brett_jordan) | https://unsplash.com/photos/g9HoBPzFftU
+mca-hero.jpg | Merchant cash advance (hero) | SpotOn (@spotonpos) | https://unsplash.com/photos/V7R_roMaKes
+mca-detail.jpg | Merchant cash advance (detail) | Blake Wisz (@blakewisz) | https://unsplash.com/photos/GFrBMipOd_E
+working-capital-hero.jpg | Working capital (hero) | Alberto Rodríguez (@albertorodriguez) | https://unsplash.com/photos/-aCrA9FmT8Y
+working-capital-detail.jpg | Working capital (detail) | TruckRun (@truckrun_ebike_systems) | https://unsplash.com/photos/XBWF6_TEsFM
+wc-loans-hero.jpg | Working capital loans (hero) | Iñigo De la Maza (@idelamaza) | https://unsplash.com/photos/s285sDw5Ikc
+wc-loans-detail.jpg | Working capital loans (detail) | Vitaly Gariev (@silverkblack) | https://unsplash.com/photos/Vvn0OD0IxBM
+revolving-credit-hero.jpg | Revolving credit facility (hero) | Michael Eufemia (@michaeleufemia) | https://unsplash.com/photos/dMauxeeZflc
+revolving-credit-detail.jpg | Revolving credit facility (detail) | Loui Kiær (@plutonicmedia) | https://unsplash.com/photos/CielzQJR0SQ
+asset-finance-hero.jpg | Asset finance (hero) | Daniel Miksha (@danielmiksha) | https://unsplash.com/photos/uPckxKYErZY
+asset-finance-detail.jpg | Asset finance (detail) | Josh Beech (@ig_joshabeech) | https://unsplash.com/photos/tXJhAFVOHVk
+hire-purchase-hero.jpg | Hire purchase (hero) | Red Zeppelin (@redzeppelin) | https://unsplash.com/photos/GNhlIrxu1h0
+hire-purchase-detail.jpg | Hire purchase (detail) | Nina Mercado (@nina_mercado) | https://unsplash.com/photos/e9YFrEBWit8
+leasing-hero.jpg | Leasing (hero) | Annie Spratt (@anniespratt) | https://unsplash.com/photos/FSFfEQkd1sc
+leasing-detail.jpg | Leasing (detail) | Iain (@photoken123) | https://unsplash.com/photos/_Gfb0i7ECpk
+refinance-hero.jpg | Asset refinance (hero) | Simon Kadula (@simonkadula) | https://unsplash.com/photos/8gr6bObQLOI
+refinance-detail.jpg | Asset refinance (detail) | TECNIC Bioprocess Solutions (@tecnic) | https://unsplash.com/photos/ZJzv93F6F1U
+vehicles-hero.jpg | Commercial vehicles (hero) | Markus Winkler (@markuswinkler) | https://unsplash.com/photos/3vlGNkDep4E
+vehicles-detail.jpg | Commercial vehicles (detail) | Zieben VH (@zieben_vh) | https://unsplash.com/photos/N5EPfCrEuy8
+plant-hero.jpg | Plant and machinery (hero) | Troy Mortier (@troyscanon) | https://unsplash.com/photos/eKY6_9W_iqY
+plant-detail.jpg | Plant and machinery (detail) | aluminum Zheng ji (@zhengjialuminum) | https://unsplash.com/photos/sxtClAGwRck
+equipment-hero.jpg | Equipment finance (hero) | Ceba Solutions (@professional_photos_online) | https://unsplash.com/photos/TSvGSPO_Kqk
+equipment-detail.jpg | Equipment finance (detail) | Benyamin Bohlouli (@benyamin_bohlouli) | https://unsplash.com/photos/e7MJLM5VGjY
+about-hero.jpg | About (hero) | Mylo Kaye (@mylokaye) | https://unsplash.com/photos/NXtGjC7osPs
+how-it-works-hero.jpg | How it works (hero) | Vitaly Gariev (@silverkblack) | https://unsplash.com/photos/P08ADyMEr18
+faqs-hero.jpg | FAQs (hero) | Omar Lopez (@omarlopez1) | https://unsplash.com/photos/4HhmpfsI5yk
+introducers-hero.jpg | Introducers (hero, page unlisted until launch) | Gabrielle Henderson (@gabriellefaithhenderson) | https://unsplash.com/photos/HJckKnwCXxQ

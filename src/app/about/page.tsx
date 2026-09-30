@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHero title="Commercial finance, minus the mystery." copy="Float exists because finding business funding should not feel like a guessing game. We work out what you need, then go and find out what is genuinely available." image="/images/team-meeting.jpg" />
+      <PageHero title="Commercial finance, minus the mystery." copy="Float exists because finding business funding should not feel like a guessing game. We work out what you need, then go and find out what is genuinely available." image="/images/about-hero.jpg" />
       <section className="section-space">
         <div className="page-shell">
           <div className="max-w-5xl">

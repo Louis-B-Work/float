@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { ContactForm } from "@/components/contact-form";
 
 export const metadata: Metadata = {
-  title: "Apply",
+  title: "Start an enquiry",
   description:
     "Start a commercial finance enquiry with Float. Tell us what your business is planning and we will explain the options.",
 };

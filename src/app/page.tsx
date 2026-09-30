@@ -4,13 +4,40 @@ import Link from "next/link";
 import { ButtonLink, CtaBand, SectionHeading } from "@/components/ui";
 import { MobileCardRail } from "@/components/mobile-card-rail";
 import { FaqCards } from "@/components/faq-cards";
-import { LenderStrip } from "@/components/lender-strip";
+import { RevealCard } from "@/components/reveal-card";
 import { assetPath } from "@/lib/assets";
 
 const steps = [
-  { icon: MessagesSquare, title: "Tell us the plan", copy: "What the money is for, how trading has been and when you need it by. Five minutes, no paperwork." },
-  { icon: Handshake, title: "We do the legwork", copy: "We go to the lenders worth approaching for a business like yours, and skip the ones that are not." },
-  { icon: Banknote, title: "You choose", copy: "We lay out the options in plain English. You decide. Walking away costs you nothing." },
+  {
+    icon: MessagesSquare,
+    title: "Tell us the plan",
+    copy: "What the money is for, how trading has been and when you need it by. Five minutes, no paperwork.",
+    more: [
+      "Roughly how much you need and what it is for",
+      "Your turnover and how long you have been trading",
+      "Online or over the phone, whichever suits you",
+    ],
+  },
+  {
+    icon: Handshake,
+    title: "We do the legwork",
+    copy: "We go to the lenders worth approaching for a business like yours, and skip the ones that are not.",
+    more: [
+      "Matched against lender criteria before anything is sent",
+      "No lender sees your details without your say-so",
+      "We chase the detail and keep things moving",
+    ],
+  },
+  {
+    icon: Banknote,
+    title: "You choose",
+    copy: "We lay out the options in plain English. You decide. Walking away costs you nothing.",
+    more: [
+      "Cost, term and security compared side by side",
+      "Our commission disclosed before you commit",
+      "No obligation to proceed, ever",
+    ],
+  },
 ];
 
 export default function Home() {
@@ -36,7 +63,7 @@ export default function Home() {
           </div>
           <div className="relative min-h-[340px] sm:min-h-[440px] lg:min-h-[590px]">
             <div className="absolute inset-8 right-0 overflow-hidden">
-              <Image src={assetPath("/images/team-meeting.jpg")} alt="Business owners discussing plans around a table" fill priority className="object-cover" sizes="(min-width: 1024px) 45vw, 100vw" />
+              <Image src={assetPath("/images/home-hero.jpg")} alt="Two chefs at work in an independent restaurant kitchen" fill priority className="object-cover" sizes="(min-width: 1024px) 45vw, 100vw" />
             </div>
             <div className="absolute left-0 top-0 h-52 w-40 bg-sky" />
             <div className="grid-lines absolute left-0 top-0 h-52 w-40" />
@@ -46,8 +73,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <LenderStrip />
 
       <section className="section-space">
         <div className="page-shell">
@@ -74,15 +99,25 @@ export default function Home() {
       <section className="section-space bg-navy-deep">
         <div className="page-shell">
           <SectionHeading title="Backed by people, not a form." copy="Commercial finance gets complicated fast. Our job is to cut through it and tell you where you actually stand." light />
-          <MobileCardRail label="How Float works" className="process-rail mt-12 md:grid-cols-3 md:bg-white/10 lg:mt-16">
-            {steps.map((step) => (
-              <div key={step.title} className="min-h-72 border border-white/15 bg-navy-deep p-8 md:min-h-0 md:border-0 md:p-10">
-                <div>
-                  <step.icon className="text-aqua" size={36} strokeWidth={1.5} aria-hidden />
-                </div>
-                <h3 className="mt-16 text-xl font-extrabold text-white">{step.title}</h3>
-                <p className="mt-4 leading-7 text-white/60">{step.copy}</p>
-              </div>
+          <MobileCardRail label="How Float works" className="mt-12 md:grid-cols-3 md:gap-5 lg:mt-16">
+            {steps.map((step, index) => (
+              <RevealCard
+                key={step.title}
+                index={index}
+                title={step.title}
+                summary={step.copy}
+                icon={step.icon}
+                className="p-8 md:p-9 lg:min-h-[35.5rem] lg:p-10 xl:min-h-[32rem] 2xl:min-h-[29.5rem]"
+              >
+                <ul className="mt-6 space-y-3 border-t border-white/15 pt-6">
+                  {step.more.map((item) => (
+                    <li key={item} className="flex gap-3 text-sm font-semibold leading-6 text-white/85">
+                      <Check size={17} className="mt-1 shrink-0 text-aqua" aria-hidden />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </RevealCard>
             ))}
           </MobileCardRail>
         </div>
@@ -91,7 +126,7 @@ export default function Home() {
       <section className="section-space">
         <div className="page-shell grid items-center gap-14 lg:grid-cols-2">
           <div className="relative min-h-80 overflow-hidden sm:min-h-[400px] lg:min-h-[520px]">
-            <Image src={assetPath("/images/business-planning.jpg")} alt="A team reviewing business figures" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+            <Image src={assetPath("/images/home-calculator.jpg")} alt="Business figures being worked through on a calculator" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
             <div className="absolute bottom-0 left-0 bg-coral px-4 py-3 text-navy-deep">
               <p className="text-sm font-bold">An estimate, not a promise.</p>
             </div>

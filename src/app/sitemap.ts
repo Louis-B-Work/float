@@ -23,7 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/faqs",
     "/calculator",
-    "/introducers",
     "/apply",
     "/contact",
     "/privacy",
