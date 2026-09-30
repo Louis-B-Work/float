@@ -12,8 +12,14 @@ export default function WorkingCapitalLoansPage() {
     <ProductPage
       title="Steady funding for the day-to-day."
       intro="A defined amount behind the ordinary running of the business, with a repayment profile you can actually budget around."
-      image="/images/team-meeting.jpg"
-      uses={["Supplier payments", "Payroll and staffing", "Stock and materials", "Operating costs"]}
+      image="/images/wc-loans-hero.jpg"
+      detailImage="/images/wc-loans-detail.jpg"
+      uses={[
+        { title: "Supplier payments", copy: "Pay suppliers on time, or early where it earns a better price." },
+        { title: "Payroll and staffing", copy: "Keep wages covered through a lumpy month or while you take on new staff." },
+        { title: "Stock and materials", copy: "Buy what upcoming orders need before the income from them arrives." },
+        { title: "Operating costs", copy: "Rent, utilities, insurance and the other bills that come round regardless." },
+      ]}
       detailTitle="A clear amount, on terms you can plan around."
       detail="These suit a specific, identifiable need rather than an open-ended one. Because the amount and the schedule are locked in at the start, you know exactly what is leaving the account each month. Lenders will want to understand what the money is for and how the business will service it."
       points={[

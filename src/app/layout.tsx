@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Sans, Manrope } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -22,31 +22,30 @@ export const metadata: Metadata = {
     template: "%s | Float",
   },
   description:
-    "Straight-talking business loans and asset finance, matched to your plans by a commercial finance broker.",
+    "Straight-talking cash flow finance, working capital and asset finance for UK businesses, arranged by a commercial finance broker.",
   openGraph: {
     title: "Float | Commercial finance for UK businesses",
     description:
-      "Business loans and asset finance, matched to your plans by real people.",
+      "Cash flow finance, working capital and asset finance for UK businesses, matched to your plans by real people.",
     type: "website",
     locale: "en_GB",
   },
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#08182b" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      suppressHydrationWarning
       className={`${bodyFont.variable} ${displayFont.variable}`}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              "try{var t=localStorage.getItem('float-theme');var d=t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d)}catch(e){}",
-          }}
-        />
-      </head>
       <body>
         <a
           href="#main"

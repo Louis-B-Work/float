@@ -47,8 +47,6 @@ export const navigation = [
 
 export const secondaryNavigation = [
   { label: "Calculator", href: "/calculator" },
-  { label: "Apply", href: "/apply" },
-  { label: "Introducers", href: "/introducers" },
 ] as const;
 
 export const footerLinks = [
@@ -60,10 +58,9 @@ export const footerLinks = [
   { label: "About Float", href: "/about" },
   { label: "FAQs", href: "/faqs" },
   { label: "Calculator", href: "/calculator" },
-  { label: "Apply", href: "/apply" },
-  { label: "Introducers", href: "/introducers" },
+  { label: "Start an enquiry", href: "/apply" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
 export const brokerDisclosure =
-  "Float is a commercial finance broker, not a lender. We introduce businesses to a panel of lenders for non-regulated commercial finance. Float is not authorised or regulated by the Financial Conduct Authority. We may receive commission from a lender if finance completes; the amount and basis will be disclosed during your journey.";
+  "Float is a commercial finance broker, not a lender. We introduce businesses to a panel of lenders for non-regulated commercial finance. We may receive commission from a lender if finance completes; the amount and basis will be disclosed during your journey.";

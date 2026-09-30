@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Introducers",
   description:
     "Work with Float as an introducer. A straightforward referral relationship for accountants, brokers and advisers with commercial finance clients.",
+  robots: { index: false, follow: false },
 };
 
 const audiences = [
@@ -53,7 +54,7 @@ export default function IntroducersPage() {
       <PageHero
         title="Refer the finance. Keep the relationship."
         copy="If your clients regularly need commercial finance, Float can take that side of the conversation while you carry on doing what you do best."
-        image="/images/team-meeting.jpg"
+        image="/images/introducers-hero.jpg"
       />
 
       <section className="section-space">

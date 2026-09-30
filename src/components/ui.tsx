@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { FloatWordmark } from "@/components/logo";
 import { assetPath } from "@/lib/assets";
 
 export function ButtonLink({
@@ -71,14 +72,8 @@ export function PageHero({
           ) : (
             <div className="grid-lines absolute inset-0" />
           )}
-          <div className="absolute bottom-0 left-0 flex h-24 w-40 items-center bg-coral px-5 md:h-32 md:w-56 md:px-7">
-            <Image
-              src={assetPath("/brand/float-logo-dark.png")}
-              alt=""
-              width={220}
-              height={80}
-              className="h-auto w-full object-contain"
-            />
+          <div className="absolute bottom-0 left-0 flex h-24 w-40 items-center justify-center bg-sky px-6 text-navy md:h-32 md:w-56 md:px-9">
+            <FloatWordmark className="h-auto w-full" />
           </div>
         </div>
       </div>

@@ -12,7 +12,8 @@ export default function WorkingCapitalPage() {
     <CategoryPage
       title="Fund the everyday engine of the business."
       intro="Stock, staff, suppliers and the hundred other costs of simply operating. Working capital finance keeps them covered while you get on with the plan."
-      image="/images/team-meeting.jpg"
+      image="/images/working-capital-hero.jpg"
+      detailImage="/images/working-capital-detail.jpg"
       childrenLabel="Working capital options"
       detailTitle="Room to operate, not just react."
       detail="When working capital is tight, decisions start getting made around the bank balance instead of the business plan. A facility sized to how you actually trade gives you that room back, so you can say yes to the right things and not be forced into the wrong ones."

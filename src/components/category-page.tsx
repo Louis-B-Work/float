@@ -17,6 +17,7 @@ export function CategoryPage({
   title,
   intro,
   image,
+  detailImage,
   childPages,
   detailTitle,
   detail,
@@ -26,6 +27,7 @@ export function CategoryPage({
   title: string;
   intro: string;
   image: string;
+  detailImage: string;
   childPages: CategoryChild[];
   detailTitle: string;
   detail: string;
@@ -64,7 +66,7 @@ export function CategoryPage({
       <section className="section-space bg-mist">
         <div className="page-shell grid items-center gap-14 lg:grid-cols-2">
           <div className="relative min-h-80 overflow-hidden sm:min-h-[400px] lg:min-h-[500px]">
-            <Image src={assetPath(image)} alt="" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+            <Image src={assetPath(detailImage)} alt="" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
           </div>
           <div>
             <h2 className="display text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-5xl">{detailTitle}</h2>
