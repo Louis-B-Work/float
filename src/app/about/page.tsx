@@ -13,13 +13,15 @@ export default function AboutPage() {
     <>
       <PageHero title="Commercial finance, minus the mystery." copy="Float exists because finding business funding should not feel like a guessing game. We work out what you need, then go and find out what is genuinely available." image="/images/about-hero.jpg" />
       <section className="section-space">
-        <div className="page-shell">
-          <div className="max-w-5xl">
-            <h2 className="display balance text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-6xl">One point of contact, start to finish.</h2>
-            <div className="mt-8 grid gap-6 text-lg leading-8 text-ink/65 md:grid-cols-2">
-              <p>Too much of this industry runs on vague answers and forms that go nowhere. We built Float around the opposite: understand the business first, be clear about what is realistic, and say so early when something is not going to fly.</p>
-              <p>As a broker we know what lenders want to see and which ones are worth approaching for a business like yours. You get one person guiding the enquiry who explains the choices, chases the detail and keeps things moving.</p>
-            </div>
+        <div className="page-shell grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-20">
+          <h2 className="display balance text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-6xl">One point of contact, start to finish.</h2>
+          <div className="max-w-2xl lg:pt-2">
+            <p className="text-xl font-semibold leading-9 text-navy-deep md:text-2xl md:leading-10">
+              Too much of this industry runs on vague answers and forms that go nowhere. We built Float around the opposite: understand the business first, be clear about what is realistic, and say so early when something is not going to fly.
+            </p>
+            <p className="mt-8 border-t border-line pt-8 text-lg leading-8 text-ink/65">
+              As a broker we know what lenders want to see and which ones are worth approaching for a business like yours. You get one person guiding the enquiry who explains the choices, chases the detail and keeps things moving.
+            </p>
           </div>
         </div>
       </section>
