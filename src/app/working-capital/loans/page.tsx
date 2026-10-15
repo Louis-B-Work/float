@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { ProductPage } from "@/components/product-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Working capital loans",
-  description:
-    "Working capital loans for UK businesses funding stock, staff, suppliers and the day-to-day costs of trading.",
-};
+export const metadata = pageMetadata("/working-capital/loans");
 
 export default function WorkingCapitalLoansPage() {
   return (

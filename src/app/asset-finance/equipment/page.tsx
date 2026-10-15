@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { ProductPage } from "@/components/product-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Equipment finance",
-  description:
-    "Equipment finance for UK businesses funding tools, technology, fit-out and specialist kit.",
-};
+export const metadata = pageMetadata("/asset-finance/equipment");
 
 export default function EquipmentFinancePage() {
   return (

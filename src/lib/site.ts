@@ -1,10 +1,17 @@
+const postalAddress = {
+  street: "Universal Square, 6th Floor, Devonshire Street North",
+  locality: "Manchester",
+  postcode: "M12 6JH",
+} as const;
+
 export const company = {
   name: "Float",
   legalName: "Float Commercial Finance Limited",
   email: "hello@float.co.uk",
   phoneDisplay: "TBC",
   phoneHref: "",
-  address: "Universal Square, 6th Floor, Devonshire Street North, Manchester, M12 6JH",
+  address: `${postalAddress.street}, ${postalAddress.locality}, ${postalAddress.postcode}`,
+  postalAddress,
   companyNumber: "17307077",
   icoNumber: "ZC191325",
   siteUrl: "https://www.float.co.uk",
@@ -39,14 +46,11 @@ export const navigation = [
       { label: "Equipment", href: "/asset-finance/equipment" },
     ],
   },
+  { label: "Calculator", href: "/calculator" },
   { label: "How it works", href: "/how-it-works" },
   { label: "About", href: "/about" },
   { label: "FAQs", href: "/faqs" },
   { label: "Contact", href: "/contact" },
-] as const;
-
-export const secondaryNavigation = [
-  { label: "Calculator", href: "/calculator" },
 ] as const;
 
 export const footerLinks = [

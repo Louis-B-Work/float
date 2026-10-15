@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { ProductPage } from "@/components/product-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Plant and machinery finance",
-  description:
-    "Plant and machinery finance for UK businesses investing in production, construction and engineering equipment.",
-};
+export const metadata = pageMetadata("/asset-finance/plant-machinery");
 
 export default function PlantMachineryPage() {
   return (

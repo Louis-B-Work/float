@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
 import { LegalList, LegalPage, LegalSection } from "@/components/legal-page";
 import { company } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Complaints procedure",
-  description: "How to make a complaint to Float, what to include, and how and when we will respond.",
-};
+export const metadata = pageMetadata("/complaints");
 
 export default function ComplaintsPage() {
   return (

@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { CategoryPage } from "@/components/category-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Working capital",
-  description:
-    "Working capital finance for UK businesses, including working capital loans and revolving credit facilities, arranged through Float.",
-};
+export const metadata = pageMetadata("/working-capital");
 
 export default function WorkingCapitalPage() {
   return (
@@ -14,7 +10,6 @@ export default function WorkingCapitalPage() {
       intro="Stock, staff, suppliers and the hundred other costs of simply operating. Working capital finance keeps them covered while you get on with the plan."
       image="/images/working-capital-hero.jpg"
       detailImage="/images/working-capital-detail.jpg"
-      childrenLabel="Working capital options"
       detailTitle="Room to operate, not just react."
       detail="When working capital is tight, decisions start getting made around the bank balance instead of the business plan. A facility sized to how you actually trade gives you that room back, so you can say yes to the right things and not be forced into the wrong ones."
       points={[

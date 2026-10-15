@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/logo";
-import { navigation, secondaryNavigation } from "@/lib/site";
+import { navigation } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -56,7 +56,7 @@ export function Header() {
     <header className="site-header sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur">
       <div className="page-shell flex h-[76px] items-center justify-between">
         <Logo />
-        <nav aria-label="Main navigation" className="hidden items-center gap-4 min-[1100px]:flex xl:gap-7">
+        <nav aria-label="Main navigation" className="hidden items-center gap-3 min-[1200px]:flex xl:gap-5 2xl:gap-7">
           {navigation.map((item) =>
             "children" in item ? (
               <div key={item.href} className="group relative">
@@ -90,7 +90,7 @@ export function Header() {
             ),
           )}
         </nav>
-        <div className="hidden items-center gap-3 min-[1100px]:flex">
+        <div className="hidden items-center gap-3 min-[1200px]:flex">
           <Link
             href="/apply"
             className="inline-flex items-center justify-center whitespace-nowrap bg-coral px-4 py-3 text-sm font-extrabold text-navy-deep transition hover:bg-aqua xl:px-6"
@@ -98,7 +98,7 @@ export function Header() {
             Start an enquiry
           </Link>
         </div>
-        <div className="flex items-center gap-2 min-[1100px]:hidden">
+        <div className="flex items-center gap-2 min-[1200px]:hidden">
           <button
             ref={menuButtonRef}
             type="button"
@@ -118,7 +118,7 @@ export function Header() {
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className="fixed inset-x-0 top-[76px] z-40 h-[calc(100dvh-76px)] min-[1100px]:hidden"
+          className="fixed inset-x-0 top-[76px] z-40 h-[calc(100dvh-76px)] min-[1200px]:hidden"
         >
           <button
             type="button"
@@ -154,16 +154,6 @@ export function Header() {
                       </Link>
                     ))}
                 </div>
-              ))}
-              {secondaryNavigation.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block border-b border-line py-4 font-bold text-navy"
-                >
-                  {item.label}
-                </Link>
               ))}
               <Link
                 href="/apply"

@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
 import { LegalList, LegalPage, LegalSection } from "@/components/legal-page";
 import { company } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy policy",
-  description:
-    "How Float Commercial Finance Limited collects, uses, shares and protects personal information, and the rights you have over it.",
-};
+export const metadata = pageMetadata("/privacy");
 
 export default function PrivacyPage() {
   return (
