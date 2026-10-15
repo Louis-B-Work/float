@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
 import { ClipboardList, Handshake, MessagesSquare, ShieldCheck } from "lucide-react";
 import { ButtonLink, CtaBand, PageHero, SectionHeading } from "@/components/ui";
-import { MobileCardRail } from "@/components/mobile-card-rail";
 import { company } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Introducers",
-  description:
-    "Work with Float as an introducer. A straightforward referral relationship for accountants, brokers and advisers with commercial finance clients.",
-  robots: { index: false, follow: false },
-};
+export const metadata = pageMetadata("/introducers");
 
 const audiences = [
   {
@@ -63,15 +57,15 @@ export default function IntroducersPage() {
             title="Who tends to work with us."
             copy="Most introducers come to us because a client asked a funding question they were not set up to answer."
           />
-          <MobileCardRail label="Introducer types" className="mt-10 md:grid-cols-3 md:gap-5 lg:mt-14">
+          <div className="mt-10 grid gap-4 md:grid-cols-3 md:gap-5 lg:mt-14">
             {audiences.map((audience) => (
-              <div key={audience.title} className="float-card min-h-64 p-7 md:min-h-0 md:p-8">
+              <div key={audience.title} className="float-card p-7 md:p-8">
                 <audience.icon size={34} strokeWidth={1.5} className="text-coral" aria-hidden />
-                <h2 className="mt-10 text-xl font-extrabold text-navy">{audience.title}</h2>
+                <h2 className="mt-6 text-xl font-extrabold text-navy md:mt-10">{audience.title}</h2>
                 <p className="mt-4 leading-7 text-ink/65">{audience.copy}</p>
               </div>
             ))}
-          </MobileCardRail>
+          </div>
         </div>
       </section>
 

@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { ProductPage } from "@/components/product-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Merchant cash advance",
-  description:
-    "Merchant cash advance for UK businesses with regular card takings, with repayments that flex in line with trading.",
-};
+export const metadata = pageMetadata("/cash-flow-finance/merchant-cash-advance");
 
 export default function MerchantCashAdvancePage() {
   return (

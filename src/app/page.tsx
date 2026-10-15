@@ -2,10 +2,19 @@ import { ArrowUpRight, Banknote, Check, Factory, Handshake, MessagesSquare, Wall
 import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink, CtaBand, SectionHeading } from "@/components/ui";
-import { MobileCardRail } from "@/components/mobile-card-rail";
 import { FaqCards } from "@/components/faq-cards";
+import { IndustryGrid } from "@/components/industry-grid";
 import { RevealCard } from "@/components/reveal-card";
 import { assetPath } from "@/lib/assets";
+import { pageMetadata } from "@/lib/seo";
+import { navigation } from "@/lib/site";
+
+export const metadata = pageMetadata("/");
+
+type NavItem = (typeof navigation)[number];
+const productCategories = navigation.filter(
+  (item): item is Extract<NavItem, { children: unknown }> => "children" in item,
+);
 
 const steps = [
   {
@@ -77,29 +86,58 @@ export default function Home() {
       <section className="section-space">
         <div className="page-shell">
           <SectionHeading title="Three routes. One honest conversation." copy="Smoothing a gap, funding the everyday or buying the kit that earns its keep. We start with the job the money has to do." />
-          <MobileCardRail label="Finance products" className="mt-10 md:grid-cols-3 md:gap-5 lg:mt-14">
+          <div className="mt-10 grid gap-4 md:grid-cols-3 md:gap-5 lg:mt-14">
             {[
-              { icon: Banknote, title: "Cash flow finance", copy: "Bridge the gap between paying for work and getting paid for it.", href: "/cash-flow-finance", tone: "bg-sky" },
-              { icon: Wallet, title: "Working capital", copy: "Keep stock, staff and suppliers covered while you plan the next move.", href: "/working-capital", tone: "bg-mist" },
-              { icon: Factory, title: "Asset finance", copy: "Put vehicles, machinery and equipment to work without draining cash.", href: "/asset-finance", tone: "bg-aqua" },
-            ].map((product) => (
-              <Link key={product.href} href={product.href} className={`${product.tone} group min-h-80 p-8 md:min-h-96 md:p-10`}>
-                <product.icon size={42} strokeWidth={1.5} className="text-navy" aria-hidden />
-                <h3 className="display mt-24 text-3xl font-extrabold text-navy-deep md:text-4xl">{product.title}</h3>
-                <p className="mt-5 max-w-lg leading-7 text-navy-deep/75">{product.copy}</p>
-                <span className="mt-8 inline-flex items-center gap-2 text-sm font-extrabold text-navy">
-                  Explore this product <ArrowUpRight size={18} className="transition group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </span>
-              </Link>
-            ))}
-          </MobileCardRail>
+              { icon: Banknote, copy: "Bridge the gap between paying for work and getting paid for it.", href: "/cash-flow-finance", tone: "bg-sky" },
+              { icon: Wallet, copy: "Keep stock, staff and suppliers covered while you plan the next move.", href: "/working-capital", tone: "bg-mist" },
+              { icon: Factory, copy: "Put vehicles, machinery and equipment to work without draining cash.", href: "/asset-finance", tone: "bg-aqua" },
+            ].map((product) => {
+              const category = productCategories.find((item) => item.href === product.href)!;
+              return (
+                <div key={product.href} className={`${product.tone} group relative flex flex-col p-7 md:min-h-96 md:p-10`}>
+                  <product.icon size={42} strokeWidth={1.5} className="text-navy" aria-hidden />
+                  <h3 className="display mt-6 text-3xl font-extrabold text-navy-deep md:mt-16 md:text-4xl">
+                    <Link href={product.href} className="after:absolute after:inset-0">
+                      {category.label}
+                    </Link>
+                  </h3>
+                  <p className="mt-5 max-w-lg leading-7 text-navy-deep/75">{product.copy}</p>
+                  <ul className="relative z-10 mt-6 flex flex-wrap gap-2" aria-label={`${category.label} options`}>
+                    {category.children.map((child) => (
+                      <li key={child.href}>
+                        <Link href={child.href} className="block border border-navy/25 px-3 py-1.5 text-xs font-bold text-navy-deep transition hover:border-navy hover:bg-white/40">
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-8 text-sm font-extrabold text-navy" aria-hidden>
+                    Explore this product <ArrowUpRight size={18} className="transition group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-space bg-mist">
+        <div className="page-shell">
+          <SectionHeading
+            title="Funding for every kind of business."
+            copy="From the café on the corner to a regional haulier, here is how businesses like yours tend to use commercial finance."
+          />
+          <IndustryGrid />
+          <p className="mt-6 text-sm leading-6 text-ink/60">
+            Illustrative examples only. Whether finance is available, and on what terms, depends on each lender&apos;s assessment.
+          </p>
         </div>
       </section>
 
       <section className="section-space bg-navy-deep">
         <div className="page-shell">
           <SectionHeading title="Backed by people, not a form." copy="Commercial finance gets complicated fast. Our job is to cut through it and tell you where you actually stand." light />
-          <MobileCardRail label="How Float works" className="mt-12 md:grid-cols-3 md:gap-5 lg:mt-16">
+          <div className="mt-12 grid gap-4 md:grid-cols-3 md:gap-5 lg:mt-16">
             {steps.map((step, index) => (
               <RevealCard
                 key={step.title}
@@ -107,7 +145,7 @@ export default function Home() {
                 title={step.title}
                 summary={step.copy}
                 icon={step.icon}
-                className="p-8 md:p-9 lg:min-h-[35.5rem] lg:p-10 xl:min-h-[32rem] 2xl:min-h-[29.5rem]"
+                className="p-7 md:p-9 lg:min-h-[35.5rem] lg:p-10 xl:min-h-[32rem] 2xl:min-h-[29.5rem]"
               >
                 <ul className="mt-6 space-y-3 border-t border-white/15 pt-6">
                   {step.more.map((item) => (
@@ -119,7 +157,7 @@ export default function Home() {
                 </ul>
               </RevealCard>
             ))}
-          </MobileCardRail>
+          </div>
         </div>
       </section>
 

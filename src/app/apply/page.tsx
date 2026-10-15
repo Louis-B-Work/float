@@ -1,13 +1,9 @@
-import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { Suspense } from "react";
 import { ContactForm } from "@/components/contact-form";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Start an enquiry",
-  description:
-    "Start a commercial finance enquiry with Float. Tell us what your business is planning and we will explain the options.",
-};
+export const metadata = pageMetadata("/apply");
 
 const assurances = [
   "Enquiring will not affect your credit score",

@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalList, LegalPage, LegalSection } from "@/components/legal-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Cookie policy",
-  description: "How the Float website uses cookies and similar technologies, and how you can control them.",
-};
+export const metadata = pageMetadata("/cookies");
 
 export default function CookiePage() {
   return (

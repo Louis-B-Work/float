@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalList, LegalPage, LegalSection } from "@/components/legal-page";
 import { company } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms of use",
-  description: "The terms on which you may use the Float website, including the calculator and enquiry form.",
-};
+export const metadata = pageMetadata("/terms");
 
 export default function TermsPage() {
   return (

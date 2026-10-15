@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { ProductPage } from "@/components/product-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Asset refinance",
-  description:
-    "Asset refinance for UK businesses looking to release value from equipment, machinery and vehicles they already own.",
-};
+export const metadata = pageMetadata("/asset-finance/refinance");
 
 export default function AssetRefinancePage() {
   return (

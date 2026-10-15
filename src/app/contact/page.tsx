@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Suspense } from "react";
 import { ContactForm } from "@/components/contact-form";
 import { company } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Contact", description: "Tell Float what your business needs and start a commercial finance enquiry." };
+export const metadata = pageMetadata("/contact");
 
 export default function ContactPage() {
   return (

@@ -106,71 +106,6 @@ textarea {
   opacity: 1;
 }
 
-.mobile-card-rail {
-  display: grid;
-  grid-auto-columns: min(76vw, 22rem);
-  grid-auto-flow: column;
-  gap: 1rem;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  scroll-padding-inline: 1px;
-  scroll-snap-type: inline mandatory;
-  scrollbar-width: none;
-}
-
-.mobile-card-rail > * {
-  scroll-snap-align: start;
-}
-
-.mobile-card-rail::-webkit-scrollbar {
-  display: none;
-}
-
-.mobile-card-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.1rem;
-  padding-top: 0.75rem;
-}
-
-.mobile-card-dots button {
-  display: grid;
-  width: 2.5rem;
-  height: 2.5rem;
-  place-items: center;
-  border: 0;
-  background: transparent;
-}
-
-.mobile-card-dots button::before {
-  width: 0.55rem;
-  height: 0.55rem;
-  border: 1px solid var(--navy);
-  border-radius: 999px;
-  background: transparent;
-  content: "";
-  transition: width 180ms ease, background-color 180ms ease;
-}
-
-.mobile-card-dots button.is-active::before {
-  width: 1.5rem;
-  border-color: var(--coral);
-  background: var(--coral);
-}
-
-@media (min-width: 768px) {
-  .mobile-card-rail {
-    grid-auto-columns: auto;
-    grid-auto-flow: row;
-    overflow: visible;
-    scroll-snap-type: none;
-  }
-
-  .mobile-card-dots {
-    display: none;
-  }
-}
-
 .reveal-card {
   --reveal-accent: var(--aqua);
   --reveal-hover-border: rgba(94, 206, 200, 0.55);
@@ -359,10 +294,23 @@ textarea {
     background: #0b1d31;
     color: #e9f3fa;
   }
+}
 
-  .mobile-card-dots button::before {
-    border-color: #8ca4bc;
+/* Starts sunk below the other letters' baseline (SVG units), then drifts up to its raised position. */
+@keyframes logo-float-o {
+  0% {
+    transform: translateY(64px);
   }
+  75% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.logo-float-o {
+  animation: logo-float-o 1.8s cubic-bezier(0.33, 1, 0.68, 1) 0.3s both;
 }
 
 @media (prefers-reduced-motion: reduce) {

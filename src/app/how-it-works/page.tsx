@@ -1,13 +1,8 @@
-import type { Metadata } from "next";
 import { Banknote, FileSearch, Handshake, MessagesSquare } from "lucide-react";
 import { CtaBand, PageHero, SectionHeading } from "@/components/ui";
-import { MobileCardRail } from "@/components/mobile-card-rail";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "How it works",
-  description:
-    "How Float works: a useful conversation, a focused lender search and a clear explanation of the options before you decide.",
-};
+export const metadata = pageMetadata("/how-it-works");
 
 const steps = [
   {
@@ -68,18 +63,18 @@ export default function HowItWorksPage() {
             title="Four steps. No mystery."
             copy="You should always know where your enquiry has got to and what happens next."
           />
-          <MobileCardRail label="How Float works" className="mt-10 md:grid-cols-2 md:gap-5 lg:mt-14">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-5 lg:mt-14">
             {steps.map((step, index) => (
-              <div key={step.title} className="float-card min-h-72 p-8 md:min-h-0 md:p-10">
+              <div key={step.title} className="float-card p-7 md:p-10">
                 <div className="flex items-center justify-between">
                   <step.icon size={36} strokeWidth={1.5} className="text-coral" aria-hidden />
                   <span className="display text-5xl font-extrabold text-navy/15">{String(index + 1).padStart(2, "0")}</span>
                 </div>
-                <h2 className="mt-10 text-xl font-extrabold text-navy">{step.title}</h2>
+                <h2 className="mt-6 text-xl font-extrabold text-navy md:mt-10">{step.title}</h2>
                 <p className="mt-4 leading-7 text-ink/65">{step.copy}</p>
               </div>
             ))}
-          </MobileCardRail>
+          </div>
         </div>
       </section>
 

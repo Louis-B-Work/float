@@ -2,7 +2,6 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink, CtaBand, PageHero, SectionHeading } from "@/components/ui";
-import { MobileCardRail } from "@/components/mobile-card-rail";
 import { assetPath } from "@/lib/assets";
 
 export type CategoryChild = {
@@ -22,7 +21,6 @@ export function CategoryPage({
   detailTitle,
   detail,
   points,
-  childrenLabel = "Finance options",
 }: {
   title: string;
   intro: string;
@@ -32,7 +30,6 @@ export function CategoryPage({
   detailTitle: string;
   detail: string;
   points: string[];
-  childrenLabel?: string;
 }) {
   return (
     <>
@@ -44,12 +41,12 @@ export function CategoryPage({
             title="Pick the option that fits the job."
             copy="Each route behaves differently in practice. We start with what the money has to do, then explain where they differ."
           />
-          <MobileCardRail label={childrenLabel} className="mt-10 md:grid-cols-2 md:gap-5 lg:mt-14">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-5 lg:mt-14">
             {childPages.map((child, index) => (
               <Link
                 key={child.href}
                 href={child.href}
-                className={`${tones[index % tones.length]} group min-h-64 p-8 md:min-h-72 md:p-10`}
+                className={`${tones[index % tones.length]} group p-7 md:min-h-72 md:p-10`}
               >
                 <h2 className="display text-3xl font-extrabold text-navy-deep md:text-4xl">{child.title}</h2>
                 <p className="mt-4 max-w-lg leading-7 text-navy-deep/75">{child.copy}</p>
@@ -59,7 +56,7 @@ export function CategoryPage({
                 </span>
               </Link>
             ))}
-          </MobileCardRail>
+          </div>
         </div>
       </section>
 

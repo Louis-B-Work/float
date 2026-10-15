@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { CategoryPage } from "@/components/category-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Cash flow finance",
-  description:
-    "Cash flow finance options for UK businesses, including business cash flow loans and merchant cash advance, arranged through Float.",
-};
+export const metadata = pageMetadata("/cash-flow-finance");
 
 export default function CashFlowFinancePage() {
   return (
@@ -14,7 +10,6 @@ export default function CashFlowFinancePage() {
       intro="Profitable on paper but tight in the bank? Cash flow finance bridges the gap between paying for work and getting paid for it."
       image="/images/cash-flow-hero.jpg"
       detailImage="/images/cash-flow-detail.jpg"
-      childrenLabel="Cash flow finance options"
       detailTitle="A timing problem is not a money problem."
       detail="Long payment terms, a seasonal peak, an unexpected bill or an order bigger than usual. Any of them can squeeze cash long before the income lands. Cash flow finance smooths that timing, and the structure that suits you depends on how the business actually trades."
       points={[

@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalList, LegalPage, LegalSection } from "@/components/legal-page";
 import { company } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Commission disclosure",
-  description: "How Float is paid when a commercial finance introduction completes, and what that means for you.",
-};
+export const metadata = pageMetadata("/commission-disclosure");
 
 export default function CommissionDisclosurePage() {
   return (

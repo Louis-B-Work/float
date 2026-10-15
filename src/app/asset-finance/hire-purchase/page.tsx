@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { ProductPage } from "@/components/product-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Hire purchase",
-  description:
-    "Hire purchase agreements for UK businesses acquiring vehicles, machinery and equipment with ownership at the end of the term.",
-};
+export const metadata = pageMetadata("/asset-finance/hire-purchase");
 
 export default function HirePurchasePage() {
   return (

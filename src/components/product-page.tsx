@@ -1,7 +1,6 @@
 import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import { ButtonLink, CtaBand, PageHero, SectionHeading } from "@/components/ui";
-import { MobileCardRail } from "@/components/mobile-card-rail";
 import { RevealCard } from "@/components/reveal-card";
 import { assetPath } from "@/lib/assets";
 
@@ -30,7 +29,7 @@ export function ProductPage({
       <section className="section-space">
         <div className="page-shell">
           <SectionHeading title="What businesses actually use it for." />
-          <MobileCardRail label="Common finance uses" className="mt-10 md:grid-cols-2 md:gap-5 lg:mt-12 lg:grid-cols-4">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-5 lg:mt-12 lg:grid-cols-4">
             {uses.map((use, index) => (
               <RevealCard
                 key={use.title}
@@ -42,7 +41,7 @@ export function ProductPage({
                 <p className="mt-4 border-t border-line pt-4 leading-7 text-ink/65">{use.copy}</p>
               </RevealCard>
             ))}
-          </MobileCardRail>
+          </div>
         </div>
       </section>
       <section className="section-space bg-mist">

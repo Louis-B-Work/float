@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { ProductPage } from "@/components/product-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Leasing",
-  description:
-    "Equipment and vehicle leasing for UK businesses that want access to assets without buying them outright.",
-};
+export const metadata = pageMetadata("/asset-finance/leasing");
 
 export default function LeasingPage() {
   return (

@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { ProductPage } from "@/components/product-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Business cash flow loans",
-  description:
-    "Business cash flow loans for UK companies needing capital for working capital, stock, growth or a time-sensitive opportunity.",
-};
+export const metadata = pageMetadata("/cash-flow-finance/business-loans");
 
 export default function BusinessCashFlowLoansPage() {
   return (

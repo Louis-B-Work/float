@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { ProductPage } from "@/components/product-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Revolving credit facility",
-  description:
-    "Revolving credit facilities for UK businesses that need flexible access to working capital within an agreed limit.",
-};
+export const metadata = pageMetadata("/working-capital/revolving-credit");
 
 export default function RevolvingCreditPage() {
   return (

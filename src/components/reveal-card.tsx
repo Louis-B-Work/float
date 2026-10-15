@@ -51,7 +51,7 @@ export function RevealCard({
           </span>
         </div>
       </div>
-      <div className="mt-auto pt-10">
+      <div className="mt-auto pt-6 md:pt-10">
         <h3 className={`text-xl font-extrabold md:text-2xl ${dark ? "text-white" : "text-navy-deep"}`}>{title}</h3>
         {summary && <p className={`mt-4 leading-7 lg:min-h-[5.25rem] ${dark ? "text-white/65" : "text-ink/65"}`}>{summary}</p>}
         <div className="reveal-card-more">

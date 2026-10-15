@@ -9,19 +9,30 @@ const wordmarkPaths = [
   "M589.11 164.61L589.11 68.11L619.98 68.11L619.98 36.77L522.86 36.77L522.86 68.11L553.73 68.11L553.73 164.61Z",
 ];
 
-export function FloatWordmark({ className = "", title }: { className?: string; title?: string }) {
+const RAISED_O_INDEX = 2;
+
+export function FloatWordmark({
+  className = "",
+  title,
+  animated = false,
+}: {
+  className?: string;
+  title?: string;
+  animated?: boolean;
+}) {
   return (
     <svg
       viewBox="0 0 619.98 164.61"
       fill="currentColor"
       className={className}
+      overflow={animated ? "visible" : undefined}
       role={title ? "img" : undefined}
       aria-label={title}
       aria-hidden={title ? undefined : true}
       focusable="false"
     >
-      {wordmarkPaths.map((d) => (
-        <path key={d} d={d} />
+      {wordmarkPaths.map((d, i) => (
+        <path key={d} d={d} className={animated && i === RAISED_O_INDEX ? "logo-float-o" : undefined} />
       ))}
     </svg>
   );
@@ -30,7 +41,7 @@ export function FloatWordmark({ className = "", title }: { className?: string; t
 export function Logo({ light = false }: { light?: boolean }) {
   return (
     <Link href="/" className={`inline-flex items-center py-2 ${light ? "text-white" : "text-ink"}`} aria-label="Float home">
-      <FloatWordmark className="h-7 w-auto md:h-8" />
+      <FloatWordmark className="h-7 w-auto md:h-8" animated />
     </Link>
   );
 }

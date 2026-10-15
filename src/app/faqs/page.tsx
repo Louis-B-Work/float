@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
 import { CtaBand, PageHero } from "@/components/ui";
 import { FaqCards, type Faq } from "@/components/faq-cards";
+import { JsonLd } from "@/components/json-ld";
+import { faqPageJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "FAQs",
-  description:
-    "Common questions about commercial finance, the Float process, eligibility, documents and how Float is paid.",
-};
+export const metadata = pageMetadata("/faqs");
 
 const groups: { heading: string; faqs: Faq[] }[] = [
   {
@@ -84,6 +81,7 @@ const groups: { heading: string; faqs: Faq[] }[] = [
 export default function FaqsPage() {
   return (
     <>
+      <JsonLd data={faqPageJsonLd(groups.flatMap((group) => group.faqs))} />
       <PageHero
         title="The questions business owners actually ask."
         copy="Straight answers on how commercial finance works, what lenders look for and where Float fits in. Select a question to reveal the answer."
