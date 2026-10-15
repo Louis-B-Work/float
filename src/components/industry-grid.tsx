@@ -114,7 +114,7 @@ const industries: Industry[] = [
 
 export function IndustryGrid() {
   return (
-    <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+    <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 xl:grid-cols-6">
       {industries.map((industry) => (
         <li key={industry.name}>
           <Link
@@ -127,13 +127,13 @@ export function IndustryGrid() {
                 alt={industry.alt}
                 fill
                 className="object-cover transition duration-500 group-hover:scale-105"
-                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 96px"
+                sizes="(min-width: 1280px) 17vw, (min-width: 1024px) 25vw, (min-width: 640px) 50vw, 96px"
               />
             </div>
             <div className="absolute inset-0 hidden bg-[linear-gradient(to_top,rgb(13_34_61/0.96)_0%,rgb(13_34_61/0.75)_42%,rgb(13_34_61/0)_72%)] sm:block" aria-hidden />
-            <div className="min-w-0 sm:absolute sm:inset-x-0 sm:bottom-0 sm:p-5">
-              <h3 className="display text-lg font-extrabold leading-tight text-navy-deep sm:text-xl sm:text-white">{industry.name}</h3>
-              <p className="mt-1.5 text-sm leading-6 text-ink/70 sm:text-white/80">{industry.example}</p>
+            <div className="min-w-0 sm:absolute sm:inset-x-0 sm:bottom-0 sm:p-5 xl:p-4">
+              <h3 className="display text-lg font-extrabold leading-tight text-navy-deep sm:text-xl sm:text-white xl:text-lg">{industry.name}</h3>
+              <p className="mt-1.5 text-sm leading-6 text-ink/70 sm:text-white/80 xl:text-[0.8125rem] xl:leading-5">{industry.example}</p>
               <span className="mt-2 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-[0.08em] text-navy sm:mt-3 sm:text-aqua">
                 {industry.product}
                 <ArrowUpRight size={14} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />

@@ -41,7 +41,7 @@ export function SectionHeading({
   compact?: boolean;
 }) {
   return (
-    <div className="max-w-3xl">
+    <div className="max-w-6xl">
       <h2 className={`display balance font-extrabold leading-[1.05] ${compact ? "text-3xl md:text-4xl" : "text-4xl md:text-6xl"} ${light ? "text-white" : "text-navy-deep"}`}>
         {title}
       </h2>
