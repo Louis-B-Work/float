@@ -20,6 +20,9 @@ export default function TermsPage() {
           Float is a commercial finance broker, not a lender. We introduce businesses to a panel of lenders for non-regulated commercial finance. We do not lend money, make lending decisions or set the terms of any finance. Our panel does not cover every lender in the market.
         </p>
         <p>
+          Sole traders and partnerships of fewer than four partners can only be helped where the amount needed is over £25,000.
+        </p>
+        <p>
           We may receive commission from a lender if finance completes. How this works is explained in our{" "}
           <Link href="/commission-disclosure" className="font-bold text-navy underline">commission disclosure</Link>, and the amount and basis will be confirmed to you before you commit.
         </p>

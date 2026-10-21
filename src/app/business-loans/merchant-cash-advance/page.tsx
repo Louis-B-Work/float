@@ -1,7 +1,8 @@
 import { ProductPage } from "@/components/product-page";
+import { amountRanges, formatAmountRange } from "@/lib/products";
 import { pageMetadata } from "@/lib/seo";
 
-export const metadata = pageMetadata("/cash-flow-finance/merchant-cash-advance");
+export const metadata = pageMetadata("/business-loans/merchant-cash-advance");
 
 export default function MerchantCashAdvancePage() {
   return (
@@ -10,6 +11,8 @@ export default function MerchantCashAdvancePage() {
       intro="Repayments come out as a share of your card sales rather than a fixed monthly figure, so quiet weeks cost you less."
       image="/images/mca-hero.jpg"
       detailImage="/images/mca-detail.jpg"
+      amount={formatAmountRange(amountRanges.merchantCashAdvance)}
+      calculatorHref="/calculator?type=merchant-cash-advance"
       uses={[
         { title: "Retail and hospitality", copy: "Shops, cafés, bars and restaurants taking most of their revenue by card." },
         { title: "Salons and clinics", copy: "Appointment-led businesses with steady card takings week to week." },

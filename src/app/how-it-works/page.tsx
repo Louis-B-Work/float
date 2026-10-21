@@ -1,31 +1,10 @@
-import { Banknote, FileSearch, Handshake, MessagesSquare } from "lucide-react";
 import { CtaBand, PageHero, SectionHeading } from "@/components/ui";
+import { processSteps } from "@/lib/process";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("/how-it-works");
 
-const steps = [
-  {
-    icon: MessagesSquare,
-    title: "Tell us the plan",
-    copy: "What the funding is for, how trading has been and when you need it by. The more context we get, the sharper the search.",
-  },
-  {
-    icon: FileSearch,
-    title: "We do the legwork",
-    copy: "We work out which lenders are genuinely worth approaching for a business like yours, and which are a waste of everyone's time.",
-  },
-  {
-    icon: Handshake,
-    title: "We lay out the options",
-    copy: "Where there are workable routes, we explain how they differ in plain English, including the trade-offs and anything that deserves a second look.",
-  },
-  {
-    icon: Banknote,
-    title: "You decide",
-    copy: "Your call, entirely. There is no obligation to proceed, and we would rather you walked away than took something that does not fit.",
-  },
-];
+const steps = processSteps;
 
 const expectations = [
   {
@@ -40,7 +19,7 @@ const expectations = [
   {
     title: "What you can expect from us",
     points: [
-      "A straight answer on whether we can help",
+      "A clear yes or no on whether we can help",
       "Options explained without the jargon",
       "Full disclosure of how we are paid if finance completes",
       "Zero pressure to proceed with anything",

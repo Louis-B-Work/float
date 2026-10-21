@@ -1,13 +1,13 @@
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import { ImagePlaceholder } from "@/components/image-placeholder";
 import { ButtonLink, CtaBand, PageHero, SectionHeading } from "@/components/ui";
-import { assetPath } from "@/lib/assets";
 
 export type CategoryChild = {
   title: string;
   copy: string;
   href: string;
+  amount?: string;
 };
 
 const tones = ["bg-sky", "bg-aqua", "bg-mist"];
@@ -17,6 +17,7 @@ export function CategoryPage({
   intro,
   image,
   detailImage,
+  calculatorHref,
   childPages,
   detailTitle,
   detail,
@@ -26,6 +27,8 @@ export function CategoryPage({
   intro: string;
   image: string;
   detailImage: string;
+  /** Set where a calculator covers this category. */
+  calculatorHref?: string;
   childPages: CategoryChild[];
   detailTitle: string;
   detail: string;
@@ -41,16 +44,19 @@ export function CategoryPage({
             title="Pick the option that fits the job."
             copy="Each route behaves differently in practice. We start with what the money has to do, then explain where they differ."
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-5 lg:mt-14">
+          <div className={`mt-10 grid gap-4 md:grid-cols-2 md:gap-5 lg:mt-14 ${childPages.length === 3 ? "lg:grid-cols-3" : ""}`}>
             {childPages.map((child, index) => (
               <Link
                 key={child.href}
                 href={child.href}
-                className={`${tones[index % tones.length]} group p-7 md:min-h-72 md:p-10`}
+                className={`${tones[index % tones.length]} group flex flex-col p-7 md:min-h-72 md:p-10`}
               >
                 <h2 className="display text-3xl font-extrabold text-navy-deep md:text-4xl">{child.title}</h2>
                 <p className="mt-4 max-w-lg leading-7 text-navy-deep/75">{child.copy}</p>
-                <span className="mt-8 inline-flex items-center gap-2 text-sm font-extrabold text-navy">
+                {child.amount && (
+                  <p className="mt-5 border-t border-navy/15 pt-4 text-sm font-semibold leading-6 text-navy-deep">{child.amount}</p>
+                )}
+                <span className="mt-auto inline-flex items-center gap-2 pt-8 text-sm font-extrabold text-navy">
                   Explore this option
                   <ArrowUpRight size={18} className="transition group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden />
                 </span>
@@ -63,7 +69,7 @@ export function CategoryPage({
       <section className="section-space bg-mist">
         <div className="page-shell grid items-center gap-14 lg:grid-cols-2">
           <div className="relative min-h-80 overflow-hidden sm:min-h-[400px] lg:min-h-[500px]">
-            <Image src={assetPath(detailImage)} alt="" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+            <ImagePlaceholder slot={detailImage} />
           </div>
           <div>
             <h2 className="display text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-5xl">{detailTitle}</h2>
@@ -78,7 +84,7 @@ export function CategoryPage({
             </ul>
             <div className="mt-9 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
               <ButtonLink href="/apply">Start an enquiry</ButtonLink>
-              <ButtonLink href="/calculator" secondary>Estimate a range</ButtonLink>
+              {calculatorHref && <ButtonLink href={calculatorHref} secondary>Work out the cost</ButtonLink>}
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Plus } from "lucide-react";
-import { useState } from "react";
+import { useId, useState } from "react";
 
 export type Faq = {
   question: string;
@@ -12,7 +12,7 @@ export const defaultFaqs: Faq[] = [
   {
     question: "What types of business finance can Float help with?",
     answer:
-      "Cash flow finance, working capital and asset finance. We work out what the funding needs to achieve, then look at the relevant options from our lender panel.",
+      "Business loans, cash flow finance, working capital and asset finance. We work out what the funding needs to achieve, then look at the relevant options from our lender panel.",
   },
   {
     question: "How quickly could funding be arranged?",
@@ -22,7 +22,7 @@ export const defaultFaqs: Faq[] = [
   {
     question: "Can a new or small business apply?",
     answer:
-      "Possibly. Lenders take very different views on trading history, turnover and affordability. Tell us the situation and we will say whether there is a realistic route.",
+      "Possibly. Lenders take very different views on trading history, turnover and affordability. Tell us the situation and we will say whether there is a realistic route. Sole traders and partnerships of fewer than four partners can only be helped where the amount needed is over £25,000.",
   },
   {
     question: "Will an enquiry affect my credit score?",
@@ -43,6 +43,7 @@ export const defaultFaqs: Faq[] = [
 
 export function FaqCards({ faqs = defaultFaqs }: { faqs?: Faq[] }) {
   const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+  const id = useId();
 
   return (
     <div className="mt-7 grid grid-cols-1 gap-2">
@@ -55,7 +56,7 @@ export function FaqCards({ faqs = defaultFaqs }: { faqs?: Faq[] }) {
             type="button"
             className="flex w-full cursor-pointer items-start justify-between gap-5 p-4 text-left"
             aria-expanded={openQuestion === faq.question}
-            aria-controls={`faq-${index}`}
+            aria-controls={`${id}-faq-${index}`}
             onClick={() =>
               setOpenQuestion((current) =>
                 current === faq.question ? null : faq.question,
@@ -74,7 +75,7 @@ export function FaqCards({ faqs = defaultFaqs }: { faqs?: Faq[] }) {
             </span>
           </button>
           <div
-            id={`faq-${index}`}
+            id={`${id}-faq-${index}`}
             className={`faq-answer-shell ${
               openQuestion === faq.question ? "is-open" : ""
             }`}

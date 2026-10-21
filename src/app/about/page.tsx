@@ -13,7 +13,7 @@ export default function AboutPage() {
           <h2 className="display balance text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-6xl">One point of contact, start to finish.</h2>
           <div className="max-w-2xl lg:pt-2">
             <p className="text-xl font-semibold leading-9 text-navy-deep md:text-2xl md:leading-10">
-              Too much of this industry runs on vague answers and forms that go nowhere. We built Float around the opposite: understand the business first, be clear about what is realistic, and say so early when something is not going to fly.
+              Too much of this industry runs on vague answers and forms that go nowhere. We built Float to do the opposite: understand the business first, be clear about what is realistic, and say so early when something is not going to fly.
             </p>
             <p className="mt-8 border-t border-line pt-8 text-lg leading-8 text-ink/65">
               As a broker we know what lenders want to see and which ones are worth approaching for a business like yours. You get one person guiding the enquiry who explains the choices, chases the detail and keeps things moving.
@@ -28,7 +28,7 @@ export default function AboutPage() {
             {[
               { icon: MessagesSquare, title: "Speak plainly", copy: "No jargon for the sake of it. We explain the practical differences and the trade-offs that actually matter." },
               { icon: Compass, title: "Stay focused", copy: "We use your goals and circumstances to keep the search relevant, rather than firing it at the whole market." },
-              { icon: Eye, title: "Be straight with you", copy: "We broker finance, we may earn commission, and we cannot guarantee approval. You will hear all of that upfront." },
+              { icon: Eye, title: "Be upfront", copy: "We broker finance, we may earn commission, and we cannot guarantee approval. You will hear all of that upfront." },
             ].map((value) => (
               <div key={value.title} className="float-card p-7 md:p-8">
                 <value.icon size={34} className="text-coral" strokeWidth={1.5} aria-hidden />

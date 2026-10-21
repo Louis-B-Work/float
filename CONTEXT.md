@@ -2,6 +2,8 @@
 
 Float Commercial Finance Limited is a UK commercial finance broker. It introduces businesses to a panel of lenders for non-regulated commercial finance; it does not lend.
 
+Float is not FCA regulated. Lending of £25,000 or less to sole traders and partnerships of fewer than four partners is regulated, so Float can only help those businesses where the amount needed is over £25,000.
+
 ## Language
 
 ### The business
@@ -30,9 +32,13 @@ _Avoid_: Fee, kickback, procuration fee
 
 The three confirmed top-level categories. Each is a category of finance, not a single product.
 
-**Cash flow finance**:
-Finance that bridges the gap between paying for work and being paid for it.
-_Avoid_: Short-term lending, bridging
+**Business loans**:
+Borrowing a set amount for a business purpose, unsecured or secured against property or other business assets. Also the menu home of merchant cash advance. "Cash flow finance" survives only as search-facing page copy, not as a category name.
+_Avoid_: Cash flow finance (as a category name), short-term lending, bridging
+
+**Merchant cash advance**:
+An advance repaid as a share of future card takings, with a fixed total cost (a factor rate) rather than an interest rate. Filed under **Business loans** in the menu.
+_Avoid_: MCA loan, card loan
 
 **Working capital**:
 Finance that covers the ordinary running costs of trading, such as stock, staff and suppliers.

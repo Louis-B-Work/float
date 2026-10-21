@@ -19,27 +19,35 @@ export const pages = {
     label: "Home",
     title: "Float | Commercial finance broker for UK businesses",
     description:
-      "Cash flow finance, working capital and asset finance for UK businesses. One conversation, a focused lender search and a straight answer either way.",
+      "Business loans, working capital and asset finance for UK businesses. One conversation, a focused lender search and a straight answer either way.",
     priority: 1,
     changeFrequency: "weekly",
   },
-  "/cash-flow-finance": {
-    label: "Cash flow finance",
-    title: "Cash flow finance for UK businesses",
+  "/business-loans": {
+    label: "Business loans",
+    title: "Business loans and cash flow finance",
     description:
-      "Cash flow finance for UK businesses, including cash flow loans and merchant cash advance. Bridge the gap between paying for work and getting paid.",
+      "Business loans and cash flow finance for UK businesses: unsecured and secured business loans and merchant cash advance, compared through Float.",
     priority: 0.9,
     changeFrequency: "monthly",
   },
-  "/cash-flow-finance/business-loans": {
-    label: "Business cash flow loans",
-    title: "Business cash flow loans",
+  "/business-loans/unsecured": {
+    label: "Unsecured business loans",
+    title: "Unsecured business loans and cash flow loans",
     description:
-      "Business cash flow loans for UK companies that need capital for stock, growth, seasonal gaps or a time-sensitive opportunity. Enquire with Float.",
+      "Unsecured business loans and cash flow loans for UK companies needing capital for stock, growth, seasonal gaps or an opportunity. Enquire with Float.",
     priority: 0.8,
     changeFrequency: "monthly",
   },
-  "/cash-flow-finance/merchant-cash-advance": {
+  "/business-loans/secured": {
+    label: "Secured business loans",
+    title: "Secured business loans for UK businesses",
+    description:
+      "Secured business loans for UK companies borrowing larger amounts against property or other business assets. Find out what lenders could offer with Float.",
+    priority: 0.8,
+    changeFrequency: "monthly",
+  },
+  "/business-loans/merchant-cash-advance": {
     label: "Merchant cash advance",
     title: "Merchant cash advance for UK businesses",
     description:
@@ -129,9 +137,9 @@ export const pages = {
   },
   "/calculator": {
     label: "Calculator",
-    title: "Business finance calculator: what could you borrow?",
+    title: "Business loan and merchant cash advance calculator",
     description:
-      "Free business finance calculator. Get an indicative borrowing range for a UK business loan or asset finance in about a minute, with no credit check.",
+      "Free business loan repayment and merchant cash advance cost calculator. See illustrative monthly costs and totals in seconds, with no credit check.",
     priority: 0.9,
     changeFrequency: "monthly",
   },
@@ -180,7 +188,7 @@ export const pages = {
     label: "Contact",
     title: "Contact Float",
     description:
-      "Contact Float about cash flow finance, working capital or asset finance for your business. Email us or send a message and we will get back to you.",
+      "Contact Float about business loans, working capital or asset finance for your business. Email us or send a message and we will get back to you.",
     priority: 0.6,
     changeFrequency: "monthly",
   },
@@ -320,7 +328,7 @@ export function organizationJsonLd() {
     },
     areaServed: { "@type": "Country", name: "United Kingdom" },
     identifier: { "@type": "PropertyValue", propertyID: "Companies House number", value: company.companyNumber },
-    knowsAbout: ["Cash flow finance", "Working capital finance", "Asset finance", "Commercial finance"],
+    knowsAbout: ["Business loans", "Cash flow finance", "Merchant cash advance", "Working capital finance", "Asset finance", "Commercial finance"],
   };
 }
 

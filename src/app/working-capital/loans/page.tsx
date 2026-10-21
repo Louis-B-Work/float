@@ -10,6 +10,7 @@ export default function WorkingCapitalLoansPage() {
       intro="A defined amount behind the ordinary running of the business, with a repayment profile you can actually budget around."
       image="/images/wc-loans-hero.jpg"
       detailImage="/images/wc-loans-detail.jpg"
+      calculatorHref="/calculator"
       uses={[
         { title: "Supplier payments", copy: "Pay suppliers on time, or early where it earns a better price." },
         { title: "Payroll and staffing", copy: "Keep wages covered through a lumpy month or while you take on new staff." },
