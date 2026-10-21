@@ -9,7 +9,11 @@ import { navigation } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
   const pathname = usePathname();
+  const currentPath = pathname.replace(/\/+$/, "") || "/";
+  const activeClass = "text-navy-deep underline decoration-2 underline-offset-8";
+  const isActive = (href: string) => currentPath === href || currentPath.startsWith(`${href}/`);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuDialogRef = useRef<HTMLDivElement>(null);
 
@@ -20,18 +24,20 @@ export function Header() {
     document.body.style.overflow = "hidden";
     const dialog = menuDialogRef.current;
     const menuButton = menuButtonRef.current;
-    const focusable = dialog?.querySelectorAll<HTMLElement>(
+    const getFocusable = () => Array.from(dialog?.querySelectorAll<HTMLElement>(
       'a[href], button:not([tabindex="-1"])',
-    );
-    focusable?.[0]?.focus();
+    ) ?? []).filter((element) => element.getClientRects().length > 0);
+    getFocusable()[0]?.focus();
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setOpen(false);
+        setExpandedGroup(null);
         return;
       }
 
-      if (event.key !== "Tab" || !focusable?.length) return;
+      const focusable = getFocusable();
+      if (event.key !== "Tab" || !focusable.length) return;
 
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
@@ -44,13 +50,28 @@ export function Header() {
       }
     }
 
+    const desktopQuery = window.matchMedia("(min-width: 1200px)");
+    function handleDesktopChange(event: MediaQueryListEvent) {
+      if (event.matches) {
+        setOpen(false);
+        setExpandedGroup(null);
+      }
+    }
+
     window.addEventListener("keydown", handleKeyDown);
+    desktopQuery.addEventListener("change", handleDesktopChange);
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
+      desktopQuery.removeEventListener("change", handleDesktopChange);
       menuButton?.focus();
     };
   }, [open]);
+
+  function closeMenu() {
+    setOpen(false);
+    setExpandedGroup(null);
+  }
 
   return (
     <header className="site-header sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur">
@@ -62,17 +83,19 @@ export function Header() {
               <div key={item.href} className="group relative">
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-1 whitespace-nowrap py-7 text-sm font-bold ${pathname.startsWith(item.href) ? "text-navy" : "text-ink/70 hover:text-navy"}`}
+                  aria-current={currentPath === item.href ? "page" : isActive(item.href) ? "location" : undefined}
+                  className={`flex items-center gap-1 whitespace-nowrap py-7 text-sm font-bold ${isActive(item.href) ? activeClass : "text-ink/70 hover:text-navy"}`}
                 >
                   {item.label}
                   <ChevronDown size={15} aria-hidden />
                 </Link>
-                <div className="invisible absolute left-1/2 top-full w-56 -translate-x-1/2 translate-y-2 border border-line bg-white p-2 opacity-0 shadow-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div className="invisible absolute left-1/2 top-full w-max min-w-64 -translate-x-1/2 translate-y-2 border border-line bg-white p-2 opacity-0 shadow-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block px-4 py-3 text-sm font-semibold hover:bg-mist hover:text-navy"
+                      aria-current={currentPath === child.href ? "page" : undefined}
+                      className={`block whitespace-nowrap px-4 py-3 text-sm font-semibold hover:bg-mist ${isActive(child.href) ? activeClass : "text-ink/70 hover:text-navy"}`}
                     >
                       {child.label}
                     </Link>
@@ -83,7 +106,8 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`whitespace-nowrap py-7 text-sm font-bold ${pathname === item.href ? "text-navy" : "text-ink/70 hover:text-navy"}`}
+                aria-current={currentPath === item.href ? "page" : undefined}
+                className={`whitespace-nowrap py-7 text-sm font-bold ${isActive(item.href) ? activeClass : "text-ink/70 hover:text-navy"}`}
               >
                 {item.label}
               </Link>
@@ -93,7 +117,8 @@ export function Header() {
         <div className="hidden items-center gap-3 min-[1200px]:flex">
           <Link
             href="/apply"
-            className="inline-flex items-center justify-center whitespace-nowrap bg-coral px-4 py-3 text-sm font-extrabold text-navy-deep transition hover:bg-aqua xl:px-6"
+            aria-current={currentPath === "/apply" ? "page" : undefined}
+            className={`inline-flex items-center justify-center whitespace-nowrap bg-coral px-4 py-3 text-sm font-extrabold text-navy-deep transition hover:bg-aqua xl:px-6 ${isActive("/apply") ? activeClass : ""}`}
           >
             Start an enquiry
           </Link>
@@ -106,7 +131,10 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen((value) => !value)}
+            onClick={() => {
+              if (open) closeMenu();
+              else setOpen(true);
+            }}
           >
             {open ? <X aria-hidden /> : <Menu aria-hidden />}
           </button>
@@ -124,41 +152,63 @@ export function Header() {
             type="button"
             tabIndex={-1}
             className="absolute inset-0 bg-navy-deep/55 backdrop-blur-sm"
-            onClick={() => setOpen(false)}
+            onClick={closeMenu}
             aria-label="Close menu"
           />
           <nav
             id="mobile-menu"
             aria-label="Mobile navigation"
-            className="absolute inset-x-0 top-0 max-h-full overflow-y-auto border-t border-line bg-white shadow-2xl"
+            className="absolute inset-0 flex flex-col bg-white shadow-2xl"
           >
-            <div className="page-shell flex flex-col py-4">
+            <div className="page-shell min-h-0 flex-1 overflow-y-auto py-2">
               {navigation.map((item) => (
                 <div key={item.href}>
-                  <Link
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="block border-b border-line py-4 font-bold text-navy"
-                  >
-                    {item.label}
-                  </Link>
-                  {"children" in item &&
-                    item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        onClick={() => setOpen(false)}
-                        className="block border-b border-line py-3 pl-5 text-sm font-semibold text-ink/70"
+                  <div className="flex items-center">
+                    <Link
+                      href={item.href}
+                      onClick={closeMenu}
+                      aria-current={currentPath === item.href ? "page" : isActive(item.href) ? "location" : undefined}
+                      className={`min-w-0 flex-1 py-3 font-bold ${isActive(item.href) ? activeClass : "text-ink/70 hover:text-navy"}`}
+                    >
+                      {item.label}
+                    </Link>
+                    {"children" in item && (
+                      <button
+                        type="button"
+                        aria-label={`${expandedGroup === item.href ? "Collapse" : "Expand"} ${item.label}`}
+                        aria-expanded={expandedGroup === item.href}
+                        aria-controls={`mobile-group-${item.href.slice(1)}`}
+                        onClick={() => setExpandedGroup((current) => current === item.href ? null : item.href)}
+                        className="grid size-11 shrink-0 place-items-center text-navy"
                       >
-                        {child.label}
-                      </Link>
-                    ))}
+                        <ChevronDown size={18} className={expandedGroup === item.href ? "rotate-180" : ""} aria-hidden />
+                      </button>
+                    )}
+                  </div>
+                  {"children" in item && (
+                    <div id={`mobile-group-${item.href.slice(1)}`} hidden={expandedGroup !== item.href}>
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={closeMenu}
+                          aria-current={currentPath === child.href ? "page" : undefined}
+                          className={`block py-3 pl-5 text-sm font-semibold ${isActive(child.href) ? activeClass : "text-ink/70 hover:text-navy"}`}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
+            </div>
+            <div className="page-shell shrink-0 pt-3 pb-[max(.75rem,env(safe-area-inset-bottom))]">
               <Link
                 href="/apply"
-                onClick={() => setOpen(false)}
-                className="mt-5 inline-flex justify-center bg-coral px-6 py-4 font-extrabold text-navy-deep"
+                onClick={closeMenu}
+                aria-current={currentPath === "/apply" ? "page" : undefined}
+                className={`flex justify-center bg-coral px-6 py-4 font-extrabold text-navy-deep ${isActive("/apply") ? activeClass : ""}`}
               >
                 Start an enquiry
               </Link>

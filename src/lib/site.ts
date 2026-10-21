@@ -19,11 +19,12 @@ export const company = {
 
 export const navigation = [
   {
-    label: "Cash flow finance",
-    href: "/cash-flow-finance",
+    label: "Business loans",
+    href: "/business-loans",
     children: [
-      { label: "Business cash flow loans", href: "/cash-flow-finance/business-loans" },
-      { label: "Merchant cash advance", href: "/cash-flow-finance/merchant-cash-advance" },
+      { label: "Unsecured business loans", shortLabel: "Unsecured", href: "/business-loans/unsecured" },
+      { label: "Secured business loans", shortLabel: "Secured", href: "/business-loans/secured" },
+      { label: "Merchant cash advance", shortLabel: "Merchant cash advance", href: "/business-loans/merchant-cash-advance" },
     ],
   },
   {
@@ -55,11 +56,11 @@ export const navigation = [
 
 export const footerLinks = [
   { label: "Home", href: "/" },
-  { label: "Cash flow finance", href: "/cash-flow-finance" },
+  { label: "Business loans", href: "/business-loans" },
   { label: "Working capital", href: "/working-capital" },
   { label: "Asset finance", href: "/asset-finance" },
   { label: "How it works", href: "/how-it-works" },
-  { label: "About Float", href: "/about" },
+  { label: "About", href: "/about" },
   { label: "FAQs", href: "/faqs" },
   { label: "Calculator", href: "/calculator" },
   { label: "Start an enquiry", href: "/apply" },

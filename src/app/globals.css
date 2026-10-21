@@ -39,6 +39,17 @@ body {
   font-family: var(--font-body), Arial, sans-serif;
 }
 
+p,
+li {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
 a,
 button,
 input,
@@ -73,6 +84,14 @@ textarea {
 
 .balance {
   text-wrap: balance;
+}
+
+.industry-scroll-row {
+  scrollbar-width: none;
+}
+
+.industry-scroll-row::-webkit-scrollbar {
+  display: none;
 }
 
 .grid-lines {

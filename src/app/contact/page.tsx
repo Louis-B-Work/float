@@ -1,6 +1,6 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Suspense } from "react";
-import { ContactForm } from "@/components/contact-form";
+import { EnquiryForm } from "@/components/enquiry-form";
 import { company } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
@@ -20,7 +20,7 @@ export default function ContactPage() {
           </div>
         </div>
         <div className="float-card p-6 md:p-10">
-          <Suspense fallback={<p>Loading form…</p>}><ContactForm /></Suspense>
+          <Suspense fallback={<p>Loading form…</p>}><EnquiryForm variant="contact" /></Suspense>
         </div>
       </div>
     </section>

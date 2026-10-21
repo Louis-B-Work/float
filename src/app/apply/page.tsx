@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { Suspense } from "react";
-import { ContactForm } from "@/components/contact-form";
+import { EnquiryForm } from "@/components/enquiry-form";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("/apply");
@@ -12,6 +12,7 @@ const assurances = [
 ];
 
 const needed = [
+  "Your business name and type",
   "What the funding is for",
   "Roughly how much you need",
   "How the business has been trading",
@@ -53,7 +54,7 @@ export default function ApplyPage() {
 
         <div className="float-card p-6 md:p-10">
           <Suspense fallback={<p>Loading form…</p>}>
-            <ContactForm />
+            <EnquiryForm variant="apply" />
           </Suspense>
         </div>
       </div>

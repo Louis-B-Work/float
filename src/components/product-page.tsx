@@ -1,14 +1,15 @@
 import { CheckCircle2 } from "lucide-react";
-import Image from "next/image";
 import { ButtonLink, CtaBand, PageHero, SectionHeading } from "@/components/ui";
+import { ImagePlaceholder } from "@/components/image-placeholder";
 import { RevealCard } from "@/components/reveal-card";
-import { assetPath } from "@/lib/assets";
 
 export function ProductPage({
   title,
   intro,
   image,
   detailImage,
+  amount,
+  calculatorHref,
   uses,
   detailTitle,
   detail,
@@ -18,6 +19,9 @@ export function ProductPage({
   intro: string;
   image: string;
   detailImage: string;
+  amount?: string;
+  /** Set where a calculator covers this product. */
+  calculatorHref?: string;
   uses: { title: string; copy: string }[];
   detailTitle: string;
   detail: string;
@@ -25,15 +29,14 @@ export function ProductPage({
 }) {
   return (
     <>
-      <PageHero title={title} copy={intro} image={image} />
+      <PageHero title={title} copy={intro} image={image} amount={amount} />
       <section className="section-space">
         <div className="page-shell">
           <SectionHeading title="What businesses actually use it for." />
           <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-5 lg:mt-12 lg:grid-cols-4">
-            {uses.map((use, index) => (
+            {uses.map((use) => (
               <RevealCard
                 key={use.title}
-                index={index}
                 title={use.title}
                 tone="light"
                 className="p-7 lg:min-h-[24rem] xl:min-h-[20.5rem]"
@@ -47,7 +50,7 @@ export function ProductPage({
       <section className="section-space bg-mist">
         <div className="page-shell grid items-center gap-14 lg:grid-cols-2">
           <div className="relative min-h-80 overflow-hidden sm:min-h-[400px] lg:min-h-[500px]">
-            <Image src={assetPath(detailImage)} alt="" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+            <ImagePlaceholder slot={detailImage} />
           </div>
           <div>
             <h2 className="display text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-5xl">{detailTitle}</h2>
@@ -62,7 +65,7 @@ export function ProductPage({
             </ul>
             <div className="mt-9 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
               <ButtonLink href="/apply">Start an enquiry</ButtonLink>
-              <ButtonLink href="/calculator" secondary>Estimate a range</ButtonLink>
+              {calculatorHref && <ButtonLink href={calculatorHref} secondary>Work out the cost</ButtonLink>}
             </div>
           </div>
         </div>

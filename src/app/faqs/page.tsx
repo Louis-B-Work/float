@@ -12,7 +12,7 @@ const groups: { heading: string; faqs: Faq[] }[] = [
       {
         question: "What types of business finance can Float help with?",
         answer:
-          "Float focuses on cash flow finance, working capital and asset finance. We learn what the funding needs to achieve, then consider relevant options from our lender panel.",
+          "Float focuses on business loans and cash flow finance, working capital and asset finance. We learn what the funding needs to achieve, then consider relevant options from our lender panel.",
       },
       {
         question: "Is Float a lender?",
@@ -37,7 +37,7 @@ const groups: { heading: string; faqs: Faq[] }[] = [
       {
         question: "Can a new or small business apply?",
         answer:
-          "Potentially. Lenders use different criteria for trading history, turnover and affordability. We can review the circumstances and explain whether there may be a suitable route.",
+          "Potentially. Lenders use different criteria for trading history, turnover and affordability. We can review the circumstances and explain whether there may be a suitable route. Sole traders and partnerships of fewer than four partners can only be helped where the amount needed is over £25,000.",
       },
       {
         question: "Will an enquiry affect my credit score?",
@@ -84,7 +84,7 @@ export default function FaqsPage() {
       <JsonLd data={faqPageJsonLd(groups.flatMap((group) => group.faqs))} />
       <PageHero
         title="The questions business owners actually ask."
-        copy="Straight answers on how commercial finance works, what lenders look for and where Float fits in. Select a question to reveal the answer."
+        copy="Plain answers on how commercial finance works, what lenders look for and where Float fits in. Select a question to reveal the answer."
         image="/images/faqs-hero.jpg"
       />
 
@@ -101,7 +101,7 @@ export default function FaqsPage() {
 
       <section className="page-shell pb-12">
         <p className="border-l-4 border-coral bg-mist p-6 text-sm leading-7 text-ink/65">
-          These answers are general information rather than advice, and they are not an offer or guarantee of finance. If your situation is not covered here, get in touch and we will give you a straight answer.
+          These answers are general information rather than advice, and they are not an offer or guarantee of finance. If your situation is not covered here, get in touch and we will talk it through.
         </p>
       </section>
 

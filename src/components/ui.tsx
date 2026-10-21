@@ -1,9 +1,8 @@
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { ImagePlaceholder } from "@/components/image-placeholder";
 import { FloatWordmark } from "@/components/logo";
-import { assetPath } from "@/lib/assets";
 
 export function ButtonLink({
   href,
@@ -41,7 +40,7 @@ export function SectionHeading({
   compact?: boolean;
 }) {
   return (
-    <div className="max-w-3xl">
+    <div className="max-w-6xl">
       <h2 className={`display balance font-extrabold leading-[1.05] ${compact ? "text-3xl md:text-4xl" : "text-4xl md:text-6xl"} ${light ? "text-white" : "text-navy-deep"}`}>
         {title}
       </h2>
@@ -54,10 +53,13 @@ export function PageHero({
   title,
   copy,
   image,
+  amount,
 }: {
   title: string;
   copy: string;
   image?: string;
+  /** Formatted amount range for the product, shown under the intro. */
+  amount?: string;
 }) {
   return (
     <section className="overflow-hidden bg-mist">
@@ -65,10 +67,16 @@ export function PageHero({
         <div className="flex flex-col justify-center py-20 pr-0 lg:pr-16">
           <h1 className="display balance text-5xl font-extrabold leading-[0.98] text-navy-deep md:text-7xl">{title}</h1>
           <p className="mt-7 max-w-xl text-lg leading-8 text-ink/65">{copy}</p>
+          {amount && (
+            <p className="mt-7 max-w-xl border-l-4 border-coral bg-white px-5 py-4 text-sm leading-6 text-ink/70">
+              <strong className="block text-xs font-extrabold uppercase tracking-[0.14em] text-navy">Amounts</strong>
+              {amount}
+            </p>
+          )}
         </div>
         <div className="relative min-h-80 overflow-hidden bg-sky lg:min-h-full">
           {image ? (
-            <Image src={assetPath(image)} alt="" fill priority className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+            <ImagePlaceholder slot={image} />
           ) : (
             <div className="grid-lines absolute inset-0" />
           )}
