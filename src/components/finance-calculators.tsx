@@ -1,10 +1,11 @@
 "use client";
 
-import { ArrowRight, Info } from "lucide-react";
+import { ArrowRight, Info, Minus, Plus } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useId, useRef, useState, type ReactNode } from "react";
+import { useEffect, useEffectEvent, useId, useRef, useState, type ReactNode } from "react";
 import {
+  clamp,
   factorRatePresets,
   loanRatePresets,
   loanRepayment,
@@ -303,23 +304,110 @@ function SliderField({
     <div className="grid gap-3">
       <label htmlFor={id} className="text-sm font-extrabold text-navy">{label}</label>
       <output htmlFor={id} className="display text-4xl font-extrabold text-navy-deep">{format(value)}</output>
-      <input
-        id={id}
-        type="range"
-        min={slider.min}
-        max={slider.max}
-        step={slider.step}
-        value={value}
-        onChange={(event) => onChange(Number(event.target.value))}
-        aria-valuetext={format(value)}
-        className="h-11 w-full accent-[var(--coral)]"
-      />
+      <div className="flex items-center gap-3">
+        <SliderStepButton
+          aria-label={`Decrease ${label.toLowerCase()}`}
+          aria-controls={id}
+          disabled={value <= slider.min}
+          onStep={() => onChange(clamp(value - slider.step, slider))}
+        >
+          <Minus size={22} aria-hidden />
+        </SliderStepButton>
+        <input
+          id={id}
+          type="range"
+          min={slider.min}
+          max={slider.max}
+          step={slider.step}
+          value={value}
+          onChange={(event) => onChange(Number(event.target.value))}
+          aria-valuetext={format(value)}
+          className="h-12 min-w-0 flex-1 accent-[var(--coral)]"
+        />
+        <SliderStepButton
+          aria-label={`Increase ${label.toLowerCase()}`}
+          aria-controls={id}
+          disabled={value >= slider.max}
+          onStep={() => onChange(clamp(value + slider.step, slider))}
+        >
+          <Plus size={22} aria-hidden />
+        </SliderStepButton>
+      </div>
       <div className="flex justify-between text-xs text-ink/55" aria-hidden>
         <span>{format(slider.min)}</span>
         <span>{format(slider.max)}</span>
       </div>
       {hint && <p className="text-sm leading-6 text-ink/65">{hint}</p>}
     </div>
+  );
+}
+
+function SliderStepButton({
+  onStep,
+  disabled,
+  children,
+  ...aria
+}: {
+  onStep: () => void;
+  disabled: boolean;
+  children: ReactNode;
+  "aria-label": string;
+  "aria-controls": string;
+}) {
+  const [holding, setHolding] = useState(false);
+  const repeated = useRef(false);
+  const repeatStep = useEffectEvent(() => {
+    if (disabled) return;
+    repeated.current = true;
+    onStep();
+  });
+
+  useEffect(() => {
+    if (!holding || disabled) return;
+    let repetitions = 0;
+    let timer: ReturnType<typeof setTimeout>;
+    function repeat() {
+      repeatStep();
+      repetitions += 1;
+      timer = setTimeout(repeat, Math.max(50, 150 - repetitions * 10));
+    }
+    function stop() {
+      setHolding(false);
+    }
+    timer = setTimeout(repeat, 400);
+    window.addEventListener("blur", stop);
+    document.addEventListener("visibilitychange", stop);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("blur", stop);
+      document.removeEventListener("visibilitychange", stop);
+    };
+  }, [holding, disabled]);
+
+  return (
+    <button
+      {...aria}
+      type="button"
+      disabled={disabled}
+      onPointerDown={(event) => {
+        if (event.button !== 0 || !event.isPrimary) return;
+        repeated.current = false;
+        event.currentTarget.setPointerCapture(event.pointerId);
+        setHolding(true);
+      }}
+      onPointerUp={() => setHolding(false)}
+      onPointerCancel={() => setHolding(false)}
+      onPointerLeave={() => setHolding(false)}
+      onLostPointerCapture={() => setHolding(false)}
+      onBlur={() => setHolding(false)}
+      onContextMenu={(event) => event.preventDefault()}
+      onClick={(event) => {
+        if (event.detail === 0 || !repeated.current) onStep();
+      }}
+      className="grid size-12 shrink-0 touch-none select-none place-items-center rounded-full border border-navy/25 bg-white text-navy transition hover:border-navy hover:bg-sky disabled:cursor-not-allowed disabled:opacity-35"
+    >
+      {children}
+    </button>
   );
 }
 
