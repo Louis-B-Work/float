@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ImagePlaceholder } from "@/components/image-placeholder";
+import { SiteImage } from "@/components/site-image";
 import { FloatWordmark } from "@/components/logo";
 
 export function ButtonLink({
@@ -76,7 +76,7 @@ export function PageHero({
         </div>
         <div className="relative min-h-80 overflow-hidden bg-sky lg:min-h-full">
           {image ? (
-            <ImagePlaceholder slot={image} />
+            <SiteImage slot={image} />
           ) : (
             <div className="grid-lines absolute inset-0" />
           )}
