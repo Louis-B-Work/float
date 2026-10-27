@@ -300,16 +300,63 @@ function SliderField({
   hint?: string;
 }) {
   const id = useId();
+  const [draft, setDraft] = useState<string | null>(null);
+  const parsed = draft === null ? value : Number(draft.replace(/,/g, "").trim());
+  const valid = draft === null || (
+    /^(?:\d+|\d{1,3}(?:,\d{3})+)$/.test(draft.trim()) &&
+    Number.isSafeInteger(parsed) &&
+    parsed >= slider.min &&
+    parsed <= slider.max
+  );
+
+  function changeValue(next: number) {
+    setDraft(null);
+    onChange(next);
+  }
+
   return (
     <div className="grid gap-3">
-      <label htmlFor={id} className="text-sm font-extrabold text-navy">{label}</label>
-      <output htmlFor={id} className="display text-4xl font-extrabold text-navy-deep">{format(value)}</output>
+      <label id={`${id}-label`} htmlFor={`${id}-value`} className="text-sm font-extrabold text-navy">{label}</label>
+      <input
+        id={`${id}-value`}
+        type="text"
+        inputMode="numeric"
+        aria-label={`${label} value`}
+        aria-invalid={!valid}
+        aria-describedby={`${id}-help`}
+        value={draft ?? format(value)}
+        onFocus={(event) => event.currentTarget.select()}
+        onChange={(event) => {
+          const text = event.target.value;
+          setDraft(text);
+          const next = Number(text.replace(/,/g, "").trim());
+          if (/^(?:\d+|\d{1,3}(?:,\d{3})+)$/.test(text.trim()) && Number.isSafeInteger(next) && next >= slider.min && next <= slider.max) {
+            onChange(next);
+          }
+        }}
+        onBlur={() => {
+          if (valid) setDraft(null);
+        }}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") event.currentTarget.blur();
+          if (event.key === "Escape") {
+            setDraft(null);
+            event.currentTarget.blur();
+          }
+        }}
+        className="display min-h-12 w-full min-w-0 rounded-none border-b border-navy/25 bg-transparent py-1 text-4xl font-extrabold text-navy-deep hover:border-navy focus:border-navy"
+      />
+      <p id={`${id}-help`} className={valid ? "text-xs text-ink/65" : "text-xs font-bold text-red-700"} aria-live="polite">
+        {valid
+          ? "Click or tap the figure to type your own."
+          : `Enter a whole number between ${format(slider.min)} and ${format(slider.max)}. Results still use ${format(value)}.`}
+      </p>
       <div className="flex items-center gap-3">
         <SliderStepButton
           aria-label={`Decrease ${label.toLowerCase()}`}
           aria-controls={id}
           disabled={value <= slider.min}
-          onStep={() => onChange(clamp(value - slider.step, slider))}
+          onStep={() => changeValue(clamp(value - slider.step, slider))}
         >
           <Minus size={22} aria-hidden />
         </SliderStepButton>
@@ -318,9 +365,18 @@ function SliderField({
           type="range"
           min={slider.min}
           max={slider.max}
-          step={slider.step}
+          step={1}
           value={value}
-          onChange={(event) => onChange(Number(event.target.value))}
+          onChange={(event) => changeValue(clamp(Math.round(Number(event.target.value) / slider.step) * slider.step, slider))}
+          onKeyDown={(event) => {
+            const direction = event.key === "ArrowRight" || event.key === "ArrowUp" ? 1
+              : event.key === "ArrowLeft" || event.key === "ArrowDown" ? -1 : 0;
+            if (direction) {
+              event.preventDefault();
+              changeValue(clamp(value + direction * slider.step, slider));
+            }
+          }}
+          aria-labelledby={`${id}-label`}
           aria-valuetext={format(value)}
           className="h-12 min-w-0 flex-1 accent-[var(--coral)]"
         />
@@ -328,7 +384,7 @@ function SliderField({
           aria-label={`Increase ${label.toLowerCase()}`}
           aria-controls={id}
           disabled={value >= slider.max}
-          onStep={() => onChange(clamp(value + slider.step, slider))}
+          onStep={() => changeValue(clamp(value + slider.step, slider))}
         >
           <Plus size={22} aria-hidden />
         </SliderStepButton>

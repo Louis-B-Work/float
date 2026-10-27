@@ -9,8 +9,8 @@ export default function SecuredBusinessLoansPage() {
     <ProductPage
       title="Put what the business owns to work."
       intro="A secured business loan is borrowing secured against property or other business assets. It is generally used for larger amounts, where the security lets a lender go further than an unsecured loan would."
-      image="/images/secured-loans-hero.jpg"
-      detailImage="/images/secured-loans-detail.jpg"
+      image="/images/business-loans-hero.jpg"
+      detailImage="/images/business-loans-detail.jpg"
       amount={formatAmountRange(amountRanges.businessLoan)}
       calculatorHref="/calculator?security=secured"
       uses={[

@@ -2,7 +2,7 @@ import { ArrowUpRight, Banknote, Check, Factory, Wallet } from "lucide-react";
 import Link from "next/link";
 import { ButtonLink, CtaBand, SectionHeading } from "@/components/ui";
 import { FaqCards } from "@/components/faq-cards";
-import { ImagePlaceholder } from "@/components/image-placeholder";
+import { SiteImage } from "@/components/site-image";
 import { IndustryGrid } from "@/components/industry-grid";
 import { processSteps } from "@/lib/process";
 import { pageMetadata } from "@/lib/seo";
@@ -38,7 +38,7 @@ export default function Home() {
           </div>
           <div className="relative min-h-[340px] sm:min-h-[440px] lg:min-h-[590px]">
             <div className="absolute inset-8 right-0 overflow-hidden">
-              <ImagePlaceholder slot="/images/home-hero.jpg" />
+              <SiteImage slot="/images/home-hero.jpg" />
             </div>
             <div className="absolute left-0 top-0 h-52 w-40 bg-sky" />
             <div className="grid-lines absolute left-0 top-0 h-52 w-40" />
@@ -91,7 +91,7 @@ export default function Home() {
       <section className="section-space bg-mist">
         <div className="page-shell grid items-center gap-14 lg:grid-cols-2">
           <div className="relative min-h-80 overflow-hidden sm:min-h-[400px] lg:min-h-[520px]">
-            <ImagePlaceholder slot="/images/home-calculator.jpg" />
+            <SiteImage slot="/images/home-calculator.jpg" />
             <div className="absolute bottom-0 left-0 bg-coral px-4 py-3 text-navy-deep">
               <p className="text-sm font-bold">An illustration, not a quote.</p>
             </div>

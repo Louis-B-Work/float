@@ -3,7 +3,7 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState, type PointerEvent } from "react";
-import { ImagePlaceholder } from "@/components/image-placeholder";
+import { SiteImage } from "@/components/site-image";
 
 type Industry = {
   name: string;
@@ -173,7 +173,7 @@ export function IndustryGrid() {
               className="group relative block h-full border border-line bg-white md:aspect-[4/5] md:overflow-hidden md:border-0 md:bg-navy-deep lg:aspect-square"
             >
               <div className="relative h-36 overflow-hidden md:absolute md:inset-0 md:h-auto">
-                <ImagePlaceholder slot={industry.image} className="transition duration-500 group-hover:scale-105" />
+                <SiteImage slot={industry.image} className="transition duration-500 group-hover:scale-105" />
               </div>
               <div className="absolute inset-0 hidden bg-[linear-gradient(to_top,rgb(13_34_61/0.96)_0%,rgb(13_34_61/0.75)_42%,rgb(13_34_61/0)_72%)] md:block" aria-hidden />
               <div className="min-w-0 p-4 md:absolute md:inset-x-0 md:bottom-0 md:p-5">

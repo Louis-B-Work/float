@@ -1,6 +1,6 @@
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
-import { ImagePlaceholder } from "@/components/image-placeholder";
+import { SiteImage } from "@/components/site-image";
 import { ButtonLink, CtaBand, PageHero, SectionHeading } from "@/components/ui";
 
 export type CategoryChild = {
@@ -69,7 +69,7 @@ export function CategoryPage({
       <section className="section-space bg-mist">
         <div className="page-shell grid items-center gap-14 lg:grid-cols-2">
           <div className="relative min-h-80 overflow-hidden sm:min-h-[400px] lg:min-h-[500px]">
-            <ImagePlaceholder slot={detailImage} />
+            <SiteImage slot={detailImage} />
           </div>
           <div>
             <h2 className="display text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-5xl">{detailTitle}</h2>
