@@ -38,7 +38,7 @@ export default function Home() {
           </div>
           <div className="relative min-h-[340px] sm:min-h-[440px] lg:min-h-[590px]">
             <div className="absolute inset-8 right-0 overflow-hidden">
-              <SiteImage slot="/images/home-hero.jpg" />
+              <SiteImage slot="/images/home-hero.jpg" priority />
             </div>
             <div className="absolute left-0 top-0 h-52 w-40 bg-sky" />
             <div className="grid-lines absolute left-0 top-0 h-52 w-40" />

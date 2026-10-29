@@ -76,7 +76,7 @@ export function PageHero({
         </div>
         <div className="relative min-h-80 overflow-hidden bg-sky lg:min-h-full">
           {image ? (
-            <SiteImage slot={image} />
+            <SiteImage slot={image} priority />
           ) : (
             <div className="grid-lines absolute inset-0" />
           )}
