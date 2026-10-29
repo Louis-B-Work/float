@@ -60,13 +60,13 @@ export default function HowItWorksPage() {
       <section className="section-space bg-mist">
         <div className="page-shell">
           <SectionHeading title="Clear expectations, both ways." />
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:mt-14">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-6 lg:mt-14">
             {expectations.map((block) => (
-              <div key={block.title} className="border border-line bg-white p-8 md:p-10">
-                <h2 className="display text-2xl font-extrabold text-navy-deep md:text-3xl">{block.title}</h2>
-                <ul className="mt-6 space-y-4">
+              <div key={block.title} className="border border-line bg-white p-5 md:p-10">
+                <h2 className="display text-xl font-extrabold text-navy-deep md:text-3xl">{block.title}</h2>
+                <ul className="mt-4 space-y-3 md:mt-6 md:space-y-4">
                   {block.points.map((point) => (
-                    <li key={point} className="border-b border-line pb-4 text-sm font-semibold leading-6 text-navy last:border-0 last:pb-0">
+                    <li key={point} className="border-b border-line pb-3 text-sm md:pb-4 font-semibold leading-6 text-navy last:border-0 last:pb-0">
                       {point}
                     </li>
                   ))}
