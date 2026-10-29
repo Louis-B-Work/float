@@ -120,12 +120,12 @@ export default function Home() {
       <section className="section-space bg-navy-deep">
         <div className="page-shell">
           <SectionHeading title="Backed by people, not a form." copy="Commercial finance gets complicated fast. Our job is to cut through it and tell you where you actually stand." light />
-          <ol className="mt-12 grid gap-4 md:grid-cols-2 md:gap-5 lg:mt-16 xl:grid-cols-4">
+          <ol className="mt-12 grid gap-3 md:grid-cols-2 md:gap-5 lg:mt-16 xl:grid-cols-4">
             {processSteps.map((step) => (
-              <li key={step.title} className="border border-white/15 bg-white/[0.03] p-7 md:p-8">
-                <step.icon className="text-aqua" size={34} strokeWidth={1.5} aria-hidden />
-                <h3 className="mt-6 text-xl font-extrabold text-white md:text-2xl">{step.title}</h3>
-                <p className="mt-3 leading-7 text-white/65">{step.copy}</p>
+              <li key={step.title} className="grid grid-cols-[auto_1fr] gap-x-4 border border-white/15 bg-white/[0.03] p-4 md:block md:p-8">
+                <step.icon className="row-span-2 size-7 text-aqua md:size-[34px]" strokeWidth={1.5} aria-hidden />
+                <h3 className="text-base font-extrabold text-white md:mt-6 md:text-2xl">{step.title}</h3>
+                <p className="mt-1 text-sm leading-6 text-white/65 md:mt-3 md:text-base md:leading-7">{step.copy}</p>
               </li>
             ))}
           </ol>
