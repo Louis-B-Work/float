@@ -19,6 +19,7 @@ import {
   turnoverBands,
 } from "@/lib/contact";
 import { formatCurrency } from "@/lib/format";
+import { company } from "@/lib/site";
 
 type Variant = "contact" | "apply";
 type Errors = Partial<Record<string, string>>;
@@ -139,6 +140,15 @@ export function EnquiryForm({ variant }: { variant: Variant }) {
 
   return (
     <form onSubmit={submit} noValidate className="grid gap-6">
+      {/* TODO: remove this notice once submitEnquiry is wired to the CRM. */}
+      <p className="flex gap-3 border border-coral bg-mist px-4 py-3 text-sm leading-6 text-ink/80" role="note">
+        <Info size={18} className="mt-0.5 shrink-0 text-coral" aria-hidden />
+        <span>
+          Our online enquiry form is being connected and is not sending messages yet. Please email us at{" "}
+          <a href={`mailto:${company.email}`} className="font-semibold text-navy underline underline-offset-4">{company.email}</a>{" "}
+          and we will get straight back to you.
+        </span>
+      </p>
       {variant === "apply" ? (
         <>
           <Section title="About the business">

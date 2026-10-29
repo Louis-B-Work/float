@@ -16,7 +16,7 @@ export function Footer() {
           <h2 className="text-sm font-extrabold uppercase tracking-[0.14em] text-aqua">Explore</h2>
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {footerLinks.map((item) => (
-              <Link key={item.href} href={item.href} className="py-1 text-sm text-white/70 hover:text-white">
+              <Link key={item.href} href={item.href} className="py-1 text-sm capitalize text-white/70 hover:text-white">
                 {item.label}
               </Link>
             ))}

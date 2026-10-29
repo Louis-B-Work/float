@@ -77,7 +77,7 @@ export function Header() {
     <header className="site-header sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur">
       <div className="page-shell flex h-[76px] items-center justify-between">
         <Logo />
-        <nav aria-label="Main navigation" className="hidden items-center gap-3 min-[1200px]:flex xl:gap-5 2xl:gap-7">
+        <nav aria-label="Main navigation" className="hidden items-center gap-3 capitalize min-[1200px]:flex xl:gap-5 2xl:gap-7">
           {navigation.map((item) =>
             "children" in item ? (
               <div key={item.href} className="group relative">
@@ -158,7 +158,7 @@ export function Header() {
           <nav
             id="mobile-menu"
             aria-label="Mobile navigation"
-            className="absolute inset-0 flex flex-col bg-white shadow-2xl"
+            className="absolute inset-0 flex flex-col bg-white capitalize shadow-2xl"
           >
             <div className="page-shell min-h-0 flex-1 overflow-y-auto py-2">
               {navigation.map((item) => (
