@@ -76,7 +76,16 @@ export function Header() {
   return (
     <header className="site-header sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur">
       <div className="page-shell flex h-[76px] items-center justify-between">
-        <Logo />
+        <Logo
+          onClick={(event) => {
+            // Next does not scroll when the link targets the page we are already on, so do it here.
+            if (currentPath === "/") {
+              event.preventDefault();
+              window.scrollTo({ top: 0 });
+            }
+            setOpen(false);
+          }}
+        />
         <nav aria-label="Main navigation" className="hidden items-center gap-3 capitalize min-[1200px]:flex xl:gap-5 2xl:gap-7">
           {navigation.map((item) =>
             "children" in item ? (
@@ -168,7 +177,7 @@ export function Header() {
                       href={item.href}
                       onClick={closeMenu}
                       aria-current={currentPath === item.href ? "page" : isActive(item.href) ? "location" : undefined}
-                      className={`min-w-0 flex-1 py-3 font-bold ${isActive(item.href) ? activeClass : "text-ink/70 hover:text-navy"}`}
+                      className={`min-w-0 py-3 font-bold ${"children" in item ? "" : "flex-1"} ${isActive(item.href) ? activeClass : "text-ink/70 hover:text-navy"}`}
                     >
                       {item.label}
                     </Link>
@@ -179,7 +188,7 @@ export function Header() {
                         aria-expanded={expandedGroup === item.href}
                         aria-controls={`mobile-group-${item.href.slice(1)}`}
                         onClick={() => setExpandedGroup((current) => current === item.href ? null : item.href)}
-                        className="grid size-11 shrink-0 place-items-center text-navy"
+                        className="flex min-h-11 flex-1 items-center justify-end pr-[13px] text-navy"
                       >
                         <ChevronDown size={18} className={expandedGroup === item.href ? "rotate-180" : ""} aria-hidden />
                       </button>

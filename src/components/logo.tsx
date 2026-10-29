@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { MouseEventHandler } from "react";
 
 // Outlined from concept 1 (raised-O wordmark) in assets/WJ02462 Float branding PF1.pdf.
 const wordmarkPaths = [
@@ -38,9 +39,9 @@ export function FloatWordmark({
   );
 }
 
-export function Logo({ light = false }: { light?: boolean }) {
+export function Logo({ light = false, onClick }: { light?: boolean; onClick?: MouseEventHandler<HTMLAnchorElement> }) {
   return (
-    <Link href="/" className={`inline-flex items-center py-2 ${light ? "text-white" : "text-ink"}`} aria-label="Float home">
+    <Link href="/" onClick={onClick} className={`inline-flex items-center py-2 ${light ? "text-white" : "text-ink"}`} aria-label="Float home">
       <FloatWordmark className="h-7 w-auto md:h-8" animated />
     </Link>
   );
