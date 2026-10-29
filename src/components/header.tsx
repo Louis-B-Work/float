@@ -136,7 +136,7 @@ export function Header() {
           <button
             ref={menuButtonRef}
             type="button"
-            className="grid size-11 place-items-center border border-line text-navy"
+            className="grid size-11 place-items-center text-navy"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
