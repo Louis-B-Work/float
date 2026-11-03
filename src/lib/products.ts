@@ -17,6 +17,15 @@ export const amountRanges = {
   },
 } satisfies Record<string, AmountRange>;
 
+/** Whole millions read as "£2 million"; everything else as a full currency amount. */
+export function formatShortAmount(value: number) {
+  return value >= 1_000_000 && value % 1_000_000 === 0 ? `£${value / 1_000_000} million` : formatCurrency(value);
+}
+
+export function formatShortRange(range: AmountRange) {
+  return `${formatShortAmount(range.min)} to ${formatShortAmount(range.max)}`;
+}
+
 export function formatAmountRange(range: AmountRange) {
   const base = `${formatCurrency(range.min)} to ${formatCurrency(range.max)}`;
   return range.note ? `${base}, ${range.note}` : base;

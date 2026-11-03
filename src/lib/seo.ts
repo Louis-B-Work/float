@@ -176,6 +176,14 @@ export const pages = {
     changeFrequency: "monthly",
     unlisted: true,
   },
+  "/design-system": {
+    label: "Design system",
+    title: "Design system",
+    description: "Internal reference for the Float site's colours, type, spacing and components.",
+    priority: 0.1,
+    changeFrequency: "yearly",
+    unlisted: true,
+  },
   "/apply": {
     label: "Start an enquiry",
     title: "Start a business finance enquiry",

@@ -3,7 +3,7 @@ import { company } from "@/lib/site";
 
 export function LegalPage({ title, intro, children }: { title: string; intro: string; children: React.ReactNode }) {
   return (
-    <section className="section-space">
+    <section className="hero-space">
       <div className="page-shell grid gap-12 lg:grid-cols-[.65fr_1.35fr]">
         <div>
           <h1 className="display text-5xl font-extrabold text-navy-deep">{title}</h1>

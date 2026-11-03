@@ -21,7 +21,7 @@ const needed = [
 
 export default function ApplyPage() {
   return (
-    <section className="section-space bg-mist">
+    <section className="hero-space bg-mist">
       <div className="page-shell grid gap-14 lg:grid-cols-[.7fr_1.3fr]">
         <div>
           <h1 className="display balance text-5xl font-extrabold leading-[1] text-navy-deep md:text-7xl">

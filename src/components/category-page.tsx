@@ -15,6 +15,7 @@ const tones = ["bg-sky", "bg-aqua", "bg-mist"];
 export function CategoryPage({
   title,
   intro,
+  shortIntro,
   image,
   detailImage,
   calculatorHref,
@@ -25,6 +26,8 @@ export function CategoryPage({
 }: {
   title: string;
   intro: string;
+  /** Condensed intro for phones. */
+  shortIntro?: string;
   image: string;
   detailImage: string;
   /** Set where a calculator covers this category. */
@@ -36,7 +39,7 @@ export function CategoryPage({
 }) {
   return (
     <>
-      <PageHero title={title} copy={intro} image={image} />
+      <PageHero title={title} copy={intro} shortCopy={shortIntro} image={image} />
 
       <section className="section-space">
         <div className="page-shell">

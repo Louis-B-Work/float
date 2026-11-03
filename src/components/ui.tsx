@@ -52,21 +52,33 @@ export function SectionHeading({
 export function PageHero({
   title,
   copy,
+  shortCopy,
   image,
   amount,
 }: {
   title: string;
   copy: string;
+  /** Condensed intro shown below 768px so the first screen stays tight. */
+  shortCopy?: string;
   image?: string;
   /** Formatted amount range for the product, shown under the intro. */
   amount?: string;
 }) {
   return (
     <section className="overflow-hidden bg-mist">
-      <div className="page-shell grid min-h-[560px] items-stretch lg:grid-cols-2">
-        <div className="flex flex-col justify-center py-20 pr-0 lg:pr-16">
+      <div className="page-shell grid items-stretch md:min-h-[560px] lg:grid-cols-2">
+        <div className="flex flex-col justify-center py-8 pr-0 md:py-20 lg:pr-16">
           <h1 className="display balance text-5xl font-extrabold leading-[0.98] text-navy-deep md:text-7xl">{title}</h1>
-          <p className="mt-7 max-w-xl text-lg leading-8 text-ink/65">{copy}</p>
+          <p className="mt-5 max-w-xl text-lg leading-8 text-ink/65 md:mt-7">
+            {shortCopy ? (
+              <>
+                <span className="md:hidden">{shortCopy}</span>
+                <span className="hidden md:inline">{copy}</span>
+              </>
+            ) : (
+              copy
+            )}
+          </p>
           {amount && (
             <p className="mt-7 max-w-xl border-l-4 border-coral bg-white px-5 py-4 text-sm leading-6 text-ink/70">
               <strong className="block text-xs font-extrabold uppercase tracking-[0.14em] text-navy">Amounts</strong>

@@ -71,7 +71,7 @@ export default function CalculatorPage() {
     <>
       <JsonLd data={[calculatorJsonLd(), faqPageJsonLd(faqs)]} />
 
-      <section className="section-space grid-lines bg-mist">
+      <section className="hero-space grid-lines bg-mist">
         <div className="page-shell">
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <h1 className="display balance text-5xl font-extrabold leading-[1] text-navy-deep md:text-7xl">What would the finance cost?</h1>

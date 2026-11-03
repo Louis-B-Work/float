@@ -8,6 +8,7 @@ export default function LeasingPage() {
     <ProductPage
       title="Use the asset without buying it outright."
       intro="An agreed rental structure for vehicles or equipment, for when using the thing matters more than owning it."
+      shortIntro="An agreed rental for vehicles or equipment, for when using it matters more than owning it."
       image="/images/leasing-hero.jpg"
       detailImage="/images/leasing-detail.jpg"
       uses={[

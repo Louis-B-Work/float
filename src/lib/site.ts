@@ -47,11 +47,15 @@ export const navigation = [
       { label: "Equipment", href: "/asset-finance/equipment" },
     ],
   },
+  {
+    label: "About",
+    href: "/about",
+    children: [
+      { label: "How it works", href: "/how-it-works" },
+      { label: "FAQs", href: "/faqs" },
+    ],
+  },
   { label: "Calculator", href: "/calculator" },
-  { label: "How it works", href: "/how-it-works" },
-  { label: "About", href: "/about" },
-  { label: "FAQs", href: "/faqs" },
-  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const footerLinks = [
