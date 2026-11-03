@@ -74,8 +74,8 @@ export default function CalculatorPage() {
       <section className="hero-space grid-lines bg-mist">
         <div className="page-shell">
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <h1 className="display balance text-5xl font-extrabold leading-[1] text-navy-deep md:text-7xl">What would the finance cost?</h1>
-            <p className="mt-6 text-lg leading-8 text-ink/65">
+            <h1 className="display type-h1 balance font-extrabold text-navy-deep">What would the finance cost?</h1>
+            <p className="type-lead mt-6 leading-8 text-ink/65">
               See the monthly cost of a business loan, or the total cost of a merchant cash advance. Illustrative figures, and no credit check.
             </p>
           </div>
@@ -95,7 +95,7 @@ export default function CalculatorPage() {
             {products.map((product) => (
               <Link key={product.href} href={product.href} className="group grid h-full grid-cols-[auto_1fr] gap-x-4 border border-line p-4 transition-colors md:flex md:flex-col hover:border-navy hover:bg-sky focus-visible:border-navy focus-visible:bg-sky md:p-8">
                 <product.icon strokeWidth={1.5} className="row-span-3 size-7 shrink-0 text-navy md:row-span-1 md:size-8" aria-hidden />
-                <h3 className="display text-lg font-extrabold text-navy-deep md:mt-6 md:text-2xl">{product.title}</h3>
+                <h3 className="display type-h3 font-extrabold text-navy-deep md:mt-6">{product.title}</h3>
                 <p className="mt-1 text-sm leading-6 text-ink/65 md:mt-3 md:text-base md:leading-7">{product.copy}</p>
                 <span className="mt-auto inline-flex items-center gap-2 pt-3 text-sm md:pt-6 font-extrabold text-navy">
                   Explore {product.title.toLowerCase()}
@@ -126,7 +126,7 @@ export default function CalculatorPage() {
             {factors.map((factor) => (
               <li key={factor.title} className="float-card p-7">
                 <factor.icon size={30} strokeWidth={1.5} className="text-coral" aria-hidden />
-                <h3 className="mt-5 text-lg font-extrabold text-navy">{factor.title}</h3>
+                <h3 className="type-h3 mt-5 font-extrabold text-navy">{factor.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-ink/65">{factor.copy}</p>
               </li>
             ))}

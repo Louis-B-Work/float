@@ -24,10 +24,10 @@ export default function ApplyPage() {
     <section className="hero-space bg-mist">
       <div className="page-shell grid gap-14 lg:grid-cols-[.7fr_1.3fr]">
         <div>
-          <h1 className="display balance text-5xl font-extrabold leading-[1] text-navy-deep md:text-7xl">
+          <h1 className="display type-h1 balance font-extrabold text-navy-deep">
             Start with the business, not the paperwork.
           </h1>
-          <p className="mt-6 text-lg leading-8 text-ink/65">
+          <p className="type-lead mt-6 leading-8 text-ink/65">
             Tell us what you are planning and we will come back to you. If we can help, we will show you the options. If we cannot, we will say so and tell you why.
           </p>
 

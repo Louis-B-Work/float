@@ -48,9 +48,9 @@ export default function HowItWorksPage() {
               <div key={step.title} className="float-card p-7 md:p-10">
                 <div className="flex items-center justify-between">
                   <step.icon size={36} strokeWidth={1.5} className="text-coral" aria-hidden />
-                  <span className="display text-5xl font-extrabold text-navy/15">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="display type-h2 font-extrabold text-navy/15">{String(index + 1).padStart(2, "0")}</span>
                 </div>
-                <h2 className="mt-6 text-xl font-extrabold text-navy md:mt-10">{step.title}</h2>
+                <h2 className="type-h3 mt-6 font-extrabold text-navy md:mt-10">{step.title}</h2>
                 <p className="mt-4 leading-7 text-ink/65">{step.copy}</p>
               </div>
             ))}
@@ -64,7 +64,7 @@ export default function HowItWorksPage() {
           <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-6 lg:mt-14">
             {expectations.map((block) => (
               <div key={block.title} className="border border-line bg-white p-5 md:p-10">
-                <h2 className="display text-xl font-extrabold text-navy-deep md:text-3xl">{block.title}</h2>
+                <h2 className="display type-h3 font-extrabold text-navy-deep">{block.title}</h2>
                 <ul className="mt-4 space-y-3 md:mt-6 md:space-y-4">
                   {block.points.map((point) => (
                     <li key={point} className="border-b border-line pb-3 text-sm md:pb-4 font-semibold leading-6 text-navy last:border-0 last:pb-0">

@@ -93,7 +93,7 @@ export default function FaqsPage() {
         <div className="page-shell max-w-4xl space-y-14">
           {groups.map((group) => (
             <div key={group.heading}>
-              <h2 className="display text-3xl font-extrabold text-navy-deep md:text-4xl">{group.heading}</h2>
+              <h2 className="display type-h2 font-extrabold text-navy-deep">{group.heading}</h2>
               <FaqCards faqs={group.faqs} />
             </div>
           ))}

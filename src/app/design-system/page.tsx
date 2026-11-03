@@ -20,18 +20,16 @@ const colours = [
   { name: "Surface", token: "--surface", hex: "#ffffff", use: "Cards, header", className: "bg-white text-navy-deep border border-line" },
 ];
 
-// [style, mobile, tablet, desktop, line height, weight]
-const typeScale: [string, string, string, string, string, string][] = [
-  ["Home hero h1 (Manrope)", "48px (60px from 640px)", "96px", "96px", "1.02", "800"],
-  ["Page hero h1 (Manrope)", "48px", "72px", "72px", "0.98", "800"],
-  ["Section h2 (Manrope)", "36px", "60px", "60px", "1.05", "800"],
-  ["Section h2, compact", "30px", "36px", "36px", "1.05", "800"],
-  ["Card title h3", "16-20px", "24px", "24px", "tight", "800"],
-  ["Lead paragraph (DM Sans)", "18px", "18px", "18px", "32px", "400"],
-  ["Body", "16px", "16px", "16px", "28px", "400"],
-  ["Small / card copy", "14px", "14px", "14px", "24px", "400-600"],
-  ["Eyebrow label", "12px", "12px", "12px", "-", "800, uppercase, 0.14em"],
-  ["Button", "14px", "14px", "14px", "-", "800"],
+// Seven styles in all; 14px is the smallest size on the site. Defined in src/app/globals.css (.type-*); body and small use
+// Tailwind's text-base and text-sm. Tablet starts at 768px (md), and tablet and desktop share every size.
+const typeScale: [string, string, string, string, string, string, string][] = [
+  ["H1 (Manrope)", ".type-h1", "48px", "72px", "1.0", "800", "The one heading at the top of every page"],
+  ["H2 (Manrope)", ".type-h2", "32px", "48px", "1.05", "800", "Section headings, calculator results"],
+  ["H3 (Manrope / DM Sans)", ".type-h3", "20px", "24px", "1.5 (default)", "800", "Card titles, step titles, small headings"],
+  ["Lead (DM Sans)", ".type-lead", "18px", "18px", "32px", "400", "Intro paragraph under a heading"],
+  ["Body (DM Sans)", "text-base", "16px", "16px", "28px", "400", "Paragraphs and list text"],
+  ["Small (DM Sans)", "text-sm", "14px", "14px", "24px", "400-800", "Card copy, buttons, nav, form text, uppercase labels, fine print"],
+  ["Figure (Manrope)", ".type-figure", "32px", "32px", "1.1", "800", "Calculator input, hero panel statement"],
 ];
 
 // [token, mobile, tablet, desktop]
@@ -51,7 +49,7 @@ const spacing: [string, string, string, string][] = [
 function Section({ title, note, children }: { title: string; note?: string; children: ReactNode }) {
   return (
     <section className="border-t border-line py-10 md:py-14">
-      <h2 className="display text-3xl font-extrabold text-navy-deep md:text-4xl">{title}</h2>
+      <h2 className="display type-h2 font-extrabold text-navy-deep">{title}</h2>
       {note && <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/65">{note}</p>}
       <div className="mt-8">{children}</div>
     </section>
@@ -62,7 +60,7 @@ function Table({ head, rows }: { head: string[]; rows: string[][] }) {
   return (
     <div className="overflow-x-auto border border-line">
       <table className="w-full min-w-[34rem] border-collapse text-left text-sm">
-        <thead className="bg-mist text-xs uppercase tracking-[0.14em] text-navy">
+        <thead className="bg-mist text-sm uppercase tracking-[0.14em] text-navy">
           <tr>
             {head.map((h) => (
               <th key={h} className="px-4 py-3 font-extrabold">{h}</th>
@@ -86,9 +84,9 @@ function Table({ head, rows }: { head: string[]; rows: string[][] }) {
 export default function DesignSystemPage() {
   return (
     <div className="page-shell py-10 md:py-16">
-      <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-coral">Internal reference</p>
-      <h1 className="display mt-3 text-5xl font-extrabold leading-[0.98] text-navy-deep md:text-7xl">Design system</h1>
-      <p className="mt-6 max-w-2xl text-lg leading-8 text-ink/65">
+      <p className="text-sm font-extrabold uppercase tracking-[0.14em] text-coral">Internal reference</p>
+      <h1 className="display type-h1 mt-3 font-extrabold text-navy-deep">Design system</h1>
+      <p className="type-lead mt-6 max-w-2xl leading-8 text-ink/65">
         The colours, type, spacing and shapes used across the Float site, with how they change by device size. Mobile is below 768px, tablet is 768px and up, desktop is 1024px and up.
       </p>
 
@@ -96,7 +94,7 @@ export default function DesignSystemPage() {
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {colours.map((c) => (
             <div key={c.token} className={`p-5 ${c.className}`}>
-              <p className="text-lg font-extrabold">{c.name}</p>
+              <p className="type-lead font-extrabold">{c.name}</p>
               <p className="mt-1 text-sm font-semibold opacity-80">{c.hex} &middot; {c.token}</p>
               <p className="mt-3 text-sm leading-6 opacity-80">{c.use}</p>
             </div>
@@ -105,11 +103,15 @@ export default function DesignSystemPage() {
       </Section>
 
       <Section title="Typography" note="Manrope (display, tight -0.045em tracking) for headings, DM Sans for everything else. Both load through next/font.">
-        <Table head={["Style", "Mobile", "Tablet", "Desktop", "Line height", "Weight"]} rows={typeScale} />
+        <Table head={["Style", "Class", "Mobile", "Tablet and desktop", "Line height", "Weight", "Used for"]} rows={typeScale} />
         <div className="mt-8 grid gap-6">
-          <p className="display text-5xl font-extrabold leading-[1.02] text-navy-deep md:text-7xl">Business finance without the <span className="text-coral">runaround.</span></p>
-          <p className="max-w-xl text-lg leading-8 text-ink/65">Lead paragraph: a focused search and a straight answer either way.</p>
-          <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-navy">Eyebrow label</p>
+          <p className="display type-h1 font-extrabold text-navy-deep">Business finance without the <span className="text-coral">runaround.</span></p>
+          <p className="display type-h2 font-extrabold text-navy-deep">Section heading for a page</p>
+          <p className="display type-h3 font-extrabold text-navy-deep">Card or step title</p>
+          <p className="type-lead max-w-xl leading-8 text-ink/65">Lead paragraph: a focused search and a straight answer either way.</p>
+          <p className="max-w-xl leading-7 text-ink/65">Body: plain English on how the options differ, including the trade-offs.</p>
+          <p className="max-w-xl text-sm leading-6 text-ink/65">Small: card copy, buttons and form text.</p>
+          <p className="text-sm font-extrabold uppercase tracking-[0.14em] text-navy">Eyebrow label</p>
         </div>
       </Section>
 
@@ -142,7 +144,7 @@ export default function DesignSystemPage() {
       <Section title="Components">
         <div className="grid gap-8 md:grid-cols-2">
           <div>
-            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.14em] text-navy">Buttons</p>
+            <p className="mb-3 text-sm font-extrabold uppercase tracking-[0.14em] text-navy">Buttons</p>
             <div className="flex flex-wrap gap-3">
               <ButtonLink href="/apply">Primary</ButtonLink>
               <ButtonLink href="/calculator" secondary>Secondary</ButtonLink>
@@ -150,17 +152,17 @@ export default function DesignSystemPage() {
             <p className="mt-3 text-sm leading-6 text-ink/65">14px, 800 weight, 14px vertical and 16px (24px from 640px) horizontal padding, 17px arrow icon.</p>
           </div>
           <div>
-            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.14em] text-navy">Navigation</p>
+            <p className="mb-3 text-sm font-extrabold uppercase tracking-[0.14em] text-navy">Navigation</p>
             <p className="text-sm leading-6 text-ink/65">
               Below 1200px: logo plus a 44px menu button opening a full-screen menu with accordion groups. At 1200px and up: five items (Business loans, Working capital, Asset finance, About, Calculator) with dropdowns, and a coral Start an enquiry button.
             </p>
           </div>
           <div>
-            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.14em] text-navy">Process cards (home)</p>
-            <p className="text-sm leading-6 text-ink/65">Mobile: one column, icon left, 16px padding, 16px title. Tablet: two columns. 1280px and up: four columns, 32px padding, 24px title.</p>
+            <p className="mb-3 text-sm font-extrabold uppercase tracking-[0.14em] text-navy">Process cards (home)</p>
+            <p className="text-sm leading-6 text-ink/65">Mobile: one column, icon left, 16px padding, 20px title. Tablet: two columns. 1280px and up: four columns, 32px padding, 24px title.</p>
           </div>
           <div>
-            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.14em] text-navy">Images</p>
+            <p className="mb-3 text-sm font-extrabold uppercase tracking-[0.14em] text-navy">Images</p>
             <p className="text-sm leading-6 text-ink/65">Fill their frame with object-cover. Responsive WebP at 480, 960 and 1600px, with a JPG fallback. Hero images load eagerly; others lazily.</p>
           </div>
         </div>

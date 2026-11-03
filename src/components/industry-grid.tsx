@@ -177,9 +177,9 @@ export function IndustryGrid() {
               </div>
               <div className="absolute inset-0 hidden bg-[linear-gradient(to_top,rgb(13_34_61/0.96)_0%,rgb(13_34_61/0.75)_42%,rgb(13_34_61/0)_72%)] md:block" aria-hidden />
               <div className="min-w-0 p-4 md:absolute md:inset-x-0 md:bottom-0 md:p-5">
-                <h3 className="display text-lg font-extrabold leading-tight text-navy-deep md:text-xl md:text-white">{industry.name}</h3>
+                <h3 className="display type-h3 font-extrabold leading-tight text-navy-deep md:text-white">{industry.name}</h3>
                 <p className="mt-1.5 text-sm leading-6 text-ink/70 md:text-white/80">{industry.example}</p>
-                <span className="mt-2 inline-flex items-center gap-1 text-xs font-extrabold uppercase tracking-[0.08em] text-navy md:mt-3 md:text-aqua">
+                <span className="mt-2 inline-flex items-center gap-1 text-sm font-extrabold uppercase tracking-[0.08em] text-navy md:mt-3 md:text-aqua">
                   {industry.product}
                   <ArrowUpRight size={14} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
                 </span>

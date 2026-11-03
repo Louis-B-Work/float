@@ -26,10 +26,10 @@ export default function Home() {
       <section className="overflow-hidden bg-mist">
         <div className="page-shell grid grid-cols-[minmax(0,1fr)] items-center gap-8 py-8 md:min-h-[720px] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] lg:gap-12 lg:py-20">
           <div className="relative z-10 min-w-0">
-            <h1 className="display balance text-5xl font-extrabold leading-[1.02] text-navy-deep sm:text-6xl md:text-8xl">
+            <h1 className="display type-h1 balance font-extrabold text-navy-deep">
               Business finance without the <span className="text-coral">runaround.</span>
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-ink/65 md:mt-8">
+            <p className="type-lead mt-5 max-w-xl leading-8 text-ink/65 md:mt-8">
               <span className="md:hidden">
                 Business loans from {loanFrom} to {loanTo}, plus working capital and asset finance. One search, one straight answer.
               </span>
@@ -53,7 +53,7 @@ export default function Home() {
             <div className="absolute left-0 top-0 h-52 w-40 bg-sky" />
             <div className="grid-lines absolute left-0 top-0 h-52 w-40" />
             <div className="absolute bottom-0 right-0 w-64 bg-navy p-7 text-white">
-              <p className="display text-3xl font-extrabold">Real people. Plain English.</p>
+              <p className="display type-figure font-extrabold">Real people. Plain English.</p>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@ export default function Home() {
               return (
                 <div key={product.href} className={`${product.tone} group relative flex flex-col py-5 pl-5 pr-12 md:min-h-96 md:p-10`}>
                   <product.icon size={42} strokeWidth={1.5} className="hidden text-navy md:block" aria-hidden />
-                  <h3 className="display text-2xl font-extrabold text-navy-deep md:mt-16 md:text-4xl">
+                  <h3 className="display type-h3 font-extrabold text-navy-deep md:mt-16">
                     <Link href={product.href} className="after:absolute after:inset-0">
                       {category.label}
                     </Link>
@@ -81,7 +81,7 @@ export default function Home() {
                   <ul className="relative z-10 mt-3 flex flex-wrap gap-2 md:mt-6" aria-label={`${category.label} options`}>
                     {category.children.map((child) => (
                       <li key={child.href}>
-                        <Link href={child.href} className="block border border-navy/25 px-2 py-1 text-xs font-bold text-navy-deep transition hover:border-navy hover:bg-white/40 md:px-3 md:py-1.5">
+                        <Link href={child.href} className="block border border-navy/25 px-2 py-1 text-sm font-bold text-navy-deep transition hover:border-navy hover:bg-white/40 md:px-3 md:py-1.5">
                           {"shortLabel" in child ? child.shortLabel : child.label}
                         </Link>
                       </li>
@@ -107,8 +107,8 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <h2 className="display balance text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-6xl">See what finance could cost.</h2>
-            <p className="mt-6 text-lg leading-8 text-ink/65">Enter an amount and term to see the monthly cost of a business loan, or your card takings to see what a merchant cash advance could cost. It takes seconds, and it will not touch your credit score.</p>
+            <h2 className="display type-h2 balance font-extrabold text-navy-deep">See what finance could cost.</h2>
+            <p className="type-lead mt-6 leading-8 text-ink/65">Enter an amount and term to see the monthly cost of a business loan, or your card takings to see what a merchant cash advance could cost. It takes seconds, and it will not touch your credit score.</p>
             <div className="mt-8"><ButtonLink href="/calculator">Try the calculator</ButtonLink></div>
           </div>
         </div>
@@ -134,7 +134,7 @@ export default function Home() {
             {processSteps.map((step) => (
               <li key={step.title} className="grid grid-cols-[auto_1fr] gap-x-4 border border-white/15 bg-white/[0.03] p-4 md:block md:p-8">
                 <step.icon className="row-span-2 size-7 text-aqua md:size-[34px]" strokeWidth={1.5} aria-hidden />
-                <h3 className="text-base font-extrabold text-white md:mt-6 md:text-2xl">{step.title}</h3>
+                <h3 className="type-h3 text-base font-extrabold text-white md:mt-6">{step.title}</h3>
                 <p className="mt-1 text-sm leading-6 text-white/65 md:mt-3 md:text-base md:leading-7">{step.copy}</p>
               </li>
             ))}

@@ -63,7 +63,7 @@ export function FaqCards({ faqs = defaultFaqs }: { faqs?: Faq[] }) {
               )
             }
           >
-            <h3 className="display text-lg font-extrabold leading-tight">
+            <h3 className="display type-lead font-extrabold leading-tight">
               {faq.question}
             </h3>
             <span

@@ -234,8 +234,8 @@ function CalculatorShell({
           <dl className="flex flex-wrap gap-x-6 gap-y-2">
             {rows.filter((row) => row.primary || row.summary).map((row) => (
               <div key={row.label}>
-                <dt className="text-xs text-white/75">{row.label}</dt>
-                <dd className="display text-2xl font-extrabold">{row.value}</dd>
+                <dt className="text-sm text-white/75">{row.label}</dt>
+                <dd className="display type-h3 font-extrabold">{row.value}</dd>
               </div>
             ))}
           </dl>
@@ -255,13 +255,13 @@ function CalculatorShell({
         <div className="grid min-w-0 content-start gap-8 p-6 md:p-10">{inputs}</div>
         <div ref={breakdownRef} id={breakdownId} tabIndex={-1} aria-label="Full cost breakdown" className="min-w-0 scroll-mt-56 bg-navy p-7 text-white md:p-10 lg:scroll-mt-28">
           <div className="flex flex-col lg:sticky lg:top-28">
-            <h2 className="text-xs font-extrabold uppercase tracking-[.16em] text-aqua">Cost breakdown</h2>
+            <h2 className="text-sm font-extrabold uppercase tracking-[.16em] text-aqua">Cost breakdown</h2>
             {rows ? (
               <dl className="mt-6 divide-y divide-white/15" aria-live="polite">
                 {rows.map((row) => (
                   <div key={row.label} className={row.primary ? "pb-6" : "flex items-baseline justify-between gap-4 py-4"}>
                     <dt className="text-sm text-white/65">{row.label}</dt>
-                    <dd className={row.primary ? "display mt-2 text-5xl font-extrabold md:text-6xl" : "text-lg font-extrabold"}>{row.value}</dd>
+                    <dd className={row.primary ? "display type-h2 mt-2 font-extrabold" : "type-lead font-extrabold"}>{row.value}</dd>
                   </div>
                 ))}
               </dl>
@@ -269,7 +269,7 @@ function CalculatorShell({
               <p className="mt-6 text-white/65">Enter a valid figure to see the breakdown.</p>
             )}
             <div className="pt-10">
-              <p className="flex gap-3 bg-white/5 p-4 text-xs leading-5 text-white/65">
+              <p className="flex gap-3 bg-white/5 p-4 text-sm leading-5 text-white/65">
                 <Info size={18} className="shrink-0 text-aqua" aria-hidden />
                 {disclaimer}
               </p>
@@ -344,9 +344,9 @@ function SliderField({
             event.currentTarget.blur();
           }
         }}
-        className="display min-h-12 w-full min-w-0 rounded-none border-b border-navy/25 bg-transparent py-1 text-4xl font-extrabold text-navy-deep hover:border-navy focus:border-navy"
+        className="display type-figure min-h-12 w-full min-w-0 rounded-none border-b border-navy/25 bg-transparent py-1 font-extrabold text-navy-deep hover:border-navy focus:border-navy"
       />
-      <p id={`${id}-help`} className={valid ? "text-xs text-ink/65" : "text-xs font-bold text-red-700"} aria-live="polite">
+      <p id={`${id}-help`} className={valid ? "text-sm text-ink/65" : "text-sm font-bold text-red-700"} aria-live="polite">
         {valid
           ? "Click or tap the figure to type your own."
           : `Enter a whole number between ${format(slider.min)} and ${format(slider.max)}. Results still use ${format(value)}.`}
@@ -389,7 +389,7 @@ function SliderField({
           <Plus size={22} aria-hidden />
         </SliderStepButton>
       </div>
-      <div className="flex justify-between text-xs text-ink/55" aria-hidden>
+      <div className="flex justify-between text-sm text-ink/55" aria-hidden>
         <span>{format(slider.min)}</span>
         <span>{format(slider.max)}</span>
       </div>
@@ -532,8 +532,8 @@ function PresetField({
             <label key={preset.id} className={optionClass(selected)}>
               <input type="radio" name={name} checked={selected} onChange={() => onChange({ ...choice, preset: preset.id })} className="sr-only" />
               <span className="block text-sm font-extrabold">{preset.label}</span>
-              <span className="display mt-1 block text-2xl font-extrabold">{format(preset.value)}</span>
-              <span className={`mt-1 block text-xs ${selected ? "text-white/70" : "text-ink/60"}`}>{preset.description}</span>
+              <span className="display type-h3 mt-1 block font-extrabold">{format(preset.value)}</span>
+              <span className={`mt-1 block text-sm ${selected ? "text-white/70" : "text-ink/60"}`}>{preset.description}</span>
             </label>
           );
         })}
@@ -570,7 +570,7 @@ function PresetField({
             />
             {ownSuffix && <span className="absolute right-4 top-1/2 -translate-y-1/2 font-bold text-navy" aria-hidden>{ownSuffix}</span>}
           </div>
-          <span id={`${ownId}-error`} className="min-h-5 text-xs font-bold text-red-700">{ownError}</span>
+          <span id={`${ownId}-error`} className="min-h-5 text-sm font-bold text-red-700">{ownError}</span>
         </div>
       )}
     </fieldset>
