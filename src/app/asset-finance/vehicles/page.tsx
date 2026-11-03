@@ -8,6 +8,7 @@ export default function CommercialVehiclesPage() {
     <ProductPage
       title="Keep the fleet on the road."
       intro="Vans, cars, trucks and specialist vehicles. Replace one or build out the whole fleet without the upfront hit."
+      shortIntro="Vans, cars, trucks and specialist vehicles. Replace one or build the whole fleet without the upfront hit."
       image="/images/vehicles-hero.jpg"
       detailImage="/images/vehicles-detail.jpg"
       uses={[

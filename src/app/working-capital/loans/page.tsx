@@ -8,6 +8,7 @@ export default function WorkingCapitalLoansPage() {
     <ProductPage
       title="Steady funding for the day-to-day."
       intro="A defined amount behind the ordinary running of the business, with a repayment profile you can actually budget around."
+      shortIntro="A defined amount behind everyday running costs, with repayments you can budget around."
       image="/images/wc-loans-hero.jpg"
       detailImage="/images/wc-loans-detail.jpg"
       calculatorHref="/calculator"

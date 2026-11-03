@@ -33,6 +33,7 @@ export default function HowItWorksPage() {
       <PageHero
         title="One conversation, then a focused search."
         copy="Commercial finance gets complicated quickly. Our job is to cut a clear path through it, and to be honest with you when something is not going to work."
+        shortCopy="We cut a clear path through complex commercial finance, and tell you honestly when something will not work."
         image="/images/how-it-works-hero.jpg"
       />
 

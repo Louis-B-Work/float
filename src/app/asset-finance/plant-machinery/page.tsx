@@ -8,6 +8,7 @@ export default function PlantMachineryPage() {
     <ProductPage
       title="Add the capacity to take on more work."
       intro="Heavy equipment for production, construction, engineering and agriculture, funded over the life it will actually work for."
+      shortIntro="Heavy equipment for production, construction, engineering and farming, funded over its working life."
       image="/images/plant-hero.jpg"
       detailImage="/images/plant-detail.jpg"
       uses={[

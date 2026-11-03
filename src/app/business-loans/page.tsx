@@ -1,5 +1,5 @@
 import { CategoryPage } from "@/components/category-page";
-import { amountRanges, formatAmountRange } from "@/lib/products";
+import { amountRanges, formatAmountRange, formatShortRange } from "@/lib/products";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("/business-loans");
@@ -9,6 +9,7 @@ export default function BusinessLoansPage() {
     <CategoryPage
       title="Keep trading while the money catches up."
       intro="Business loans and cash flow finance for when the plan is ready but the bank balance is not. Bridge a gap, fund growth or borrow against what the business already owns."
+      shortIntro={`Business loans from ${formatShortRange(amountRanges.businessLoan)} for when the plan is ready but the bank balance is not. Bridge a gap, fund growth or borrow against what you own.`}
       image="/images/cash-flow-hero.jpg"
       detailImage="/images/cash-flow-detail.jpg"
       calculatorHref="/calculator"

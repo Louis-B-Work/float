@@ -6,6 +6,7 @@ import { RevealCard } from "@/components/reveal-card";
 export function ProductPage({
   title,
   intro,
+  shortIntro,
   image,
   detailImage,
   amount,
@@ -17,6 +18,8 @@ export function ProductPage({
 }: {
   title: string;
   intro: string;
+  /** Condensed intro for phones. */
+  shortIntro?: string;
   image: string;
   detailImage: string;
   amount?: string;
@@ -29,7 +32,7 @@ export function ProductPage({
 }) {
   return (
     <>
-      <PageHero title={title} copy={intro} image={image} amount={amount} />
+      <PageHero title={title} copy={intro} shortCopy={shortIntro} image={image} amount={amount} />
       <section className="section-space">
         <div className="page-shell">
           <SectionHeading title="What businesses actually use it for." />

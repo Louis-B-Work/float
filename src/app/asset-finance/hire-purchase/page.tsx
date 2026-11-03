@@ -8,6 +8,7 @@ export default function HirePurchasePage() {
     <ProductPage
       title="Own the asset, spread the cost."
       intro="Use the asset from day one, pay for it over an agreed term, and own it outright once the agreement finishes."
+      shortIntro="Use the asset from day one, pay over an agreed term and own it outright at the end."
       image="/images/hire-purchase-hero.jpg"
       detailImage="/images/hire-purchase-detail.jpg"
       uses={[

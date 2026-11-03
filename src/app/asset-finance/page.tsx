@@ -8,6 +8,7 @@ export default function AssetFinancePage() {
     <CategoryPage
       title="Put essential assets to work sooner."
       intro="Vehicles, machinery, equipment. Spread the cost over the working life of the asset instead of taking the hit in one go."
+      shortIntro="Vehicles, machinery and equipment: spread the cost over the asset's working life instead of paying it all at once."
       image="/images/asset-finance-hero.jpg"
       detailImage="/images/asset-finance-detail.jpg"
       detailTitle="Let the asset pay for itself as it works."

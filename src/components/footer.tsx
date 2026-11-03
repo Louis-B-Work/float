@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="bg-navy-deep text-white">
       <div className="page-shell grid gap-12 py-16 md:grid-cols-[1.3fr_1fr_1fr]">
         <div>
-          <Logo light />
+          <Logo light animated={false} />
           <p className="mt-5 max-w-md text-sm leading-7 text-white/65">
             Commercial finance for UK businesses, matched to the shape and pace of yours.
           </p>

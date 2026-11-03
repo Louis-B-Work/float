@@ -39,10 +39,18 @@ export function FloatWordmark({
   );
 }
 
-export function Logo({ light = false, onClick }: { light?: boolean; onClick?: MouseEventHandler<HTMLAnchorElement> }) {
+export function Logo({
+  light = false,
+  animated = true,
+  onClick,
+}: {
+  light?: boolean;
+  animated?: boolean;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
+}) {
   return (
-    <Link href="/" onClick={onClick} className={`inline-flex items-center py-2 ${light ? "text-white" : "text-ink"}`} aria-label="Float home">
-      <FloatWordmark className="h-7 w-auto md:h-8" animated />
+    <Link href="/" onClick={onClick} className={`inline-flex items-center py-2 ${light ? "text-white" : "text-navy"}`} aria-label="Float home">
+      <FloatWordmark className="h-7 w-auto md:h-8" animated={animated} />
     </Link>
   );
 }

@@ -1,5 +1,5 @@
 import { ProductPage } from "@/components/product-page";
-import { amountRanges, formatAmountRange } from "@/lib/products";
+import { amountRanges, formatAmountRange, formatShortRange } from "@/lib/products";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("/business-loans/merchant-cash-advance");
@@ -9,6 +9,7 @@ export default function MerchantCashAdvancePage() {
     <ProductPage
       title="Funding that moves with your takings."
       intro="Repayments come out as a share of your card sales rather than a fixed monthly figure, so quiet weeks cost you less."
+      shortIntro={`Advances from ${formatShortRange(amountRanges.merchantCashAdvance)}, repaid as a share of card sales, so quiet weeks cost you less.`}
       image="/images/mca-hero.jpg"
       detailImage="/images/mca-detail.jpg"
       amount={formatAmountRange(amountRanges.merchantCashAdvance)}

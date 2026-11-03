@@ -8,6 +8,7 @@ export default function AssetRefinancePage() {
     <ProductPage
       title="Release value from what you already own."
       intro="Equipment, machinery and vehicles already on your balance sheet can support new funding, while staying exactly where they are."
+      shortIntro="Release funding from equipment, machinery and vehicles you already own, while they stay where they are."
       image="/images/refinance-hero.jpg"
       detailImage="/images/refinance-detail.jpg"
       uses={[

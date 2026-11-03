@@ -1,5 +1,5 @@
 import { ProductPage } from "@/components/product-page";
-import { amountRanges, formatAmountRange } from "@/lib/products";
+import { amountRanges, formatAmountRange, formatShortRange } from "@/lib/products";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("/business-loans/secured");
@@ -9,6 +9,7 @@ export default function SecuredBusinessLoansPage() {
     <ProductPage
       title="Put what the business owns to work."
       intro="A secured business loan is borrowing secured against property or other business assets. It is generally used for larger amounts, where the security lets a lender go further than an unsecured loan would."
+      shortIntro={`Loans from ${formatShortRange(amountRanges.businessLoan)} secured against property or business assets, usually for larger amounts than an unsecured loan.`}
       image="/images/business-loans-hero.jpg"
       detailImage="/images/business-loans-detail.jpg"
       amount={formatAmountRange(amountRanges.businessLoan)}

@@ -82,6 +82,11 @@ textarea {
   padding-block: clamp(4.5rem, 9vw, 8rem);
 }
 
+/* Top-of-page hero sections: tighter than .section-space on phones so the h1 sits closer to the nav. */
+.hero-space {
+  padding-block: clamp(2rem, 9vw, 8rem);
+}
+
 .balance {
   text-wrap: balance;
 }

@@ -8,6 +8,7 @@ export default function EquipmentFinancePage() {
     <ProductPage
       title="Fund the kit the business runs on."
       intro="IT, office fit-out, specialist tools and trade equipment. The everyday things you need to actually operate."
+      shortIntro="IT, office fit-out, specialist tools and trade equipment: the everyday things you need to operate."
       image="/images/equipment-hero.jpg"
       detailImage="/images/equipment-detail.jpg"
       uses={[

@@ -7,7 +7,7 @@ export const metadata = pageMetadata("/about");
 export default function AboutPage() {
   return (
     <>
-      <PageHero title="Commercial finance, minus the mystery." copy="Float exists because finding business funding should not feel like a guessing game. We work out what you need, then go and find out what is genuinely available." image="/images/about-hero.jpg" />
+      <PageHero title="Commercial finance, minus the mystery." copy="Float exists because finding business funding should not feel like a guessing game. We work out what you need, then go and find out what is genuinely available." shortCopy="We work out what you need, then find out what is genuinely available. Finding funding should not feel like guesswork." image="/images/about-hero.jpg" />
       <section className="section-space">
         <div className="page-shell grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-20">
           <h2 className="display balance text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-6xl">One point of contact, start to finish.</h2>

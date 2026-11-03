@@ -8,6 +8,7 @@ export default function RevolvingCreditPage() {
     <ProductPage
       title="A buffer you can draw on when you need it."
       intro="An agreed limit to dip into and repay as things change, rather than one lump sum sitting in the account."
+      shortIntro="An agreed limit to draw on and repay as things change, rather than one lump sum."
       image="/images/revolving-credit-hero.jpg"
       detailImage="/images/revolving-credit-detail.jpg"
       uses={[

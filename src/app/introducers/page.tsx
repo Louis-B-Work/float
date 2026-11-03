@@ -48,6 +48,7 @@ export default function IntroducersPage() {
       <PageHero
         title="Refer the finance. Keep the relationship."
         copy="If your clients regularly need commercial finance, Float can take that side of the conversation while you carry on doing what you do best."
+        shortCopy="Float can take on your clients' commercial finance, so you can carry on doing what you do best."
         image="/images/about-hero.jpg"
       />
 

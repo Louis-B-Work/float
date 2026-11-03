@@ -5,29 +5,39 @@ import { FaqCards } from "@/components/faq-cards";
 import { SiteImage } from "@/components/site-image";
 import { IndustryGrid } from "@/components/industry-grid";
 import { processSteps } from "@/lib/process";
+import { amountRanges, formatShortAmount } from "@/lib/products";
 import { pageMetadata } from "@/lib/seo";
 import { navigation } from "@/lib/site";
 
 export const metadata = pageMetadata("/");
 
 type NavItem = (typeof navigation)[number];
+const productHrefs = ["/business-loans", "/working-capital", "/asset-finance"];
 const productCategories = navigation.filter(
-  (item): item is Extract<NavItem, { children: unknown }> => "children" in item,
+  (item): item is Extract<NavItem, { children: unknown }> => "children" in item && productHrefs.includes(item.href),
 );
+
+const loanFrom = formatShortAmount(amountRanges.businessLoan.min);
+const loanTo = formatShortAmount(amountRanges.businessLoan.max);
 
 export default function Home() {
   return (
     <>
       <section className="overflow-hidden bg-mist">
-        <div className="page-shell grid min-h-[720px] grid-cols-[minmax(0,1fr)] items-center gap-12 py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] lg:py-20">
+        <div className="page-shell grid grid-cols-[minmax(0,1fr)] items-center gap-8 py-8 md:min-h-[720px] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] lg:gap-12 lg:py-20">
           <div className="relative z-10 min-w-0">
-            <h1 className="display balance text-6xl font-extrabold leading-[1.02] text-navy-deep md:text-8xl">
+            <h1 className="display balance text-5xl font-extrabold leading-[1.02] text-navy-deep sm:text-6xl md:text-8xl">
               Business finance without the <span className="text-coral">runaround.</span>
             </h1>
-            <p className="mt-8 max-w-xl text-lg leading-8 text-ink/65">
-              Business loans, working capital and asset finance for UK businesses. One conversation, a focused search, and a straight answer either way.
+            <p className="mt-5 max-w-xl text-lg leading-8 text-ink/65 md:mt-8">
+              <span className="md:hidden">
+                Business loans from {loanFrom} to {loanTo}, plus working capital and asset finance. One search, one straight answer.
+              </span>
+              <span className="hidden md:inline">
+                Business loans from {loanFrom} to {loanTo}, plus working capital and asset finance for UK businesses. One conversation, a focused search, and a straight answer either way.
+              </span>
             </p>
-            <div className="mt-9 grid gap-3 min-[380px]:grid-cols-2 sm:flex sm:flex-wrap">
+            <div className="mt-6 grid md:mt-9 gap-3 min-[380px]:grid-cols-2 sm:flex sm:flex-wrap">
               <ButtonLink href="/apply">Start an enquiry</ButtonLink>
               <ButtonLink href="/calculator" secondary>Try calculator</ButtonLink>
             </div>

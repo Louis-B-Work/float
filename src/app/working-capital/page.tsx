@@ -8,6 +8,7 @@ export default function WorkingCapitalPage() {
     <CategoryPage
       title="Fund the everyday engine of the business."
       intro="Stock, staff, suppliers and the hundred other costs of simply operating. Working capital finance keeps them covered while you get on with the plan."
+      shortIntro="Stock, staff, suppliers and the other costs of operating, covered while you get on with the plan."
       image="/images/working-capital-hero.jpg"
       detailImage="/images/working-capital-detail.jpg"
       calculatorHref="/calculator"

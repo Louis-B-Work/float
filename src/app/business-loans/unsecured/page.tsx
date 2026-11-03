@@ -1,5 +1,5 @@
 import { ProductPage } from "@/components/product-page";
-import { amountRanges, formatAmountRange } from "@/lib/products";
+import { amountRanges, formatAmountRange, formatShortRange } from "@/lib/products";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("/business-loans/unsecured");
@@ -9,6 +9,7 @@ export default function UnsecuredBusinessLoansPage() {
     <ProductPage
       title="Capital to act on the next opportunity."
       intro="An unsecured business loan, often called a cash flow loan, gives you a set amount of funding with a repayment structure you agree upfront, so you can move on a plan instead of waiting for cash to build."
+      shortIntro={`Cash flow loans from ${formatShortRange(amountRanges.businessLoan)}: a set amount with repayments agreed upfront, so you can act on the plan now.`}
       image="/images/business-loans-hero.jpg"
       detailImage="/images/business-loans-detail.jpg"
       amount={formatAmountRange(amountRanges.businessLoan)}
