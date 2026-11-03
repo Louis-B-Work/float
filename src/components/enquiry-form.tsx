@@ -98,7 +98,7 @@ export function EnquiryForm({ variant }: { variant: Variant }) {
     return (
       <div className="border border-aqua bg-white p-8 md:p-12" role="status">
         <CheckCircle2 size={42} className="text-aqua" aria-hidden />
-        <h2 className="display mt-6 text-3xl font-extrabold text-navy">Thanks for your enquiry.</h2>
+        <h2 className="display type-h2 mt-6 font-extrabold text-navy">Thanks for your enquiry.</h2>
         <p className="mt-4 leading-7 text-ink/65">
           We will be in touch soon to talk it through. There is no obligation to go any further.
         </p>
@@ -266,5 +266,5 @@ function SelectField({
 }
 
 function ErrorText({ id, children }: { id: string; children?: string }) {
-  return <span id={id} className="min-h-5 text-xs font-bold text-red-700">{children}</span>;
+  return <span id={id} className="min-h-5 text-sm font-bold text-red-700">{children}</span>;
 }

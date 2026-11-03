@@ -10,12 +10,12 @@ export default function AboutPage() {
       <PageHero title="Commercial finance, minus the mystery." copy="Float exists because finding business funding should not feel like a guessing game. We work out what you need, then go and find out what is genuinely available." shortCopy="We work out what you need, then find out what is genuinely available. Finding funding should not feel like guesswork." image="/images/about-hero.jpg" />
       <section className="section-space">
         <div className="page-shell grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-20">
-          <h2 className="display balance text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-6xl">One point of contact, start to finish.</h2>
+          <h2 className="display type-h2 balance font-extrabold text-navy-deep">One point of contact, start to finish.</h2>
           <div className="max-w-2xl lg:pt-2">
-            <p className="text-xl font-semibold leading-9 text-navy-deep md:text-2xl md:leading-10">
+            <p className="type-h3 font-semibold leading-9 text-navy-deep md:leading-10">
               Too much of this industry runs on vague answers and forms that go nowhere. We built Float to do the opposite: understand the business first, be clear about what is realistic, and say so early when something is not going to fly.
             </p>
-            <p className="mt-8 border-t border-line pt-8 text-lg leading-8 text-ink/65">
+            <p className="type-lead mt-8 border-t border-line pt-8 leading-8 text-ink/65">
               As a broker we know what lenders want to see and which ones are worth approaching for a business like yours. You get one person guiding the enquiry who explains the choices, chases the detail and keeps things moving.
             </p>
           </div>
@@ -32,7 +32,7 @@ export default function AboutPage() {
             ].map((value) => (
               <div key={value.title} className="float-card p-7 md:p-8">
                 <value.icon size={34} className="text-coral" strokeWidth={1.5} aria-hidden />
-                <h3 className="mt-6 text-xl md:mt-10 font-extrabold text-navy">{value.title}</h3>
+                <h3 className="type-h3 mt-6 md:mt-10 font-extrabold text-navy">{value.title}</h3>
                 <p className="mt-4 leading-7 text-ink/65">{value.copy}</p>
               </div>
             ))}

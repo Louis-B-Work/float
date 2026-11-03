@@ -87,6 +87,47 @@ textarea {
   padding-block: clamp(2rem, 9vw, 8rem);
 }
 
+/*
+ * Type scale. Headings and lead copy use these classes; everything else uses Tailwind's
+ * text-base (16px), text-sm (14px) and text-xs (12px). Keep src/app/design-system/page.tsx in step.
+ */
+.type-h1 {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.type-h2 {
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+.type-h3 {
+  font-size: 1.25rem;
+}
+
+.type-lead {
+  font-size: 1.125rem;
+}
+
+.type-figure {
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+@media (min-width: 48rem) {
+  .type-h1 {
+    font-size: 4.5rem;
+  }
+
+  .type-h2 {
+    font-size: 3rem;
+  }
+
+  .type-h3 {
+    font-size: 1.5rem;
+  }
+}
+
 .balance {
   text-wrap: balance;
 }

@@ -54,7 +54,7 @@ export function CategoryPage({
                 href={child.href}
                 className={`${tones[index % tones.length]} group flex flex-col p-7 md:min-h-72 md:p-10`}
               >
-                <h2 className="display text-3xl font-extrabold text-navy-deep md:text-4xl">{child.title}</h2>
+                <h2 className="display type-h3 font-extrabold text-navy-deep">{child.title}</h2>
                 <p className="mt-4 max-w-lg leading-7 text-navy-deep/75">{child.copy}</p>
                 {child.amount && (
                   <p className="mt-5 border-t border-navy/15 pt-4 text-sm font-semibold leading-6 text-navy-deep">{child.amount}</p>
@@ -75,7 +75,7 @@ export function CategoryPage({
             <SiteImage slot={detailImage} />
           </div>
           <div>
-            <h2 className="display text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-5xl">{detailTitle}</h2>
+            <h2 className="display type-h2 font-extrabold text-navy-deep">{detailTitle}</h2>
             <p className="mt-6 leading-8 text-ink/65">{detail}</p>
             <ul className="mt-8 space-y-4">
               {points.map((point) => (

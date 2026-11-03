@@ -33,8 +33,8 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="page-shell py-8">
-          <p className="max-w-5xl text-xs leading-6 text-white/55">{brokerDisclosure}</p>
-          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-xs text-white/55">
+          <p className="max-w-5xl text-sm leading-6 text-white/55">{brokerDisclosure}</p>
+          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/55">
             <span>© {new Date().getFullYear()} {company.legalName}</span>
             <span>Registered in England and Wales, company no. {company.companyNumber}</span>
             <span>ICO registration no. {company.icoNumber}</span>

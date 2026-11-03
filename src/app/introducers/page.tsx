@@ -62,7 +62,7 @@ export default function IntroducersPage() {
             {audiences.map((audience) => (
               <div key={audience.title} className="float-card p-7 md:p-8">
                 <audience.icon size={34} strokeWidth={1.5} className="text-coral" aria-hidden />
-                <h2 className="mt-6 text-xl font-extrabold text-navy md:mt-10">{audience.title}</h2>
+                <h2 className="type-h3 mt-6 font-extrabold text-navy md:mt-10">{audience.title}</h2>
                 <p className="mt-4 leading-7 text-ink/65">{audience.copy}</p>
               </div>
             ))}
@@ -81,7 +81,7 @@ export default function IntroducersPage() {
             {principles.map((principle) => (
               <div key={principle.title} className="bg-navy-deep p-8 md:p-10">
                 <ShieldCheck size={30} strokeWidth={1.5} className="text-aqua" aria-hidden />
-                <h3 className="mt-8 text-xl font-extrabold text-white">{principle.title}</h3>
+                <h3 className="type-h3 mt-8 font-extrabold text-white">{principle.title}</h3>
                 <p className="mt-4 leading-7 text-white/60">{principle.copy}</p>
               </div>
             ))}
@@ -91,10 +91,10 @@ export default function IntroducersPage() {
 
       <section className="section-space">
         <div className="page-shell max-w-3xl">
-          <h2 className="display balance text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-6xl">
+          <h2 className="display type-h2 balance font-extrabold text-navy-deep">
             Start a conversation.
           </h2>
-          <p className="mt-6 text-lg leading-8 text-ink/65">
+          <p className="type-lead mt-6 leading-8 text-ink/65">
             Tell us about your business and the kind of clients you work with, and we will set out how a referral arrangement could work in practice. Email {company.email} or send an enquiry mentioning that you are an introducer.
           </p>
           <div className="mt-9 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">

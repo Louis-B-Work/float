@@ -56,7 +56,7 @@ export function ProductPage({
             <SiteImage slot={detailImage} />
           </div>
           <div>
-            <h2 className="display text-4xl font-extrabold leading-[1.05] text-navy-deep md:text-5xl">{detailTitle}</h2>
+            <h2 className="display type-h2 font-extrabold text-navy-deep">{detailTitle}</h2>
             <p className="mt-6 leading-8 text-ink/65">{detail}</p>
             <ul className="mt-8 space-y-4">
               {points.map((point) => (

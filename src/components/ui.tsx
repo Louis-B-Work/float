@@ -41,10 +41,10 @@ export function SectionHeading({
 }) {
   return (
     <div className="max-w-6xl">
-      <h2 className={`display balance font-extrabold leading-[1.05] ${compact ? "text-3xl md:text-4xl" : "text-4xl md:text-6xl"} ${light ? "text-white" : "text-navy-deep"}`}>
+      <h2 className={`display balance font-extrabold type-h2 ${light ? "text-white" : "text-navy-deep"}`}>
         {title}
       </h2>
-      {copy && <p className={`${compact ? "mt-3 text-base leading-7" : "mt-6 text-lg leading-8"} max-w-2xl ${light ? "text-white/70" : "text-ink/65"}`}>{copy}</p>}
+      {copy && <p className={`${compact ? "mt-3 text-base leading-7" : "type-lead mt-6 leading-8"} max-w-2xl ${light ? "text-white/70" : "text-ink/65"}`}>{copy}</p>}
     </div>
   );
 }
@@ -68,8 +68,8 @@ export function PageHero({
     <section className="overflow-hidden bg-mist">
       <div className="page-shell grid items-stretch md:min-h-[560px] lg:grid-cols-2">
         <div className="flex flex-col justify-center py-8 pr-0 md:py-20 lg:pr-16">
-          <h1 className="display balance text-5xl font-extrabold leading-[0.98] text-navy-deep md:text-7xl">{title}</h1>
-          <p className="mt-5 max-w-xl text-lg leading-8 text-ink/65 md:mt-7">
+          <h1 className="display type-h1 balance font-extrabold text-navy-deep">{title}</h1>
+          <p className="type-lead mt-5 max-w-xl leading-8 text-ink/65 md:mt-7">
             {shortCopy ? (
               <>
                 <span className="md:hidden">{shortCopy}</span>
@@ -81,7 +81,7 @@ export function PageHero({
           </p>
           {amount && (
             <p className="mt-7 max-w-xl border-l-4 border-coral bg-white px-5 py-4 text-sm leading-6 text-ink/70">
-              <strong className="block text-xs font-extrabold uppercase tracking-[0.14em] text-navy">Amounts</strong>
+              <strong className="block text-sm font-extrabold uppercase tracking-[0.14em] text-navy">Amounts</strong>
               {amount}
             </p>
           )}
@@ -112,7 +112,7 @@ export function CtaBand({
     <section className="bg-aqua py-16">
       <div className="page-shell flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
         <div className="max-w-3xl">
-          <h2 className="display balance text-3xl font-extrabold text-navy-deep md:text-5xl">{title}</h2>
+          <h2 className="display type-h2 balance font-extrabold text-navy-deep">{title}</h2>
           <p className="mt-4 max-w-2xl leading-7 text-navy-deep/75">{copy}</p>
         </div>
         <ButtonLink href="/apply">Start an enquiry</ButtonLink>
