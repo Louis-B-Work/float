@@ -25,7 +25,7 @@ const colours = [
 const typeScale: [string, string, string, string, string, string, string][] = [
   ["H1 (Manrope)", ".type-h1", "48px", "72px", "1.0", "800", "The one heading at the top of every page"],
   ["H2 (Manrope)", ".type-h2", "32px", "48px", "1.05", "800", "Section headings, calculator results"],
-  ["H3 (Manrope / DM Sans)", ".type-h3", "20px", "24px", "1.5 (default)", "800", "Card titles, step titles, small headings"],
+  ["H3 (Manrope / DM Sans)", ".type-h3", "20px", "32px", "1.5 (default)", "800", "Card titles, step titles, small headings"],
   ["Lead (DM Sans)", ".type-lead", "18px", "18px", "32px", "400", "Intro paragraph under a heading"],
   ["Body (DM Sans)", "text-base", "16px", "16px", "28px", "400", "Paragraphs and list text"],
   ["Small (DM Sans)", "text-sm", "14px", "14px", "24px", "400-800", "Card copy, buttons, nav, form text, uppercase labels, fine print"],
@@ -159,7 +159,7 @@ export default function DesignSystemPage() {
           </div>
           <div>
             <p className="mb-3 text-sm font-extrabold uppercase tracking-[0.14em] text-navy">Process cards (home)</p>
-            <p className="text-sm leading-6 text-ink/65">Mobile: one column, icon left, 16px padding, 20px title. Tablet: two columns. 1280px and up: four columns, 32px padding, 24px title.</p>
+            <p className="text-sm leading-6 text-ink/65">Mobile: one column, icon left, 16px padding, 20px title. Tablet: two columns. 1280px and up: four columns, 32px padding, 32px title.</p>
           </div>
           <div>
             <p className="mb-3 text-sm font-extrabold uppercase tracking-[0.14em] text-navy">Images</p>
