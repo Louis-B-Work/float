@@ -47,13 +47,8 @@ export default function Home() {
             </p>
           </div>
           <div className="relative min-h-[340px] sm:min-h-[440px] lg:min-h-[590px]">
-            <div className="absolute inset-8 right-0 overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden">
               <SiteImage slot="/images/home-hero.jpg" priority />
-            </div>
-            <div className="absolute left-0 top-0 h-52 w-40 bg-sky" />
-            <div className="grid-lines absolute left-0 top-0 h-52 w-40" />
-            <div className="absolute bottom-0 right-0 w-64 bg-navy p-7 text-white">
-              <p className="display type-figure font-extrabold">Real people. Plain English.</p>
             </div>
           </div>
         </div>
@@ -121,7 +116,7 @@ export default function Home() {
             copy="From the café on the corner to a regional haulier, here is how businesses like yours tend to use commercial finance."
           />
           <IndustryGrid />
-          <p className="mt-6 text-sm leading-6 text-ink/60">
+          <p className="mt-6 text-sm leading-6 text-ink/70">
             Illustrative examples only. Whether finance is available, and on what terms, depends on each lender&apos;s assessment.
           </p>
         </div>

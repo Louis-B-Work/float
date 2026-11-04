@@ -11,14 +11,6 @@ const assurances = [
   "We tell you how we are paid before you commit",
 ];
 
-const needed = [
-  "Your business name and type",
-  "What the funding is for",
-  "Roughly how much you need",
-  "How the business has been trading",
-  "The timescale you are working to",
-];
-
 export default function ApplyPage() {
   return (
     <section className="hero-space bg-mist">
@@ -42,13 +34,9 @@ export default function ApplyPage() {
 
           <div className="mt-10 border-t border-line pt-8">
             <h2 className="text-sm font-extrabold uppercase tracking-[0.14em] text-navy">Useful to have ready</h2>
-            <ul className="mt-5 space-y-3 text-sm leading-6 text-ink/65">
-              {needed.map((item) => (
-                <li key={item} className="border-b border-line pb-3 last:border-0 last:pb-0">
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-5 text-sm leading-6 text-ink/70">
+              Your business details, what the funding is for, roughly how much, and how trading has been. Takes about 3 minutes.
+            </p>
           </div>
         </div>
 

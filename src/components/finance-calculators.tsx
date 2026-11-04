@@ -229,13 +229,13 @@ function CalculatorShell({
 
   return (
     <div className="relative border border-line bg-white shadow-[0_30px_80px_rgba(13,34,61,.1)]">
-      <div ref={summaryRef} className="sticky top-[76px] z-20 border-b border-white/15 bg-navy px-5 py-3 text-white lg:hidden">
+      <div ref={summaryRef} className="sticky top-[76px] z-20 flex items-center justify-between gap-4 border-b border-white/15 bg-navy px-5 py-1 text-white lg:hidden">
         {rows ? (
-          <dl className="flex flex-wrap gap-x-6 gap-y-2">
-            {rows.filter((row) => row.primary || row.summary).map((row) => (
-              <div key={row.label}>
-                <dt className="text-sm text-white/75">{row.label}</dt>
-                <dd className="display type-h3 font-extrabold">{row.value}</dd>
+          <dl className="flex items-baseline gap-2">
+            {rows.filter((row) => row.primary).slice(0, 1).map((row) => (
+              <div key={row.label} className="flex items-baseline gap-2">
+                <dt className="whitespace-nowrap text-sm text-white/75">{row.label}</dt>
+                <dd className="type-lead font-extrabold">{row.value}</dd>
               </div>
             ))}
           </dl>
@@ -247,7 +247,7 @@ function CalculatorShell({
             breakdownRef.current.style.scrollMarginTop = `${summaryRef.current.offsetHeight + 92}px`;
             breakdownRef.current.focus({ preventScroll: true });
           }
-        }} className="mt-1 inline-flex min-h-11 items-center text-sm font-bold text-aqua underline underline-offset-4">
+        }} className="inline-flex min-h-11 shrink-0 items-center text-sm font-bold text-aqua underline underline-offset-4">
           View breakdown <ArrowRight size={16} className="ml-2" aria-hidden />
         </a>
       </div>
@@ -273,7 +273,7 @@ function CalculatorShell({
                 <Info size={18} className="shrink-0 text-aqua" aria-hidden />
                 {disclaimer}
               </p>
-              <Link href={enquiryHref} className="secondary-button mt-4 flex items-center justify-between bg-coral px-5 py-4 text-sm font-extrabold text-navy-deep hover:bg-aqua">
+              <Link href={enquiryHref} className="secondary-button mt-4 flex items-center justify-between bg-coral px-5 py-4 text-sm font-extrabold text-navy-deep hover:bg-coral-dark">
                 Start an enquiry <ArrowRight size={18} aria-hidden />
               </Link>
             </div>
@@ -389,7 +389,7 @@ function SliderField({
           <Plus size={22} aria-hidden />
         </SliderStepButton>
       </div>
-      <div className="flex justify-between text-sm text-ink/55" aria-hidden>
+      <div className="flex justify-between text-sm text-ink/70" aria-hidden>
         <span>{format(slider.min)}</span>
         <span>{format(slider.max)}</span>
       </div>
@@ -533,11 +533,12 @@ function PresetField({
               <input type="radio" name={name} checked={selected} onChange={() => onChange({ ...choice, preset: preset.id })} className="sr-only" />
               <span className="block text-sm font-extrabold">{preset.label}</span>
               <span className="display type-h3 mt-1 block font-extrabold">{format(preset.value)}</span>
-              <span className={`mt-1 block text-sm ${selected ? "text-white/70" : "text-ink/60"}`}>{preset.description}</span>
+              <span className={`mt-1 block text-sm ${selected ? "text-white/70" : "text-ink/70"}`}>{preset.description}</span>
             </label>
           );
         })}
       </div>
+      <p className="mt-2 text-sm text-ink/70">Examples for illustration, not offers. The lender sets the actual rate.</p>
       <label className={`mt-2 flex items-center gap-3 ${optionClass(choice.preset === "own")}`}>
         <input
           type="radio"

@@ -16,6 +16,31 @@ export function Header() {
   const isActive = (href: string) => currentPath === href || currentPath.startsWith(`${href}/`);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuDialogRef = useRef<HTMLDivElement>(null);
+  const desktopNavRef = useRef<HTMLElement>(null);
+  // Desktop dropdown opened by tap, for touch screens wider than the mobile menu breakpoint.
+  const [tappedGroup, setTappedGroup] = useState<string | null>(null);
+
+  useEffect(() => {
+    setTappedGroup(null);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!tappedGroup) return;
+
+    function handlePointerDown(event: PointerEvent) {
+      if (!desktopNavRef.current?.contains(event.target as Node)) setTappedGroup(null);
+    }
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setTappedGroup(null);
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [tappedGroup]);
 
   useEffect(() => {
     if (!open) return;
@@ -86,19 +111,27 @@ export function Header() {
             setOpen(false);
           }}
         />
-        <nav aria-label="Main navigation" className="hidden items-center gap-3 capitalize min-[1200px]:flex xl:gap-5 2xl:gap-7">
+        <nav ref={desktopNavRef} aria-label="Main navigation" className="hidden items-center gap-3 capitalize min-[1200px]:flex xl:gap-5 2xl:gap-7">
           {navigation.map((item) =>
             "children" in item ? (
               <div key={item.href} className="group relative">
                 <Link
                   href={item.href}
                   aria-current={currentPath === item.href ? "page" : isActive(item.href) ? "location" : undefined}
+                  aria-expanded={tappedGroup === item.href}
+                  onClick={(event) => {
+                    // First tap on a touch screen opens the dropdown; a second tap follows the link.
+                    if (window.matchMedia("(hover: none)").matches && tappedGroup !== item.href) {
+                      event.preventDefault();
+                      setTappedGroup(item.href);
+                    }
+                  }}
                   className={`flex items-center gap-1 whitespace-nowrap py-7 text-sm font-bold ${isActive(item.href) ? activeClass : "text-ink/70 hover:text-navy"}`}
                 >
                   {item.label}
                   <ChevronDown size={15} aria-hidden />
                 </Link>
-                <div className="invisible absolute left-1/2 top-full w-max min-w-64 -translate-x-1/2 translate-y-2 border border-line bg-white p-2 opacity-0 shadow-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div className={`${tappedGroup === item.href ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"} absolute left-1/2 top-full w-max min-w-64 -translate-x-1/2 border border-line bg-white p-2 shadow-xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100`}>
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
@@ -127,7 +160,7 @@ export function Header() {
           <Link
             href="/apply"
             aria-current={currentPath === "/apply" ? "page" : undefined}
-            className={`inline-flex items-center justify-center whitespace-nowrap bg-coral px-4 py-3 text-sm font-extrabold text-navy-deep transition hover:bg-aqua xl:px-6 ${isActive("/apply") ? activeClass : ""}`}
+            className={`inline-flex items-center justify-center whitespace-nowrap bg-coral px-4 py-3 text-sm font-extrabold text-navy-deep transition hover:bg-coral-dark xl:px-6 ${isActive("/apply") ? activeClass : ""}`}
           >
             Start an enquiry
           </Link>

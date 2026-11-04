@@ -19,7 +19,7 @@ export function ButtonLink({
       className={`inline-flex items-center justify-center gap-2 whitespace-nowrap px-4 py-3.5 text-center text-sm font-extrabold transition sm:px-6 ${
         secondary
           ? "secondary-button border border-navy/20 bg-white text-navy hover:border-navy"
-          : "bg-coral text-navy-deep hover:bg-aqua"
+          : "bg-coral text-navy-deep hover:bg-coral-dark"
       }`}
     >
       {children}

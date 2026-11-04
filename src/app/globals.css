@@ -6,6 +6,7 @@
   --sky: #73c3e6;
   --aqua: #5ecec8;
   --coral: #ff7a7e;
+  --coral-dark: #f2676c;
   --ink: #24272f;
   --mist: #f3f5f6;
   --line: #dfe5e7;
@@ -18,6 +19,7 @@
   --color-sky: var(--sky);
   --color-aqua: var(--aqua);
   --color-coral: var(--coral);
+  --color-coral-dark: var(--coral-dark);
   --color-ink: var(--ink);
   --color-mist: var(--mist);
   --font-sans: var(--font-body);

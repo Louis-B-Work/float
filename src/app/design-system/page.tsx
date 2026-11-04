@@ -14,6 +14,7 @@ const colours = [
   { name: "Sky", token: "--sky", hex: "#73c3e6", use: "Hero image panel, card hover", className: "bg-sky text-navy-deep" },
   { name: "Aqua", token: "--aqua", hex: "#5ecec8", use: "Icons on dark, CTA band, button hover", className: "bg-aqua text-navy-deep" },
   { name: "Coral", token: "--coral", hex: "#ff7a7e", use: "Primary button, accent word, callout rules", className: "bg-coral text-navy-deep" },
+  { name: "Coral dark", token: "--coral-dark", hex: "#f2676c", use: "Hover state for coral buttons", className: "bg-coral-dark text-navy-deep" },
   { name: "Ink", token: "--ink", hex: "#24272f", use: "Body text (at 65-70% opacity)", className: "bg-ink text-white" },
   { name: "Mist", token: "--mist", hex: "#f3f5f6", use: "Page and section backgrounds", className: "bg-mist text-navy-deep border border-line" },
   { name: "Line", token: "--line", hex: "#dfe5e7", use: "Borders and dividers", className: "bg-line text-navy-deep" },

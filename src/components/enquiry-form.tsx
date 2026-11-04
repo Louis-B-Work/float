@@ -164,7 +164,7 @@ export function EnquiryForm({ variant }: { variant: Variant }) {
             <TextField name="purpose" label="What is the funding for?" error={errors.purpose} />
             <SelectField name="timescale" label="When do you need it by?" options={timescaleOptions} placeholder="Choose a timescale" error={errors.timescale} />
             <label className="grid gap-2 text-sm font-extrabold text-navy">
-              <span>Anything else we should know? <span className="font-semibold text-ink/50">(optional)</span></span>
+              <span>Anything else we should know? <span className="font-semibold text-ink/70">(optional)</span></span>
               <textarea name="notes" rows={4} defaultValue={handoff.notes} className="resize-y border border-line px-4 py-3.5 text-base font-normal text-ink md:text-sm" />
             </label>
           </Section>
@@ -189,7 +189,7 @@ export function EnquiryForm({ variant }: { variant: Variant }) {
         <ErrorText id="privacy-error">{errors.privacy}</ErrorText>
       </div>
       {errors.form && <p role="alert" className="text-sm font-bold text-red-700">{errors.form}</p>}
-      <button type="submit" disabled={sending} className="inline-flex items-center justify-center gap-2 bg-coral px-6 py-4 font-extrabold text-navy-deep hover:bg-aqua disabled:opacity-60">
+      <button type="submit" disabled={sending} className="inline-flex items-center justify-center gap-2 bg-coral px-6 py-4 font-extrabold text-navy-deep hover:bg-coral-dark disabled:opacity-60">
         Send enquiry <Send size={18} aria-hidden />
       </button>
     </form>
