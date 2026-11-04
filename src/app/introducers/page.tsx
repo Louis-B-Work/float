@@ -58,7 +58,7 @@ export default function IntroducersPage() {
             title="Who tends to work with us."
             copy="Most introducers come to us because a client asked a funding question they were not set up to answer."
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-3 md:gap-5 lg:mt-14">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-5 lg:mt-14 lg:grid-cols-3">
             {audiences.map((audience) => (
               <div key={audience.title} className="float-card p-7 md:p-8">
                 <audience.icon size={34} strokeWidth={1.5} className="text-coral" aria-hidden />

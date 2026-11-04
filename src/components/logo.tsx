@@ -49,7 +49,7 @@ export function Logo({
   onClick?: MouseEventHandler<HTMLAnchorElement>;
 }) {
   return (
-    <Link href="/" onClick={onClick} className={`inline-flex items-center py-2 ${light ? "text-white" : "text-navy"}`} aria-label="Float home">
+    <Link href="/" onClick={onClick} className={`inline-flex items-center py-2 ${light ? "text-white" : "text-navy-deep"}`} aria-label="Float home">
       <FloatWordmark className="h-7 w-auto md:h-8" animated={animated} />
     </Link>
   );
