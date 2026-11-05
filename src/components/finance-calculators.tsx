@@ -226,10 +226,32 @@ function CalculatorShell({
   const breakdownId = useId();
   const breakdownRef = useRef<HTMLDivElement>(null);
   const summaryRef = useRef<HTMLDivElement>(null);
+  const [totalInView, setTotalInView] = useState(false);
+  const hasRows = rows !== null;
+
+  // The sticky summary is redundant once the full total is on screen below it, so fade it out then.
+  useEffect(() => {
+    const total = breakdownRef.current?.querySelector("dd");
+    if (!total) {
+      setTotalInView(false);
+      return;
+    }
+    const observer = new IntersectionObserver(([entry]) => setTotalInView(entry.isIntersecting), {
+      rootMargin: "-130px 0px 0px 0px",
+      threshold: 1,
+    });
+    observer.observe(total);
+    return () => observer.disconnect();
+  }, [hasRows]);
 
   return (
     <div className="relative border border-line bg-white shadow-[0_30px_80px_rgba(13,34,61,.1)]">
-      <div ref={summaryRef} className="sticky top-[76px] z-20 flex items-center justify-between gap-4 border-b border-white/15 bg-navy px-5 py-1 text-white lg:hidden">
+      <div
+        ref={summaryRef}
+        inert={totalInView}
+        aria-hidden={totalInView || undefined}
+        className={`sticky top-[76px] z-20 flex items-center justify-between gap-4 border-b border-white/15 bg-navy px-5 py-1 text-white transition-opacity duration-200 lg:hidden ${totalInView ? "pointer-events-none opacity-0" : ""}`}
+      >
         {rows ? (
           <dl className="flex items-baseline gap-2">
             {rows.filter((row) => row.primary).slice(0, 1).map((row) => (
