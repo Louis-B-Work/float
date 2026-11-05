@@ -14,16 +14,19 @@ const assurances = [
 export default function ApplyPage() {
   return (
     <section className="hero-space bg-mist">
-      <div className="page-shell grid gap-14 lg:grid-cols-[.7fr_1.3fr]">
+      <div className="page-shell grid gap-8 md:gap-14 lg:grid-cols-[.7fr_1.3fr]">
         <div>
           <h1 className="display type-h1 balance font-extrabold text-navy-deep">
             Start with the business, not the paperwork.
           </h1>
-          <p className="type-lead mt-6 leading-8 text-ink/65">
-            Tell us what you are planning and we will come back to you. If we can help, we will show you the options. If we cannot, we will say so and tell you why.
+          <p className="type-lead mt-4 leading-8 text-ink/65 md:mt-6">
+            <span className="md:hidden">Tell us what you are planning and we will come back to you. Takes about 3 minutes.</span>
+            <span className="hidden md:inline">
+              Tell us what you are planning and we will come back to you. If we can help, we will show you the options. If we cannot, we will say so and tell you why.
+            </span>
           </p>
 
-          <ul className="mt-9 space-y-3">
+          <ul className="mt-5 space-y-2 md:mt-9 md:space-y-3">
             {assurances.map((item) => (
               <li key={item} className="flex items-center gap-2 text-sm font-semibold text-navy">
                 <Check size={17} className="shrink-0 text-aqua" aria-hidden />
@@ -32,7 +35,7 @@ export default function ApplyPage() {
             ))}
           </ul>
 
-          <div className="mt-10 border-t border-line pt-8">
+          <div className="mt-10 hidden border-t border-line pt-8 md:block">
             <h2 className="text-sm font-extrabold uppercase tracking-[0.14em] text-navy">Useful to have ready</h2>
             <p className="mt-5 text-sm leading-6 text-ink/70">
               Your business details, what the funding is for, roughly how much, and how trading has been. Takes about 3 minutes.

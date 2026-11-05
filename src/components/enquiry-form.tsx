@@ -3,7 +3,7 @@
 import { CheckCircle2, Info, Send } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   amountBandFor,
   amountBands,
@@ -58,6 +58,15 @@ export function EnquiryForm({ variant }: { variant: Variant }) {
   const [errors, setErrors] = useState<Errors>({});
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const confirmationRef = useRef<HTMLDivElement>(null);
+
+  // The form is much taller than the confirmation, so bring the confirmation into view and move focus to it.
+  useEffect(() => {
+    if (!submitted) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    confirmationRef.current?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    confirmationRef.current?.focus({ preventScroll: true });
+  }, [submitted]);
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -96,7 +105,7 @@ export function EnquiryForm({ variant }: { variant: Variant }) {
 
   if (submitted) {
     return (
-      <div className="border border-aqua bg-white p-8 md:p-12" role="status">
+      <div ref={confirmationRef} tabIndex={-1} className="scroll-mt-24 border border-aqua bg-white p-8 outline-none md:p-12" role="status">
         <CheckCircle2 size={42} className="text-aqua" aria-hidden />
         <h2 className="display type-h2 mt-6 font-extrabold text-navy">Thanks for your enquiry.</h2>
         <p className="mt-4 leading-7 text-ink/65">
